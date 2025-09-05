@@ -1,0 +1,8 @@
+# Node 20 kullan (engine uyumsuzluk uyarılarını bitirir)
+[variables]
+NIXPACKS_NODE_VERSION = "20"
+
+# Nixpacks'in otomatik tsconfig.tsbuildinfo cache mount’unu devre dışı bırak
+# (sadece güvenli klasör cache'leri bırakıyoruz)
+[caches]
+paths = [".next/cache", "node_modules/.cache"]
