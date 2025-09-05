@@ -1,8 +1,20 @@
-# Node 20 kullan (engine uyumsuzluk uyarılarını bitirir)
+# Node 20
 [variables]
 NIXPACKS_NODE_VERSION = "20"
 
-# Nixpacks'in otomatik tsconfig.tsbuildinfo cache mount’unu devre dışı bırak
-# (sadece güvenli klasör cache'leri bırakıyoruz)
-[caches]
-paths = [".next/cache", "node_modules/.cache"]
+[phases.setup]
+nixPkgs = ["nodejs_20", "npm-9_x"]
+nixOverlays = ["https://github.com/railwayapp/nix-npm-overlay/archive/main.tar.gz"]
+
+[phases.install]
+cmds = ["npm ci"]
+cacheDirectories = ["/root/.npm"]
+paths = ["/app/node_modules/.bin"]
+
+[phases.build]
+cmds = ["npm run build"]
+# SADECE klasörleri cache'le – tsconfig.tsbuildinfo'yı çıkarıyoruz
+cacheDirectories = [".next/cache", "node_modules/.cache"]
+
+[start]
+cmd = "npm run start"

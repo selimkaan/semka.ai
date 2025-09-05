@@ -19,6 +19,16 @@ export interface AIProduct {
   category_tool_id: number;
   sort_id: string;
   
+  // Pricing properties
+  price?: string;
+  prices?: {
+    pro?: number;
+    team?: number;
+    business?: number;
+    organization?: number;
+    plus?: number;
+  };
+  
   // Features (features1 through features10)
   features1?: string;
   features2?: string;
