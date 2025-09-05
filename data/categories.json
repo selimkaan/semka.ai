@@ -1,0 +1,110 @@
+[
+  {
+    "id": "1",
+    "slug": "ai-assistant",
+    "name": "AI Assistant",
+    "description": "General-purpose AI assistants for various tasks and conversations",
+    "icon": "🤖",
+    "color": "#00A070",
+    "agentCount": 8
+  },
+  {
+    "id": "2",
+    "slug": "image-generation",
+    "name": "Image Generation",
+    "description": "AI tools for creating, editing, and manipulating images",
+    "icon": "🎨",
+    "color": "#FF6B6B",
+    "agentCount": 4
+  },
+  {
+    "id": "3",
+    "slug": "video-creation",
+    "name": "Video Creation",
+    "description": "AI-powered video generation, editing, and animation tools",
+    "icon": "🎬",
+    "color": "#4ECDC4",
+    "agentCount": 2
+  },
+  {
+    "id": "4",
+    "slug": "writing",
+    "name": "Writing",
+    "description": "AI tools for content creation, copywriting, and text generation",
+    "icon": "✍️",
+    "color": "#45B7D1",
+    "agentCount": 6
+  },
+  {
+    "id": "5",
+    "slug": "code-generation",
+    "name": "Code Generation",
+    "description": "AI tools for coding assistance, debugging, and development",
+    "icon": "💻",
+    "color": "#96CEB4",
+    "agentCount": 2
+  },
+  {
+    "id": "6",
+    "slug": "design",
+    "name": "Design",
+    "description": "AI-powered design tools for graphics, UI/UX, and creative work",
+    "icon": "🎯",
+    "color": "#FFEAA7",
+    "agentCount": 5
+  },
+  {
+    "id": "7",
+    "slug": "productivity",
+    "name": "Productivity",
+    "description": "AI tools to enhance workflow, organization, and efficiency",
+    "icon": "⚡",
+    "color": "#DDA0DD",
+    "agentCount": 4
+  },
+  {
+    "id": "8",
+    "slug": "research",
+    "name": "Research",
+    "description": "AI tools for information gathering, analysis, and fact-checking",
+    "icon": "🔍",
+    "color": "#98D8C8",
+    "agentCount": 3
+  },
+  {
+    "id": "9",
+    "slug": "multimodal",
+    "name": "Multimodal",
+    "description": "AI models that can process multiple types of content simultaneously",
+    "icon": "🔄",
+    "color": "#F7DC6F",
+    "agentCount": 2
+  },
+  {
+    "id": "10",
+    "slug": "creative",
+    "name": "Creative",
+    "description": "AI tools for artistic expression, storytelling, and creative projects",
+    "icon": "✨",
+    "color": "#BB8FCE",
+    "agentCount": 7
+  },
+  {
+    "id": "11",
+    "slug": "marketing",
+    "name": "Marketing",
+    "description": "AI tools for marketing campaigns, content creation, and audience engagement",
+    "icon": "📢",
+    "color": "#85C1E9",
+    "agentCount": 4
+  },
+  {
+    "id": "12",
+    "slug": "open-source",
+    "name": "Open Source",
+    "description": "Open-source AI platforms and tools for developers and researchers",
+    "icon": "🔓",
+    "color": "#F8C471",
+    "agentCount": 2
+  }
+]

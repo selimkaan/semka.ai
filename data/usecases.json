@@ -1,0 +1,110 @@
+[
+  {
+    "id": "1",
+    "slug": "content-creation",
+    "name": "Content Creation",
+    "description": "Generate high-quality content for blogs, social media, and marketing campaigns",
+    "icon": "📝",
+    "color": "#00A070",
+    "agentCount": 12
+  },
+  {
+    "id": "2",
+    "slug": "image-generation",
+    "name": "Image Generation",
+    "description": "Create stunning visuals, artwork, and graphics for various purposes",
+    "icon": "🎨",
+    "color": "#FF6B6B",
+    "agentCount": 4
+  },
+  {
+    "id": "3",
+    "slug": "video-production",
+    "name": "Video Production",
+    "description": "Generate videos, animations, and multimedia content",
+    "icon": "🎬",
+    "color": "#4ECDC4",
+    "agentCount": 2
+  },
+  {
+    "id": "4",
+    "slug": "code-development",
+    "name": "Code Development",
+    "description": "Assist with programming, debugging, and software development",
+    "icon": "💻",
+    "color": "#96CEB4",
+    "agentCount": 2
+  },
+  {
+    "id": "5",
+    "slug": "design-work",
+    "name": "Design Work",
+    "description": "Create logos, graphics, presentations, and visual designs",
+    "icon": "🎯",
+    "color": "#FFEAA7",
+    "agentCount": 5
+  },
+  {
+    "id": "6",
+    "slug": "research-analysis",
+    "name": "Research & Analysis",
+    "description": "Gather information, analyze data, and provide insights",
+    "icon": "🔍",
+    "color": "#98D8C8",
+    "agentCount": 3
+  },
+  {
+    "id": "7",
+    "slug": "writing-assistance",
+    "name": "Writing Assistance",
+    "description": "Help with writing, editing, and content optimization",
+    "icon": "✍️",
+    "color": "#45B7D1",
+    "agentCount": 6
+  },
+  {
+    "id": "8",
+    "slug": "productivity-enhancement",
+    "name": "Productivity Enhancement",
+    "description": "Streamline workflows and improve efficiency in various tasks",
+    "icon": "⚡",
+    "color": "#DDA0DD",
+    "agentCount": 4
+  },
+  {
+    "id": "9",
+    "slug": "marketing-campaigns",
+    "name": "Marketing Campaigns",
+    "description": "Create compelling marketing materials and campaigns",
+    "icon": "📢",
+    "color": "#85C1E9",
+    "agentCount": 4
+  },
+  {
+    "id": "10",
+    "slug": "creative-projects",
+    "name": "Creative Projects",
+    "description": "Explore artistic expression and creative storytelling",
+    "icon": "✨",
+    "color": "#BB8FCE",
+    "agentCount": 7
+  },
+  {
+    "id": "11",
+    "slug": "presentation-creation",
+    "name": "Presentation Creation",
+    "description": "Design engaging presentations and visual content",
+    "icon": "📊",
+    "color": "#F7DC6F",
+    "agentCount": 4
+  },
+  {
+    "id": "12",
+    "slug": "multilingual-content",
+    "name": "Multilingual Content",
+    "description": "Create and translate content in multiple languages",
+    "icon": "🌍",
+    "color": "#F8C471",
+    "agentCount": 8
+  }
+]
