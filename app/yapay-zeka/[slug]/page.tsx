@@ -140,6 +140,7 @@ export default function AIDetailPage() {
             className="bg-[#00A070] text-white px-4 py-2 rounded-md text-xs font-semibold hover:bg-[#008f63] transition-colors whitespace-nowrap"
           >
             Siteye Git
+            
           </a>
           {agent.categories.slice(0, 2).map((category) => (
             <button key={category} className="bg-white text-[#6A6C72] border border-[rgba(199,202,208,0.6)] px-4 py-2 rounded-md text-xs font-semibold hover:bg-gray-50 transition-colors whitespace-nowrap">
