@@ -182,29 +182,9 @@ export async function getAIsByCategory(categorySlug: string): Promise<AIProduct[
     
     console.log(`Total tools found: ${allProducts.length}`);
     
-    // Log sample data to understand the structure
+    // Simple debug log
     if (allProducts.length > 0) {
-      console.log('=== DEBUGGING CATEGORY MAPPING ===');
-      // Log first few products with their category info
-      allProducts.slice(0, 10).forEach((product, index) => {
-        console.log(`Product ${index + 1}: ${product.name}`);
-        console.log(`  category_id: ${product.category_id} (type: ${typeof product.category_id})`);
-        console.log(`  categories: ${JSON.stringify(product.categories)}`);
-        console.log('---');
-      });
-      
-      // Group products by category_id to understand the mapping
-      const categoryGroups = allProducts.reduce((acc: any, product) => {
-        const catId = product.category_id;
-        if (!acc[catId]) acc[catId] = [];
-        acc[catId].push(product.name);
-        return acc;
-      }, {});
-      
-      console.log('=== CATEGORY GROUPS ===');
-      Object.entries(categoryGroups).forEach(([catId, names]) => {
-        console.log(`Category ID ${catId}: ${(names as string[]).slice(0, 3).join(', ')}${(names as string[]).length > 3 ? '...' : ''}`);
-      });
+      console.log(`Sample product: ${allProducts[0].name}, category_id: ${allProducts[0].category_id}`);
     }
     
     // CORRECTED CATEGORY MAPPING - Based on your screenshot observations
@@ -245,9 +225,9 @@ export async function getAIsByCategory(categorySlug: string): Promise<AIProduct[
       }
     }
     
-    // Fallback: return all tools if no specific filtering works
-    console.log(`No specific filtering for ${categorySlug}, showing all ${allProducts.length} tools`);
-    return allProducts;
+    // Return empty array for unknown categories
+    console.log(`Unknown category: ${categorySlug}`);
+    return [];
     
   } catch (error) {
     console.error('Firebase error:', error);
