@@ -4,21 +4,10 @@ import { useState, useEffect } from 'react'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Button } from '@/components/ui/button'
 import { ExternalLink, Users, Star } from 'lucide-react'
-import { getAIsByCategory, AIProduct } from '@/lib/firebase-data'
+import { getAIsByCategory, AIProduct, getUseCasesForCategory, getUseCasesArray } from '@/lib/firebase-data'
 import { useRouter } from 'next/navigation'
 
-const useCaseFilters = [
-  'Ürün Geliştirme',
-  'Compute & PaaS',
-  'Data Layer',
-  'End to End',
-  'HW/Exams',
-  'Local',
-  'Model Layer',
-  'Observability',
-  'Security Layer',
-  'Studying/Notes'
-]
+// Dynamic use case filters will be loaded based on category
 
 const pricingFilters = [
   '0 - $20',
@@ -36,12 +25,21 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
   const [products, setProducts] = useState<AIProduct[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [useCaseFilters, setUseCaseFilters] = useState<string[]>([])
+  const [allProducts, setAllProducts] = useState<AIProduct[]>([]) // Store original products for filtering
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         setLoading(true)
         console.log('Fetching products for slug:', params.slug)
+        
+        // Load use cases for this category
+        const categoryUseCases = getUseCasesForCategory(params.slug)
+        setUseCaseFilters(categoryUseCases)
+        console.log('Loaded use cases for category:', categoryUseCases)
+        
+        // Load products
         const fetchedProducts = await getAIsByCategory(params.slug)
         console.log('Fetched products:', fetchedProducts)
         
@@ -50,11 +48,13 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
           console.log(`Product: ${product.name}, Slug: ${product.slug}, Slug type: ${typeof product.slug}`);
         });
         
-        setProducts(fetchedProducts)
+        setAllProducts(fetchedProducts) // Store original products
+        setProducts(fetchedProducts)   // Display filtered products
         setError(null)
       } catch (err) {
         console.error('Error fetching products:', err)
         setError('Failed to load products')
+        setAllProducts([])
         setProducts([])
       } finally {
         setLoading(false)
@@ -63,6 +63,48 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
 
     fetchProducts()
   }, [params.slug])
+
+  // Filter products whenever selected filters change
+  useEffect(() => {
+    if (allProducts.length === 0) return;
+
+    let filtered = [...allProducts];
+
+    // Filter by use cases
+    if (selectedUseCases.length > 0) {
+      filtered = filtered.filter(product => {
+        const productUseCases = getUseCasesArray(product);
+        return selectedUseCases.some(selectedUseCase => 
+          productUseCases.some(productUseCase => 
+            productUseCase.toLowerCase().includes(selectedUseCase.toLowerCase()) ||
+            selectedUseCase.toLowerCase().includes(productUseCase.toLowerCase())
+          )
+        );
+      });
+    }
+
+    // Filter by pricing (existing logic)
+    if (selectedPricing.length > 0) {
+      filtered = filtered.filter(product => {
+        const hasMatchingPricing = selectedPricing.some(pricing => {
+          if (pricing === '0 - $20' && product.has_free_plan) return true;
+          if (product.price) {
+            const price = product.price.toLowerCase();
+            if (pricing === '0 - $20' && (price.includes('free') || price.includes('0'))) return true;
+            if (pricing === '$20 - $40' && price.includes('20')) return true;
+            if (pricing === '$60 - $80' && price.includes('60')) return true;
+            if (pricing === '$80 - $100' && price.includes('80')) return true;
+            if (pricing === '$100 - $150' && price.includes('100')) return true;
+            if (pricing === '$150+' && price.includes('150')) return true;
+          }
+          return false;
+        });
+        return hasMatchingPricing;
+      });
+    }
+
+    setProducts(filtered);
+  }, [selectedUseCases, selectedPricing, allProducts]);
 
   const handleUseCaseToggle = (useCase: string) => {
     setSelectedUseCases(prev => 
@@ -216,14 +258,12 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
                         </label>
                       </div>
                       <span className="text-sm text-gray-500">
-                        {filteredProducts.filter(product => {
-                          for (let i = 1; i <= 6; i++) {
-                            const productUseCase = product[`usecase${i}` as keyof AIProduct] as string;
-                            if (productUseCase && productUseCase.toLowerCase().includes(useCase.toLowerCase())) {
-                              return true;
-                            }
-                          }
-                          return false;
+                        {allProducts.filter(product => {
+                          const productUseCases = getUseCasesArray(product);
+                          return productUseCases.some(productUseCase => 
+                            productUseCase.toLowerCase().includes(useCase.toLowerCase()) ||
+                            useCase.toLowerCase().includes(productUseCase.toLowerCase())
+                          );
                         }).length}
                       </span>
                     </div>

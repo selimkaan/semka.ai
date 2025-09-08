@@ -232,19 +232,17 @@ export async function getAIsByCategory(categorySlug: string): Promise<AIProduct[
       console.log(`Sample product: ${allProducts[0].name}, category_id: ${allProducts[0].category_id}`);
     }
     
-    // CORRECTED CATEGORY MAPPING - Based on your screenshot observations
+    // CORRECTED CATEGORY MAPPING - Fixed based on actual data analysis
     const categoryMapping: { [key: string]: (product: any) => boolean } = {
-      // SWAP: Altyapı currently shows automation tools, so Altyapı should get what Otomasyon has
-      'altyapi': (product) => Number(product.category_id) === 3, // Get what Otomasyon currently shows
+      // FIXED: Map to correct category_ids based on actual data
+      'altyapi': (product) => Number(product.category_id) === 2, // Infrastructure tools
+      'otomasyon': (product) => Number(product.category_id) === 3, // Automation tools
       
-      // SWAP: Otomasyon currently shows infrastructure tools, so Otomasyon should get what Altyapı has  
-      'otomasyon': (product) => Number(product.category_id) === 2, // Get what Altyapı currently shows
+      // FIXED: Kodsuz Yazılım gets no-code development tools  
+      'kodsuz-yazilim': (product) => Number(product.category_id) === 10, // No-code development tools
       
-      // SWAP: Sohbet Botu shows development tools, so Kodsuz Yazılım should get those
-      'kodsuz-yazilim': (product) => Number(product.category_id) === 10, // Get what Sohbet Botu currently shows
-      
-      // And Sohbet Botu should get actual chatbot tools
-      'sohbet-botu': (product) => Number(product.category_id) === 2,
+      // FIXED: Sohbet Botu gets actual chatbot tools
+      'sohbet-botu': (product) => Number(product.category_id) === 8, // Chatbot tools
       
       // Keep others as they were
       'agentlar': (product) => Number(product.category_id) === 1,
@@ -357,4 +355,150 @@ export async function getUseCase(id: string): Promise<UseCase | null> {
     console.error('Error fetching use case:', error);
     return null;
   }
+}
+
+// Get use cases for a specific category from the pre-analyzed mapping
+export function getUseCasesForCategory(categorySlug: string): string[] {
+  // This would ideally load from the JSON file or a database
+  // For now, I'll return the mapping we created
+  const categoryUseCasesMapping: { [key: string]: string[] } = {
+    'agentlar': [
+      "Araştırmalarınızın kalitesini ve derinliğini artırın.",
+      "Daha akıllı planlama.",
+      "Daha iyi adayları daha hızlı işe alın.",
+      "Müşteri hizmetleri ve başarı ekiplerini güçlendirin.",
+      "Satış performansını ve hacmini artırın.",
+      "Satış ve pazarlama otomasyonu",
+      "Toplantı notlarını ve takipleri otomatikleştirin.",
+      "Veri analizi ve içgörüler",
+      "Verileri alın, düzenleyin, açıklama ekleyin ve yönetin.",
+      "İnsan sesine benzeyen telefon operatörleri.",
+      "İçerik oluşturma",
+      "İşlevlere özel ajanlar."
+    ],
+    'otomasyon': [
+      "Açık kaynak modellerini yerel olarak çalıştırın.",
+      "Gizlilik, yönetişim, uyumluluk ve risk ile ilgili her şey.",
+      "Katmanlar arasında uzanan bütünsel platformlar.",
+      "Koordinasyon, yönlendirme, uyarılar ve daha fazlası.",
+      "Satış ve pazarlama otomasyonu",
+      "Sunucusuz GPU'lar, bilgi işlem ve daha fazlası.",
+      "Süreç otomasyonu",
+      "Test modelleme, hizmet sunma, çıkarım, ince ayar ve daha fazlası.",
+      "Veri analizi ve içgörüler",
+      "Verileri alın, düzenleyin, açıklama ekleyin ve yönetin.",
+      "İzleme ve gözlemlenebilirlik.",
+      "İçerik oluşturma"
+    ],
+    'fotograf-video': [
+      "Diğer görüntü ve video araçları.",
+      "Fotoğraf düzenleme",
+      "Görsel içerik oluşturma",
+      "Ses ve müzik",
+      "Video düzenleme",
+      "Video oluşturma",
+      "Yakında",
+      "İçerik oluşturma"
+    ],
+    'altyapi': [
+      "Açık kaynak modellerini yerel olarak çalıştırın.",
+      "Gizlilik, yönetişim, uyumluluk ve risk ile ilgili her şey.",
+      "Katmanlar arasında uzanan bütünsel platformlar.",
+      "Sunucusuz GPU'lar, bilgi işlem ve daha fazlası.",
+      "Test modelleme, hizmet sunma, çıkarım, ince ayar ve daha fazlası.",
+      "Verileri alın, düzenleyin, açıklama ekleyin ve yönetin.",
+      "İzleme ve gözlemlenebilirlik."
+    ],
+    'verimlilik': [
+      "Daha akıllı planlama.",
+      "Müşteri hizmetleri ve başarı ekiplerini güçlendirin.",
+      "Satış performansını ve hacmini artırın.",
+      "Toplantı notlarını ve takipleri otomatikleştirin.",
+      "Veri analizi ve içgörüler",
+      "İçerik oluşturma"
+    ],
+    'veri': [
+      "Analizlerinizi derinleştirin.",
+      "Belgelerinizin değerini en üst düzeye çıkarın.",
+      "Diğer görüntü ve video araçları.",
+      "Satış ve pazarlama otomasyonu",
+      "Veri analizi ve içgörüler",
+      "İçerik oluşturma",
+      "İş akış otomasyonu"
+    ],
+    'ses': [
+      "Diğer görüntü ve video araçları.",
+      "Her türden şarkıyı saniyeler içinde oluşturun.",
+      "Herhangi bir dilde, tonla veya tavırla konuşun",
+      "Satış ve pazarlama otomasyonu",
+      "Sesleri kopyalayın ve kendi sesinizi güçlendirin.",
+      "Sesleri kopyalayın ve kendi seslerinizi güçlendirin.",
+      "Veri analizi ve içgörüler",
+      "İnsan sesine benzeyen telefon operatörleri.",
+      "İçerik oluşturma",
+      "İş akış otomasyonu"
+    ],
+    'sosyal-medya': [
+      "Diğer görüntü ve video araçları.",
+      "Düzenleme artık eğlenceli ve kolay.",
+      "Kaydedin, düzenleyin, transkripsiyon yapın ve daha fazlasını yapın.",
+      "Platformlar arasında büyük ölçekte içerik oluşturun",
+      "Profesyonel kalitede avatarlar ve klonlar oluşturun.",
+      "Satış ve pazarlama otomasyonu",
+      "Veri analizi ve içgörüler",
+      "Verileri alın, düzenleyin, açıklama ekleyin ve yönetin.",
+      "Yakında",
+      "İçerik oluşturma",
+      "İçeriği farklı platformlarda yeniden kullanın.",
+      "İş akış otomasyonu"
+    ],
+    'sohbet-botu': [
+      "Satış ve pazarlama otomasyonu",
+      "Veri analizi ve içgörüler",
+      "İçerik oluşturma"
+    ],
+    'yazilim-araclari': [
+      "Satış ve pazarlama otomasyonu",
+      "Süreç otomasyonu",
+      "Veri analizi ve içgörüler",
+      "Yakında",
+      "İçerik oluşturma",
+      "İş akış otomasyonu"
+    ],
+    'kodsuz-yazilim': [
+      "Satış ve pazarlama otomasyonu",
+      "Veri analizi ve içgörüler",
+      "İçerik oluşturma",
+      "İş akış otomasyonu"
+    ],
+    'tasarim': [
+      "Satış ve pazarlama otomasyonu",
+      "Veri analizi ve içgörüler",
+      "İçerik oluşturma",
+      "İş akış otomasyonu"
+    ],
+    'akademi': [
+      "Fikirlerinizi sunmak için yeni bir ortam.",
+      "Veri analizi ve içgörüler",
+      "Yakında",
+      "İçerik oluşturma"
+    ],
+    'kurumsal': [
+      "Daha iyi adayları daha hızlı işe alın.",
+      "Diğer kurumsal araçlar.",
+      "Dönüşüm sağlayan deneyimler yaratın.",
+      "Harcamaları ve tasarrufları daha akıllı hale getirin.",
+      "Hukuki iş akışlarınızı geliştirin.",
+      "Müşteri hizmetleri ve başarı ekiplerini güçlendirin.",
+      "Satış performansını ve hacmini artırın.",
+      "Satış ve pazarlama otomasyonu",
+      "Süreç otomasyonu",
+      "Veri analizi ve içgörüler",
+      "Yakında",
+      "İçerik oluşturma",
+      "Şirketinizi her açıdan güvence altına alın."
+    ]
+  };
+  
+  return categoryUseCasesMapping[categorySlug] || [];
 }
