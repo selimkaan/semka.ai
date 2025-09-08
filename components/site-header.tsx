@@ -29,7 +29,8 @@ export function SiteHeader() {
   
   // Function to check if a category is currently active
   const isCategoryActive = (categorySlug: string) => {
-    return pathname === `/yapay-zeka-araclari/${categorySlug}`
+    const targetPath = `/yapay-zeka-araclari/${categorySlug}`
+    return pathname === targetPath || pathname === `${targetPath}/`
   }
 
   // Handle search form submission
@@ -108,12 +109,14 @@ export function SiteHeader() {
 
       {/* Categories Bar */}
       <div className="bg-white shadow-sm">
-        <div className="px-10 py-3">
-          <div className="flex items-center justify-center gap-4 overflow-x-auto scrollbar-hide">
+        <div className="px-10 py-0">
+          <div className="flex items-end justify-center gap-4 overflow-x-auto scrollbar-hide">
             <Button
               variant="ghost"
-              className={`h-8 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
-                isCategoryActive('agentlar') ? 'border-b-[3px] border-[#00A070] rounded-none' : ''
+              className={`h-12 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
+                isCategoryActive('agentlar') 
+                  ? 'border-b-[3px] border-[#00A070] rounded-none' 
+                  : ''
               }`}
               asChild
             >
@@ -123,8 +126,10 @@ export function SiteHeader() {
             </Button>
             <Button
               variant="ghost"
-              className={`h-8 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
-                isCategoryActive('otomasyon') ? 'border-b-[3px] border-[#00A070] rounded-none' : ''
+              className={`h-12 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
+                isCategoryActive('otomasyon') 
+                  ? 'border-b-[3px] border-[#00A070] rounded-none' 
+                  : ''
               }`}
               asChild
             >
@@ -134,8 +139,10 @@ export function SiteHeader() {
             </Button>
             <Button
               variant="ghost"
-              className={`h-8 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
-                isCategoryActive('fotograf-video') ? 'border-b-[3px] border-[#00A070] rounded-none' : ''
+              className={`h-12 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
+                isCategoryActive('fotograf-video') 
+                  ? 'border-b-[3px] border-[#00A070] rounded-none' 
+                  : ''
               }`}
               asChild
             >
@@ -145,8 +152,10 @@ export function SiteHeader() {
             </Button>
             <Button
               variant="ghost"
-              className={`h-8 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
-                isCategoryActive('kurumsal') ? 'border-b-[3px] border-[#00A070] rounded-none' : ''
+              className={`h-12 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
+                isCategoryActive('kurumsal') 
+                  ? 'border-b-[3px] border-[#00A070] rounded-none' 
+                  : ''
               }`}
               asChild
             >
@@ -156,8 +165,10 @@ export function SiteHeader() {
             </Button>
             <Button
               variant="ghost"
-              className={`h-8 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
-                isCategoryActive('altyapi') ? 'border-b-[3px] border-[#00A070] rounded-none' : ''
+              className={`h-12 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
+                isCategoryActive('altyapi') 
+                  ? 'border-b-[3px] border-[#00A070] rounded-none' 
+                  : ''
               }`}
               asChild
             >
@@ -167,8 +178,10 @@ export function SiteHeader() {
             </Button>
             <Button
               variant="ghost"
-              className={`h-8 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
-                isCategoryActive('verimlilik') ? 'border-b-[3px] border-[#00A070] rounded-none' : ''
+              className={`h-12 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
+                isCategoryActive('verimlilik') 
+                  ? 'border-b-[3px] border-[#00A070] rounded-none' 
+                  : ''
               }`}
               asChild
             >
@@ -178,8 +191,10 @@ export function SiteHeader() {
             </Button>
             <Button
               variant="ghost"
-              className={`h-8 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
-                isCategoryActive('veri') ? 'border-b-[3px] border-[#00A070] rounded-none' : ''
+              className={`h-12 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
+                isCategoryActive('veri') 
+                  ? 'border-b-[3px] border-[#00A070] rounded-none' 
+                  : ''
               }`}
               asChild
             >
@@ -189,8 +204,10 @@ export function SiteHeader() {
             </Button>
             <Button
               variant="ghost"
-              className={`h-8 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
-                isCategoryActive('sosyal-medya') ? 'border-b-[3px] border-[#00A070] rounded-none' : ''
+              className={`h-12 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
+                isCategoryActive('sosyal-medya') 
+                  ? 'border-b-[3px] border-[#00A070] rounded-none' 
+                  : ''
               }`}
               asChild
             >
@@ -200,8 +217,10 @@ export function SiteHeader() {
             </Button>
             <Button
               variant="ghost"
-              className={`h-8 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
-                isCategoryActive('ses') ? 'border-b-[3px] border-[#00A070] rounded-none' : ''
+              className={`h-12 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
+                isCategoryActive('ses') 
+                  ? 'border-b-[3px] border-[#00A070] rounded-none' 
+                  : ''
               }`}
               asChild
             >
@@ -211,8 +230,10 @@ export function SiteHeader() {
             </Button>
             <Button
               variant="ghost"
-              className={`h-8 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
-                isCategoryActive('sohbet-botu') ? 'border-b-[3px] border-[#00A070] rounded-none' : ''
+              className={`h-12 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
+                isCategoryActive('sohbet-botu') 
+                  ? 'border-b-[3px] border-[#00A070] rounded-none' 
+                  : ''
               }`}
               asChild
             >
@@ -222,8 +243,10 @@ export function SiteHeader() {
             </Button>
             <Button
               variant="ghost"
-              className={`h-8 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
-                isCategoryActive('yazilim-araclari') ? 'border-b-[3px] border-[#00A070] rounded-none' : ''
+              className={`h-12 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
+                isCategoryActive('yazilim-araclari') 
+                  ? 'border-b-[3px] border-[#00A070] rounded-none' 
+                  : ''
               }`}
               asChild
             >
@@ -233,8 +256,10 @@ export function SiteHeader() {
             </Button>
             <Button
               variant="ghost"
-              className={`h-8 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
-                isCategoryActive('kodsuz-yazilim') ? 'border-b-[3px] border-[#00A070] rounded-none' : ''
+              className={`h-12 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
+                isCategoryActive('kodsuz-yazilim') 
+                  ? 'border-b-[3px] border-[#00A070] rounded-none' 
+                  : ''
               }`}
               asChild
             >
@@ -244,8 +269,10 @@ export function SiteHeader() {
             </Button>
             <Button
               variant="ghost"
-              className={`h-8 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
-                isCategoryActive('tasarim') ? 'border-b-[3px] border-[#00A070] rounded-none' : ''
+              className={`h-12 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
+                isCategoryActive('tasarim') 
+                  ? 'border-b-[3px] border-[#00A070] rounded-none' 
+                  : ''
               }`}
               asChild
             >
@@ -255,8 +282,10 @@ export function SiteHeader() {
             </Button>
             <Button
               variant="ghost"
-              className={`h-8 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
-                isCategoryActive('akademi') ? 'border-b-[3px] border-[#00A070] rounded-none' : ''
+              className={`h-12 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
+                isCategoryActive('akademi') 
+                  ? 'border-b-[3px] border-[#00A070] rounded-none' 
+                  : ''
               }`}
               asChild
             >

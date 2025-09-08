@@ -25,10 +25,10 @@ export function SiteFooter() {
                 </span>
               </div>
               <p className="text-sm font-medium text-black">
-                Your home for the future of work.
+                Geleceğin çalışma alanı.
               </p>
               <p className="text-sm text-black">
-                hello@Semka.ai
+                merhaba@semka.ai
               </p>
               
               {/* Social Media Links */}
