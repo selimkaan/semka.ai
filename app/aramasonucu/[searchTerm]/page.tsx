@@ -243,10 +243,10 @@ export default function SearchPage({ params }: SearchPageProps) {
                             </h3>
                           </div>
                           
-                          {/* Description */}
-                          <p className="text-gray-600 mb-3 line-clamp-2 text-sm leading-relaxed">
-                            {product.description_tr || product.overview_tr || 'No description available'}
-                          </p>
+                           {/* Description */}
+                           <p className="text-gray-600 mb-3 text-sm truncate whitespace-nowrap overflow-hidden max-w-[550px]">
+                             {product.description_tr || product.overview_tr || 'No description available'}
+                           </p>
                         </div>
                         
                         {/* Categories */}
