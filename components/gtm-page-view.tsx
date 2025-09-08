@@ -3,6 +3,13 @@
 import { usePathname, useSearchParams } from 'next/navigation'
 import { useEffect } from 'react'
 
+// Extend Window interface to include dataLayer
+declare global {
+  interface Window {
+    dataLayer: any[]
+  }
+}
+
 export function GTMPageView() {
   const pathname = usePathname()
   const searchParams = useSearchParams()
