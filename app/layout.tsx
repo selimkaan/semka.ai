@@ -6,6 +6,7 @@ import { ThemeProvider } from '@/components/theme-provider'
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
 import { Toaster } from '@/components/ui/sonner'
+import { GTMPageView } from '@/components/gtm-page-view'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -46,6 +47,7 @@ export default function RootLayout({
           ></iframe>
         </noscript>
         
+        <GTMPageView />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
