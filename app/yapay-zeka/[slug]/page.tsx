@@ -69,7 +69,7 @@ export default function AIDetailPage() {
   if (loading) {
     return (
       <div className="min-h-screen bg-white flex items-center justify-center">
-        <div className="text-xl">Loading...</div>
+        <div className="text-xl">Yükleniyor...</div>
       </div>
     )
   }

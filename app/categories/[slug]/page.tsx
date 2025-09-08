@@ -161,7 +161,7 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
   if (loading) {
     return (
       <div className="min-h-screen bg-white flex items-center justify-center">
-        <div className="text-lg">Loading...</div>
+        <div className="text-lg">Yükleniyor...</div>
       </div>
     );
   }
