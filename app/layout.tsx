@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Script from 'next/script'
+import { Suspense } from 'react'
 import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
 import { SiteHeader } from '@/components/site-header'
@@ -47,7 +48,9 @@ export default function RootLayout({
           ></iframe>
         </noscript>
         
-        <GTMPageView />
+        <Suspense fallback={null}>
+          <GTMPageView />
+        </Suspense>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
