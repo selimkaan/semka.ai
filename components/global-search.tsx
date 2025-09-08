@@ -41,14 +41,22 @@ export function GlobalSearch() {
     
     switch (type) {
       case 'agent':
-        router.push(`/agents/${slug}`)
+        router.push(`/yapay-zeka/${slug}`)
         break
       case 'category':
-        router.push(`/categories/${slug}`)
+        router.push(`/yapay-zeka-araclari/${slug}`)
         break
       case 'usecase':
-        router.push(`/agents?useCase=${slug}`)
+        router.push(`/use-cases`)
         break
+    }
+  }
+
+  const handleSearch = (searchTerm: string) => {
+    if (searchTerm.trim()) {
+      setOpen(false)
+      setSearch('')
+      router.push(`/aramasonucu/${encodeURIComponent(searchTerm.trim())}`)
     }
   }
 
@@ -89,8 +97,25 @@ export function GlobalSearch() {
           placeholder="Search AI tools, categories, and use cases..."
           value={search}
           onValueChange={setSearch}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' && search.trim()) {
+              handleSearch(search)
+            }
+          }}
         />
         <CommandList>
+          {search && (
+            <CommandGroup>
+              <CommandItem
+                onSelect={() => handleSearch(search)}
+                className="cursor-pointer"
+              >
+                <Search className="mr-2 h-4 w-4" />
+                Search for "{search}"
+              </CommandItem>
+            </CommandGroup>
+          )}
+
           {!hasResults && search && (
             <CommandEmpty>No results found.</CommandEmpty>
           )}

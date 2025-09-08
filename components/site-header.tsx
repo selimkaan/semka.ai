@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { useTheme } from 'next-themes'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { Moon, Sun, Search, Menu } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -25,10 +25,21 @@ import Image from 'next/image'
 export function SiteHeader() {
   const { setTheme } = useTheme()
   const pathname = usePathname()
+  const router = useRouter()
   
   // Function to check if a category is currently active
   const isCategoryActive = (categorySlug: string) => {
     return pathname === `/yapay-zeka-araclari/${categorySlug}`
+  }
+
+  // Handle search form submission
+  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    const formData = new FormData(e.currentTarget)
+    const searchTerm = formData.get('search') as string
+    if (searchTerm.trim()) {
+      router.push(`/aramasonucu/${encodeURIComponent(searchTerm.trim())}`)
+    }
   }
 
   return (
@@ -53,15 +64,21 @@ export function SiteHeader() {
 
             {/* Search Bar */}
             <div className="flex-1 max-w-md mx-8">
-              <div className="relative">
-                <Input
-                  placeholder="Yapay zeka ile ne yapmak istersin?"
-                  className="pl-3 pr-12 py-1 border border-gray-200 rounded-md text-sm text-gray-500 placeholder:text-gray-500"
-                />
-                <div className="absolute right-0 top-0 h-full w-12 border-l border-gray-200 flex items-center justify-center">
-                  <Search className="h-4 w-4 text-gray-500" />
+              <form onSubmit={handleSearch}>
+                <div className="relative">
+                  <Input
+                    name="search"
+                    placeholder="Yapay zeka ile ne yapmak istersin?"
+                    className="pl-3 pr-12 py-1 border border-gray-200 rounded-md text-sm text-gray-500 placeholder:text-gray-500"
+                  />
+                  <button 
+                    type="submit"
+                    className="absolute right-0 top-0 h-full w-12 border-l border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors"
+                  >
+                    <Search className="h-4 w-4 text-gray-500" />
+                  </button>
                 </div>
-              </div>
+              </form>
             </div>
 
             {/* Navigation */}

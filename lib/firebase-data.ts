@@ -156,6 +156,51 @@ export async function getAllAIs(): Promise<AIProduct[]> {
   }
 }
 
+// Search AIs by name and description
+export async function searchAIs(searchTerm: string): Promise<AIProduct[]> {
+  try {
+    console.log(`Searching for: "${searchTerm}"`);
+    
+    const allAIs = await getAllAIs();
+    
+    if (!searchTerm || searchTerm.trim() === '') {
+      return [];
+    }
+    
+    const searchLower = searchTerm.toLowerCase().trim();
+    
+    // Search by name (partial match) and description (case-insensitive)
+    const matchingAIs = allAIs.filter(ai => {
+      const nameMatch = ai.name.toLowerCase().includes(searchLower);
+      const descriptionMatch = ai.description_tr.toLowerCase().includes(searchLower);
+      const overviewMatch = ai.overview_tr.toLowerCase().includes(searchLower);
+      
+      return nameMatch || descriptionMatch || overviewMatch;
+    });
+    
+    // Sort results: exact name matches first, then partial name matches, then description matches
+    const sortedResults = matchingAIs.sort((a, b) => {
+      const aNameExact = a.name.toLowerCase() === searchLower;
+      const bNameExact = b.name.toLowerCase() === searchLower;
+      const aNameMatch = a.name.toLowerCase().includes(searchLower);
+      const bNameMatch = b.name.toLowerCase().includes(searchLower);
+      
+      if (aNameExact && !bNameExact) return -1;
+      if (!aNameExact && bNameExact) return 1;
+      if (aNameMatch && !bNameMatch) return -1;
+      if (!aNameMatch && bNameMatch) return 1;
+      
+      return 0;
+    });
+    
+    console.log(`Found ${sortedResults.length} matching AIs`);
+    return sortedResults;
+  } catch (error) {
+    console.error('Error searching AIs:', error);
+    return [];
+  }
+}
+
 // Fetch AI products by category
 export async function getAIsByCategory(categorySlug: string): Promise<AIProduct[]> {
   try {

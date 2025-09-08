@@ -1,24 +1,35 @@
+'use client'
+
 import { Card, CardContent } from '@/components/ui/card'
 import { Search, ArrowLeft, ArrowRight, Video, Image as ImageIcon, Clipboard, Scale, Mic, Code } from 'lucide-react'
 import ScrollableCards from '@/components/scrollable-cards'
 import { getPopularAIs, getTrendingAIs, AIProduct } from '@/lib/firebase-data'
 import agentsData from '@/data/agents.json'
 import { Button } from '@/components/ui/button'
+import { useRouter } from 'next/navigation'
+import { useState, useEffect } from 'react'
 
-export default async function HomePage() {
-  // Fetch real data from Firebase with error handling
-  let popularAIs: AIProduct[] = [];
-  let trendingAIs: AIProduct[] = [];
-  
-  try {
-    const fetchedPopularAIs = await getPopularAIs();
-    const fetchedTrendingAIs = await getTrendingAIs();
-    popularAIs = fetchedPopularAIs;
-    trendingAIs = fetchedTrendingAIs;
-  } catch (error) {
-    console.error('Error fetching AI data:', error);
-    // Fallback to empty arrays if Firebase fails
-  }
+export default function HomePage() {
+  const router = useRouter();
+  const [popularAIs, setPopularAIs] = useState<AIProduct[]>([]);
+  const [trendingAIs, setTrendingAIs] = useState<AIProduct[]>([]);
+
+  useEffect(() => {
+    // Fetch real data from Firebase with error handling
+    const fetchData = async () => {
+      try {
+        const fetchedPopularAIs = await getPopularAIs();
+        const fetchedTrendingAIs = await getTrendingAIs();
+        setPopularAIs(fetchedPopularAIs);
+        setTrendingAIs(fetchedTrendingAIs);
+      } catch (error) {
+        console.error('Error fetching AI data:', error);
+        // Fallback to empty arrays if Firebase fails
+      }
+    };
+
+    fetchData();
+  }, []);
 
   // Convert local agents data to AIProduct format for fallback
   const localAgentsAsAIProducts: AIProduct[] = agentsData.slice(0, 6).map((agent, index) => ({
@@ -72,14 +83,26 @@ export default async function HomePage() {
           {/* Search Bar - Positioned BELOW the description as per Figma */}
           <div className="max-w-4xl mx-auto mb-8">
             <div className="relative">
-              <div className="flex items-center border-2 border-black rounded-[36px] px-6 py-3 bg-white w-full max-w-[895px] h-[54px] mx-auto">
-                <input
-                  type="text"
-                  placeholder="Yapay zeka ile ne yapmak istiyorsun?"
-                  className="flex-1 text-base font-medium text-gray-400 placeholder:text-gray-400 placeholder:font-medium outline-none bg-transparent"
-                />
-                <Search className="h-5 w-5 text-[#343330] ml-2 flex-shrink-0" />
-              </div>
+              <form onSubmit={(e) => {
+                e.preventDefault();
+                const formData = new FormData(e.currentTarget);
+                const searchTerm = formData.get('search') as string;
+                if (searchTerm.trim()) {
+                  router.push(`/aramasonucu/${encodeURIComponent(searchTerm.trim())}`);
+                }
+              }}>
+                <div className="flex items-center border-2 border-black rounded-[36px] px-6 py-3 bg-white w-full max-w-[895px] h-[54px] mx-auto">
+                  <input
+                    type="text"
+                    name="search"
+                    placeholder="Yapay zeka ile ne yapmak istiyorsun?"
+                    className="flex-1 text-base font-medium text-gray-400 placeholder:text-gray-400 placeholder:font-medium outline-none bg-transparent"
+                  />
+                  <button type="submit" className="flex-shrink-0">
+                    <Search className="h-5 w-5 text-[#343330] ml-2" />
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
 
