@@ -17,7 +17,7 @@ export function GTMPageView() {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       // Construct full URL with search params
-      const url = pathname + (searchParams.toString() ? `?${searchParams.toString()}` : '')
+      const url = pathname + (searchParams?.toString() ? `?${searchParams.toString()}` : '')
       
       // Push page view event to dataLayer
       window.dataLayer = window.dataLayer || []

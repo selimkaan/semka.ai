@@ -14,7 +14,7 @@ export default function AIDetailPage() {
 
   useEffect(() => {
     const fetchAgent = async () => {
-      if (params.slug) {
+      if (params && params.slug) {
         console.log('Fetching agent with slug:', params.slug);
         try {
           const agentData = await getAIProductBySlug(params.slug as string)
@@ -64,7 +64,7 @@ export default function AIDetailPage() {
     }
 
     fetchAgent()
-  }, [params.slug])
+  }, [params?.slug])
 
   if (loading) {
     return (
