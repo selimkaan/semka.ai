@@ -5,7 +5,7 @@ import { Separator } from '@/components/ui/separator'
 import { Star, Users, Zap, Shield, Globe, Heart } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'About Semka - Discover the Best AI Tools and Agents',
+  title: 'About Semka - Yapay Zeka Rehberi',
   description: 'Learn about Semka, our mission to help you find and compare the best AI tools, and how we curate our collection.',
 }
 
