@@ -30,40 +30,55 @@ export default function UseCasesPage() {
 
       {/* Use Cases Grid */}
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {useCasesData.map((useCase) => (
-          <Card key={useCase.id} className="group hover:shadow-lg transition-shadow">
-            <CardHeader className="pb-3">
-              <div className="flex items-center space-x-3">
-                <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center text-2xl">
-                  {useCase.icon}
+        {useCasesData.map((useCase) => {
+          const isVideoCase = useCase.slug === 'video-production' || useCase.name === 'Video Production' || useCase.name === 'Video Oluşturma' || useCase.id === '3';
+          
+          return (
+          <Link
+            key={useCase.id}
+            href={
+              isVideoCase
+                ? '/use-cases/video-creation/'
+                : `/agents?useCase=${useCase.slug}`
+            }
+            className="block"
+          >
+            <Card className="group hover:shadow-lg transition-shadow cursor-pointer">
+              <CardHeader className="pb-3">
+                <div className="flex items-center space-x-3">
+                  <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center text-2xl">
+                    {useCase.icon}
+                  </div>
+                  <div>
+                    <CardTitle className="text-xl group-hover:text-primary transition-colors">
+                      {useCase.name}
+                    </CardTitle>
+                    <CardDescription className="text-sm">
+                      {useCase.agentCount} tools available
+                    </CardDescription>
+                  </div>
                 </div>
-                <div>
-                  <CardTitle className="text-xl group-hover:text-primary transition-colors">
-                    {useCase.name}
-                  </CardTitle>
-                  <CardDescription className="text-sm">
-                    {useCase.agentCount} tools available
-                  </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="mb-4 text-sm text-muted-foreground leading-relaxed">
+                  {useCase.description}
+                </p>
+                <div className="flex items-center justify-between">
+                  <Badge variant="outline" className="text-xs">
+                    {useCase.agentCount} tools
+                  </Badge>
+                  <div className="text-sm font-medium text-primary">
+                    {isVideoCase
+                      ? 'Learn More →' 
+                      : 'Browse Tools →'
+                    }
+                  </div>
                 </div>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <p className="mb-4 text-sm text-muted-foreground leading-relaxed">
-                {useCase.description}
-              </p>
-              <div className="flex items-center justify-between">
-                <Badge variant="outline" className="text-xs">
-                  {useCase.agentCount} tools
-                </Badge>
-                <Button variant="ghost" size="sm" asChild>
-                  <Link href={`/agents?useCase=${useCase.slug}`}>
-                    Browse Tools
-                  </Link>
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-        ))}
+              </CardContent>
+            </Card>
+          </Link>
+          );
+        })}
       </div>
 
       {/* CTA Section */}

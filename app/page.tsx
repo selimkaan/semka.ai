@@ -8,6 +8,7 @@ import agentsData from '@/data/agents.json'
 import { Button } from '@/components/ui/button'
 import { useRouter } from 'next/navigation'
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
 
 export default function HomePage() {
   const router = useRouter();
@@ -151,16 +152,18 @@ export default function HomePage() {
           {/* Use Cases Grid - Exact Figma Layout */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[70px] max-w-[1139px] mx-auto">
             {/* Video Creation */}
-            <div className="w-[300px] h-[255px] min-w-[300px] min-h-[255px] bg-white border-2 border-[#C7CAD0] rounded-[10px] flex flex-col items-center justify-center p-4">
-              <div className="w-[72px] h-[72px] flex items-center justify-center mb-3">
-                <Video className="w-[58.5px] h-[56.25px] text-[#0E0E0F]" />
+            <Link href="/use-cases/video-creation/" className="block">
+              <div className="w-[300px] h-[255px] min-w-[300px] min-h-[255px] bg-white border-2 border-[#C7CAD0] rounded-[10px] flex flex-col items-center justify-center p-4 cursor-pointer hover:shadow-lg transition-shadow">
+                <div className="w-[72px] h-[72px] flex items-center justify-center mb-3">
+                  <Video className="w-[58.5px] h-[56.25px] text-[#0E0E0F]" />
+                </div>
+                <div className="w-[72px] h-[1px] bg-[#535962] mb-4"></div>
+                <div className="text-center">
+                  <h3 className="font-['Inter'] font-semibold text-[28px] leading-[1.14] text-[#0E0E0F] mb-4">Video Oluşturma</h3>
+                  <p className="font-['Inter'] font-normal text-[18px] leading-[1.21] text-[#0E0E0F] max-w-[261.88px]">Sadece metin girerek istediğin videoyu oluştur</p>
+                </div>
               </div>
-              <div className="w-[72px] h-[1px] bg-[#535962] mb-4"></div>
-              <div className="text-center">
-                <h3 className="font-['Inter'] font-semibold text-[28px] leading-[1.14] text-[#0E0E0F] mb-4">Video Oluşturma</h3>
-                <p className="font-['Inter'] font-normal text-[18px] leading-[1.21] text-[#0E0E0F] max-w-[261.88px]">Sadece metin girerek istediğin videoyu oluştur</p>
-              </div>
-            </div>
+            </Link>
 
             {/* Image Generation */}
             <div className="w-[300px] h-[255px] min-w-[300px] min-h-[255px] bg-white border border-[#C7CAD0] rounded-[10px] flex flex-col items-center justify-center p-4">

@@ -20,8 +20,8 @@
   {
     "id": "3",
     "slug": "video-production",
-    "name": "Video Production",
-    "description": "Generate videos, animations, and multimedia content",
+    "name": "Video Oluşturma",
+    "description": "Sadece metin girerek istediğin videoyu oluştur",
     "icon": "🎬",
     "color": "#4ECDC4",
     "agentCount": 2

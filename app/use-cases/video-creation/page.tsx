@@ -44,35 +44,41 @@ export default function VideoCreationPage() {
             <div className="flex gap-[72px]">
               {/* ChatGPT */}
               <div className="flex flex-col items-center">
-                <div className="w-[120px] h-[160px] border border-[#00A070] rounded-lg p-3 flex flex-col">
-                  <div className="w-full h-20 bg-white rounded-[10px] flex items-center justify-center mb-3">
-                    <img src="/images/chatgpt-logo.png" alt="ChatGPT" className="w-16 h-16 object-contain" />
+                <a href="https://openai.com/" target="_blank" rel="noopener noreferrer" className="block">
+                  <div className="w-[120px] h-[160px] border border-[#00A070] rounded-lg p-3 flex flex-col cursor-pointer hover:shadow-lg transition-shadow">
+                    <div className="w-full h-20 bg-white rounded-[10px] flex items-center justify-center mb-3">
+                      <img src="/images/chatgpt-logo.png" alt="ChatGPT" className="w-16 h-16 object-contain" />
+                    </div>
+                    <div className="w-full h-[1px] bg-black mb-3"></div>
+                    <span className="text-lg font-semibold text-black text-center mt-auto">Chat GPT</span>
                   </div>
-                  <div className="w-full h-[1px] bg-black mb-3"></div>
-                  <span className="text-lg font-semibold text-black text-center mt-auto">Chat GPT</span>
-                </div>
+                </a>
               </div>
               
               {/* Jasper */}
               <div className="flex flex-col items-center">
-                <div className="w-[120px] h-[160px] border border-[#00A070] rounded-lg p-3 flex flex-col">
-                  <div className="w-full h-20 bg-white rounded-[10px] flex items-center justify-center mb-3">
-                    <img src="/images/pictory-logo-12f035.png" alt="Jasper" className="w-16 h-16 object-contain" />
+                <a href="https://www.jasper.ai/" target="_blank" rel="noopener noreferrer" className="block">
+                  <div className="w-[120px] h-[160px] border border-[#00A070] rounded-lg p-3 flex flex-col cursor-pointer hover:shadow-lg transition-shadow">
+                    <div className="w-full h-20 bg-white rounded-[10px] flex items-center justify-center mb-3">
+                      <img src="/images/pictory-logo-12f035.png" alt="Jasper" className="w-16 h-16 object-contain" />
+                    </div>
+                    <div className="w-full h-[1px] bg-black mb-3"></div>
+                    <span className="text-lg font-semibold text-black text-center mt-auto">Jasper</span>
                   </div>
-                  <div className="w-full h-[1px] bg-black mb-3"></div>
-                  <span className="text-lg font-semibold text-black text-center mt-auto">Jasper</span>
-                </div>
+                </a>
               </div>
               
               {/* Copy AI */}
               <div className="flex flex-col items-center">
-                <div className="w-[120px] h-[160px] border border-[#00A070] rounded-lg p-3 flex flex-col">
-                  <div className="w-full h-20 bg-white rounded-[10px] flex items-center justify-center mb-3">
-                    <img src="/images/copyai-logo.png" alt="Copy AI" className="w-16 h-16 object-contain" />
+                <a href="https://www.copy.ai/" target="_blank" rel="noopener noreferrer" className="block">
+                  <div className="w-[120px] h-[160px] border border-[#00A070] rounded-lg p-3 flex flex-col cursor-pointer hover:shadow-lg transition-shadow">
+                    <div className="w-full h-20 bg-white rounded-[10px] flex items-center justify-center mb-3">
+                      <img src="/images/copyai-logo.png" alt="Copy AI" className="w-16 h-16 object-contain" />
+                    </div>
+                    <div className="w-full h-[1px] bg-black mb-3"></div>
+                    <span className="text-lg font-semibold text-black text-center mt-auto">Copy AI</span>
                   </div>
-                  <div className="w-full h-[1px] bg-black mb-3"></div>
-                  <span className="text-lg font-semibold text-black text-center mt-auto">Copy AI</span>
-                </div>
+                </a>
               </div>
             </div>
           </div>
@@ -99,35 +105,41 @@ export default function VideoCreationPage() {
             <div className="flex gap-[72px]">
               {/* Veed.io */}
               <div className="flex flex-col items-center">
-                <div className="w-[120px] h-[160px] border border-[#00A070] rounded-lg p-3 flex flex-col">
-                  <div className="w-full h-20 bg-white rounded-[10px] flex items-center justify-center mb-3">
-                    <img src="/images/veed-logo.png" alt="Veed.io" className="w-16 h-16 object-contain" />
+                <a href="https://www.veed.io/" target="_blank" rel="noopener noreferrer" className="block">
+                  <div className="w-[120px] h-[160px] border border-[#00A070] rounded-lg p-3 flex flex-col cursor-pointer hover:shadow-lg transition-shadow">
+                    <div className="w-full h-20 bg-white rounded-[10px] flex items-center justify-center mb-3">
+                      <img src="/images/veed-logo.png" alt="Veed.io" className="w-16 h-16 object-contain" />
+                    </div>
+                    <div className="w-full h-[1px] bg-black mb-3"></div>
+                    <span className="text-lg font-semibold text-black text-center mt-auto">Veed.io</span>
                   </div>
-                  <div className="w-full h-[1px] bg-black mb-3"></div>
-                  <span className="text-lg font-semibold text-black text-center mt-auto">Veed.io</span>
-                </div>
+                </a>
               </div>
               
               {/* Pictory */}
               <div className="flex flex-col items-center">
-                <div className="w-[120px] h-[160px] border border-[#00A070] rounded-lg p-3 flex flex-col">
-                  <div className="w-full h-20 bg-white rounded-[10px] flex items-center justify-center mb-3">
-                    <img src="/images/pictory-logo-12f035.png" alt="Pictory" className="w-16 h-16 object-contain" />
+                <a href="https://pictory.ai/" target="_blank" rel="noopener noreferrer" className="block">
+                  <div className="w-[120px] h-[160px] border border-[#00A070] rounded-lg p-3 flex flex-col cursor-pointer hover:shadow-lg transition-shadow">
+                    <div className="w-full h-20 bg-white rounded-[10px] flex items-center justify-center mb-3">
+                      <img src="/images/pictory-logo-12f035.png" alt="Pictory" className="w-16 h-16 object-contain" />
+                    </div>
+                    <div className="w-full h-[1px] bg-black mb-3"></div>
+                    <span className="text-lg font-semibold text-black text-center mt-auto">Pictory</span>
                   </div>
-                  <div className="w-full h-[1px] bg-black mb-3"></div>
-                  <span className="text-lg font-semibold text-black text-center mt-auto">Pictory</span>
-                </div>
+                </a>
               </div>
               
               {/* Descript */}
               <div className="flex flex-col items-center">
-                <div className="w-[120px] h-[160px] border border-[#00A070] rounded-lg p-3 flex flex-col">
-                  <div className="w-full h-20 bg-white rounded-[10px] flex items-center justify-center mb-3">
-                    <img src="/images/descript-logo.png" alt="Descript" className="w-16 h-16 object-contain" />
+                <a href="https://www.descript.com/" target="_blank" rel="noopener noreferrer" className="block">
+                  <div className="w-[120px] h-[160px] border border-[#00A070] rounded-lg p-3 flex flex-col cursor-pointer hover:shadow-lg transition-shadow">
+                    <div className="w-full h-20 bg-white rounded-[10px] flex items-center justify-center mb-3">
+                      <img src="/images/descript-logo.png" alt="Descript" className="w-16 h-16 object-contain" />
+                    </div>
+                    <div className="w-full h-[1px] bg-black mb-3"></div>
+                    <span className="text-lg font-semibold text-black text-center mt-auto">Descript</span>
                   </div>
-                  <div className="w-full h-[1px] bg-black mb-3"></div>
-                  <span className="text-lg font-semibold text-black text-center mt-auto">Descript</span>
-                </div>
+                </a>
               </div>
             </div>
           </div>
@@ -156,13 +168,15 @@ export default function VideoCreationPage() {
             <div className="flex justify-center">
               {/* CapCut */}
               <div className="flex flex-col items-center">
-                <div className="w-[120px] h-[160px] border border-[#00A070] rounded-lg p-3 flex flex-col">
-                  <div className="w-full h-20 bg-white rounded-[10px] flex items-center justify-center mb-3">
-                    <img src="/images/capcut-logo.png" alt="CapCut" className="w-16 h-16 object-contain" />
+                <a href="https://www.capcut.com/" target="_blank" rel="noopener noreferrer" className="block">
+                  <div className="w-[120px] h-[160px] border border-[#00A070] rounded-lg p-3 flex flex-col cursor-pointer hover:shadow-lg transition-shadow">
+                    <div className="w-full h-20 bg-white rounded-[10px] flex items-center justify-center mb-3">
+                      <img src="/images/capcut-logo.png" alt="CapCut" className="w-16 h-16 object-contain" />
+                    </div>
+                    <div className="w-full h-[1px] bg-black mb-3"></div>
+                    <span className="text-lg font-semibold text-black text-center mt-auto">Cap Cut</span>
                   </div>
-                  <div className="w-full h-[1px] bg-black mb-3"></div>
-                  <span className="text-lg font-semibold text-black text-center mt-auto">Cap Cut</span>
-                </div>
+                </a>
               </div>
             </div>
           </div>
