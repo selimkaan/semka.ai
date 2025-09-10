@@ -423,17 +423,17 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
                         </span>
                         
                         {/* Only Siteye Git button remains */}
-                        <Button 
-                          variant="outline" 
-                          size="sm"
+                        <a
+                          href={product.website_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           onClick={(e) => {
                             e.stopPropagation(); // Prevent card click when clicking button
-                            window.open(product.website_url, '_blank');
                           }}
-                          className="text-xs"
+                          className="inline-flex items-center justify-center rounded-md text-xs font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-8 px-3"
                         >
                           Siteye Git
-                        </Button>
+                        </a>
                       </div>
                     </div>
                   </div>

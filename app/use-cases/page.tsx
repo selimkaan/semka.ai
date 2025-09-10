@@ -8,8 +8,8 @@ import useCasesData from '@/data/usecases.json'
 import { UseCase } from '@/types/agent'
 
 export const metadata: Metadata = {
-  title: 'AI Use Cases - Find Tools for Your Specific Needs',
-  description: 'Explore AI use cases and find the perfect tools for content creation, image generation, code development, and more.',
+  title: 'Yapay Zeka Kullanım Senaryoları - Find Tools for Your Specific Needs',
+  description: 'Explore Yapay Zeka Kullanım Senaryoları and find the perfect tools for content creation, image generation, code development, and more.',
 }
 
 export default function UseCasesPage() {
@@ -18,7 +18,7 @@ export default function UseCasesPage() {
       {/* Header */}
       <div className="mb-8 text-center">
         <h1 className="text-4xl font-bold tracking-tight text-foreground mb-4">
-          AI Use Cases
+          Yapay Zeka Kullanım Senaryoları
         </h1>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
           Find the perfect AI tools for your specific needs and projects. From content creation to code development, 
