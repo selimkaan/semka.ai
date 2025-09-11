@@ -27,7 +27,7 @@ export default function VideoCreationPage() {
         {/* Step 1 */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           <div>
-            <h2 className="text-[28px] font-semibold text-[#00A070] mb-6">
+            <h2 className="text-[28px] font-semibold text-[#0053E2] mb-6">
               1. Adım: Senaryoyu Oluşturun ve Prompt Alın
             </h2>
             <p className="text-lg text-black leading-relaxed">
@@ -45,7 +45,7 @@ export default function VideoCreationPage() {
               {/* ChatGPT */}
               <div className="flex flex-col items-center">
                 <a href="https://openai.com/" target="_blank" rel="noopener noreferrer" className="block">
-                  <div className="w-[120px] h-[160px] border border-[#00A070] rounded-lg p-3 flex flex-col cursor-pointer hover:shadow-lg transition-shadow">
+                  <div className="w-[120px] h-[160px] border border-[#0053E2] rounded-lg p-3 flex flex-col cursor-pointer hover:shadow-lg transition-shadow">
                     <div className="w-full h-20 bg-white rounded-[10px] flex items-center justify-center mb-3">
                       <img src="/images/chatgpt-logo.png" alt="ChatGPT" className="w-16 h-16 object-contain" />
                     </div>
@@ -58,7 +58,7 @@ export default function VideoCreationPage() {
               {/* Jasper */}
               <div className="flex flex-col items-center">
                 <a href="https://www.jasper.ai/" target="_blank" rel="noopener noreferrer" className="block">
-                  <div className="w-[120px] h-[160px] border border-[#00A070] rounded-lg p-3 flex flex-col cursor-pointer hover:shadow-lg transition-shadow">
+                  <div className="w-[120px] h-[160px] border border-[#0053E2] rounded-lg p-3 flex flex-col cursor-pointer hover:shadow-lg transition-shadow">
                     <div className="w-full h-20 bg-white rounded-[10px] flex items-center justify-center mb-3">
                       <img src="/images/pictory-logo-12f035.png" alt="Jasper" className="w-16 h-16 object-contain" />
                     </div>
@@ -71,7 +71,7 @@ export default function VideoCreationPage() {
               {/* Copy AI */}
               <div className="flex flex-col items-center">
                 <a href="https://www.copy.ai/" target="_blank" rel="noopener noreferrer" className="block">
-                  <div className="w-[120px] h-[160px] border border-[#00A070] rounded-lg p-3 flex flex-col cursor-pointer hover:shadow-lg transition-shadow">
+                  <div className="w-[120px] h-[160px] border border-[#0053E2] rounded-lg p-3 flex flex-col cursor-pointer hover:shadow-lg transition-shadow">
                     <div className="w-full h-20 bg-white rounded-[10px] flex items-center justify-center mb-3">
                       <img src="/images/copyai-logo.png" alt="Copy AI" className="w-16 h-16 object-contain" />
                     </div>
@@ -90,7 +90,7 @@ export default function VideoCreationPage() {
         {/* Step 2 */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           <div>
-            <h2 className="text-[28px] font-semibold text-[#00A070] mb-6">
+            <h2 className="text-[28px] font-semibold text-[#0053E2] mb-6">
               2. Adım: Metni Videoya Dönüştürün
             </h2>
             <p className="text-lg text-black leading-relaxed">
@@ -106,7 +106,7 @@ export default function VideoCreationPage() {
               {/* Veed.io */}
               <div className="flex flex-col items-center">
                 <a href="https://www.veed.io/" target="_blank" rel="noopener noreferrer" className="block">
-                  <div className="w-[120px] h-[160px] border border-[#00A070] rounded-lg p-3 flex flex-col cursor-pointer hover:shadow-lg transition-shadow">
+                  <div className="w-[120px] h-[160px] border border-[#0053E2] rounded-lg p-3 flex flex-col cursor-pointer hover:shadow-lg transition-shadow">
                     <div className="w-full h-20 bg-white rounded-[10px] flex items-center justify-center mb-3">
                       <img src="/images/veed-logo.png" alt="Veed.io" className="w-16 h-16 object-contain" />
                     </div>
@@ -119,7 +119,7 @@ export default function VideoCreationPage() {
               {/* Pictory */}
               <div className="flex flex-col items-center">
                 <a href="https://pictory.ai/" target="_blank" rel="noopener noreferrer" className="block">
-                  <div className="w-[120px] h-[160px] border border-[#00A070] rounded-lg p-3 flex flex-col cursor-pointer hover:shadow-lg transition-shadow">
+                  <div className="w-[120px] h-[160px] border border-[#0053E2] rounded-lg p-3 flex flex-col cursor-pointer hover:shadow-lg transition-shadow">
                     <div className="w-full h-20 bg-white rounded-[10px] flex items-center justify-center mb-3">
                       <img src="/images/pictory-logo-12f035.png" alt="Pictory" className="w-16 h-16 object-contain" />
                     </div>
@@ -132,7 +132,7 @@ export default function VideoCreationPage() {
               {/* Descript */}
               <div className="flex flex-col items-center">
                 <a href="https://www.descript.com/" target="_blank" rel="noopener noreferrer" className="block">
-                  <div className="w-[120px] h-[160px] border border-[#00A070] rounded-lg p-3 flex flex-col cursor-pointer hover:shadow-lg transition-shadow">
+                  <div className="w-[120px] h-[160px] border border-[#0053E2] rounded-lg p-3 flex flex-col cursor-pointer hover:shadow-lg transition-shadow">
                     <div className="w-full h-20 bg-white rounded-[10px] flex items-center justify-center mb-3">
                       <img src="/images/descript-logo.png" alt="Descript" className="w-16 h-16 object-contain" />
                     </div>
@@ -151,7 +151,7 @@ export default function VideoCreationPage() {
         {/* Step 3 */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           <div>
-            <h2 className="text-[28px] font-semibold text-[#00A070] mb-6">
+            <h2 className="text-[28px] font-semibold text-[#0053E2] mb-6">
               3. Adım: Videoyu Düzenleyin
             </h2>
             <p className="text-lg text-black leading-relaxed">
@@ -169,7 +169,7 @@ export default function VideoCreationPage() {
               {/* CapCut */}
               <div className="flex flex-col items-center">
                 <a href="https://www.capcut.com/" target="_blank" rel="noopener noreferrer" className="block">
-                  <div className="w-[120px] h-[160px] border border-[#00A070] rounded-lg p-3 flex flex-col cursor-pointer hover:shadow-lg transition-shadow">
+                  <div className="w-[120px] h-[160px] border border-[#0053E2] rounded-lg p-3 flex flex-col cursor-pointer hover:shadow-lg transition-shadow">
                     <div className="w-full h-20 bg-white rounded-[10px] flex items-center justify-center mb-3">
                       <img src="/images/capcut-logo.png" alt="CapCut" className="w-16 h-16 object-contain" />
                     </div>

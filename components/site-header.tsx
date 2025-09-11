@@ -51,13 +51,13 @@ export function SiteHeader() {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-1 hover:opacity-80 transition-opacity">
-              <Image
-                src="/images/semka-logo-7501bc.png"
-                alt="Semka Logo"
-                width={40}
-                height={40}
-                className="rounded-lg"
-              />
+                     <Image
+                       src="/images/poker.png"
+                       alt="Semka Logo"
+                       width={40}
+                       height={40}
+                       className="rounded-lg"
+                     />
               <span className="text-2xl font-semibold text-black tracking-tight">
                 Semka
               </span>
@@ -115,7 +115,7 @@ export function SiteHeader() {
               variant="ghost"
               className={`h-12 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
                 isCategoryActive('agentlar') 
-                  ? 'border-b-[3px] border-[#00A070] rounded-none' 
+                  ? 'border-b-[3px] border-[#0053E2] rounded-none' 
                   : ''
               }`}
               asChild
@@ -128,7 +128,7 @@ export function SiteHeader() {
               variant="ghost"
               className={`h-12 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
                 isCategoryActive('otomasyon') 
-                  ? 'border-b-[3px] border-[#00A070] rounded-none' 
+                  ? 'border-b-[3px] border-[#0053E2] rounded-none' 
                   : ''
               }`}
               asChild
@@ -141,7 +141,7 @@ export function SiteHeader() {
               variant="ghost"
               className={`h-12 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
                 isCategoryActive('fotograf-video') 
-                  ? 'border-b-[3px] border-[#00A070] rounded-none' 
+                  ? 'border-b-[3px] border-[#0053E2] rounded-none' 
                   : ''
               }`}
               asChild
@@ -154,7 +154,7 @@ export function SiteHeader() {
               variant="ghost"
               className={`h-12 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
                 isCategoryActive('kurumsal') 
-                  ? 'border-b-[3px] border-[#00A070] rounded-none' 
+                  ? 'border-b-[3px] border-[#0053E2] rounded-none' 
                   : ''
               }`}
               asChild
@@ -167,7 +167,7 @@ export function SiteHeader() {
               variant="ghost"
               className={`h-12 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
                 isCategoryActive('altyapi') 
-                  ? 'border-b-[3px] border-[#00A070] rounded-none' 
+                  ? 'border-b-[3px] border-[#0053E2] rounded-none' 
                   : ''
               }`}
               asChild
@@ -180,7 +180,7 @@ export function SiteHeader() {
               variant="ghost"
               className={`h-12 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
                 isCategoryActive('verimlilik') 
-                  ? 'border-b-[3px] border-[#00A070] rounded-none' 
+                  ? 'border-b-[3px] border-[#0053E2] rounded-none' 
                   : ''
               }`}
               asChild
@@ -193,7 +193,7 @@ export function SiteHeader() {
               variant="ghost"
               className={`h-12 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
                 isCategoryActive('veri') 
-                  ? 'border-b-[3px] border-[#00A070] rounded-none' 
+                  ? 'border-b-[3px] border-[#0053E2] rounded-none' 
                   : ''
               }`}
               asChild
@@ -206,7 +206,7 @@ export function SiteHeader() {
               variant="ghost"
               className={`h-12 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
                 isCategoryActive('sosyal-medya') 
-                  ? 'border-b-[3px] border-[#00A070] rounded-none' 
+                  ? 'border-b-[3px] border-[#0053E2] rounded-none' 
                   : ''
               }`}
               asChild
@@ -219,7 +219,7 @@ export function SiteHeader() {
               variant="ghost"
               className={`h-12 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
                 isCategoryActive('ses') 
-                  ? 'border-b-[3px] border-[#00A070] rounded-none' 
+                  ? 'border-b-[3px] border-[#0053E2] rounded-none' 
                   : ''
               }`}
               asChild
@@ -232,7 +232,7 @@ export function SiteHeader() {
               variant="ghost"
               className={`h-12 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
                 isCategoryActive('sohbet-botu') 
-                  ? 'border-b-[3px] border-[#00A070] rounded-none' 
+                  ? 'border-b-[3px] border-[#0053E2] rounded-none' 
                   : ''
               }`}
               asChild
@@ -245,7 +245,7 @@ export function SiteHeader() {
               variant="ghost"
               className={`h-12 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
                 isCategoryActive('yazilim-araclari') 
-                  ? 'border-b-[3px] border-[#00A070] rounded-none' 
+                  ? 'border-b-[3px] border-[#0053E2] rounded-none' 
                   : ''
               }`}
               asChild
@@ -258,7 +258,7 @@ export function SiteHeader() {
               variant="ghost"
               className={`h-12 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
                 isCategoryActive('kodsuz-yazilim') 
-                  ? 'border-b-[3px] border-[#00A070] rounded-none' 
+                  ? 'border-b-[3px] border-[#0053E2] rounded-none' 
                   : ''
               }`}
               asChild
@@ -271,7 +271,7 @@ export function SiteHeader() {
               variant="ghost"
               className={`h-12 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
                 isCategoryActive('tasarim') 
-                  ? 'border-b-[3px] border-[#00A070] rounded-none' 
+                  ? 'border-b-[3px] border-[#0053E2] rounded-none' 
                   : ''
               }`}
               asChild
@@ -284,7 +284,7 @@ export function SiteHeader() {
               variant="ghost"
               className={`h-12 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
                 isCategoryActive('akademi') 
-                  ? 'border-b-[3px] border-[#00A070] rounded-none' 
+                  ? 'border-b-[3px] border-[#0053E2] rounded-none' 
                   : ''
               }`}
               asChild
