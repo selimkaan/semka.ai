@@ -137,7 +137,7 @@ export default function AIDetailPage() {
             href={agent.website_url} 
             target="_blank" 
             rel="noopener noreferrer"
-            className="bg-[#0053E2] text-white px-4 py-2 rounded-md text-xs font-semibold hover:bg-[#008f63] transition-colors whitespace-nowrap"
+            className="bg-[#0053E2] text-white px-4 py-2 rounded-md text-xs font-semibold hover:bg-[#003db3] transition-colors whitespace-nowrap"
           >
             Siteye Git
             
