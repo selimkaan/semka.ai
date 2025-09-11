@@ -15,9 +15,9 @@ export const metadata: Metadata = {
   title: 'Semka - Yapay Zeka Rehberi',
   description: 'Find and compare the best AI tools, agents, and use cases for your needs. Explore categories, pricing, and features.',
   icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon.png',
-    apple: '/favicon.png',
+    icon: '/favicon.ico?v=2',
+    shortcut: '/favicon.png?v=2',
+    apple: '/favicon.png?v=2',
   },
 }
 
