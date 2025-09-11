@@ -52,7 +52,7 @@ export function SiteHeader() {
             {/* Logo */}
             <Link href="/" className="flex items-center gap-1 hover:opacity-80 transition-opacity">
                      <Image
-                       src="/images/poker.png"
+                       src="/images/semka_logo_sinek_golgeli.png"
                        alt="Semka Logo"
                        width={40}
                        height={40}

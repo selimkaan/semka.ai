@@ -14,7 +14,7 @@ export function SiteFooter() {
               {/* Logo and Tagline */}
               <div className="flex items-center gap-1">
                 <Image
-                  src="/images/poker.png"
+                  src="/images/semka_logo_sinek_golgeli.png"
                   alt="Semka Logo"
                   width={40}
                   height={40}
