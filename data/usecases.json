@@ -106,5 +106,32 @@
     "icon": "🌍",
     "color": "#F8C471",
     "agentCount": 8
+  },
+  {
+    "id": "13",
+    "slug": "report-creation",
+    "name": "Rapor Oluşturma",
+    "description": "Yapay zeka desteği ile rapor oluşturabilirsin",
+    "icon": "📋",
+    "color": "#6C7CE7",
+    "agentCount": 9
+  },
+  {
+    "id": "14",
+    "slug": "voice-creation",
+    "name": "Seslendirme",
+    "description": "İstediğin metni yapay zeka ile seslendir",
+    "icon": "🎤",
+    "color": "#FF9F43",
+    "agentCount": 6
+  },
+  {
+    "id": "15",
+    "slug": "code-development",
+    "name": "Kod Yazdır",
+    "description": "Yapay zeka ile uygulama geliştir veya yazılım desteği al",
+    "icon": "💻",
+    "color": "#6C7CE7",
+    "agentCount": 6
   }
 ]

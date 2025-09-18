@@ -166,40 +166,46 @@ export default function HomePage() {
             </Link>
 
             {/* Image Generation */}
-            <div className="w-[300px] h-[255px] min-w-[300px] min-h-[255px] bg-white border border-[#C7CAD0] rounded-[10px] flex flex-col items-center justify-center p-4">
-              <div className="w-[72px] h-[72px] flex items-center justify-center mb-3">
-                <ImageIcon className="w-[60.75px] h-[51.75px] text-[#0E0E0F]" />
+            <Link href="/use-cases/gorsel-olusturma/" className="block">
+              <div className="w-[300px] h-[255px] min-w-[300px] min-h-[255px] bg-white border border-[#C7CAD0] rounded-[10px] flex flex-col items-center justify-center p-4 cursor-pointer hover:shadow-lg transition-shadow">
+                <div className="w-[72px] h-[72px] flex items-center justify-center mb-3">
+                  <ImageIcon className="w-[60.75px] h-[51.75px] text-[#0E0E0F]" />
+                </div>
+                <div className="w-[72px] h-[1px] bg-[#535962] mb-4"></div>
+                <div className="text-center">
+                  <h3 className="font-['Inter'] font-semibold text-[28px] leading-[1.14] text-[#0E0E0F] mb-4">Görsel Oluşturma</h3>
+                  <p className="font-['Inter'] font-normal text-[18px] leading-[1.21] text-[#0E0E0F] max-w-[261.88px]">Sadece metin girerek istediğin görseli oluştur</p>
+                </div>
               </div>
-              <div className="w-[72px] h-[1px] bg-[#535962] mb-4"></div>
-              <div className="text-center">
-                <h3 className="font-['Inter'] font-semibold text-[28px] leading-[1.14] text-[#0E0E0F] mb-4">Görsel Oluşturma</h3>
-                <p className="font-['Inter'] font-normal text-[18px] leading-[1.21] text-[#0E0E0F] max-w-[261.88px]">Sadece metin girerek istediğin görseli oluştur</p>
-              </div>
-            </div>
+            </Link>
 
             {/* Voiceover */}
-            <div className="w-[300px] h-[255px] min-w-[300px] min-h-[255px] bg-white border border-[#C7CAD0] rounded-[10px] flex flex-col items-center justify-center p-4">
-              <div className="w-[72px] h-[72px] flex items-center justify-center mb-3">
-                <Mic className="w-[60.75px] h-[51.75px] text-[#0E0E0F]" />
+            <Link href="/use-cases/seslendirme/" className="block">
+              <div className="w-[300px] h-[255px] min-w-[300px] min-h-[255px] bg-white border border-[#C7CAD0] rounded-[10px] flex flex-col items-center justify-center p-4 cursor-pointer hover:shadow-lg transition-shadow">
+                <div className="w-[72px] h-[72px] flex items-center justify-center mb-3">
+                  <Mic className="w-[60.75px] h-[51.75px] text-[#0E0E0F]" />
+                </div>
+                <div className="w-[72px] h-[1px] bg-[#535962] mb-4"></div>
+                <div className="text-center">
+                  <h3 className="font-['Inter'] font-semibold text-[28px] leading-[1.14] text-[#0E0E0F] mb-4">Seslendirme</h3>
+                  <p className="font-['Inter'] font-normal text-[18px] leading-[1.21] text-[#0E0E0F] max-w-[261.88px]">İstediğin metni yapay zeka ile seslendir</p>
+                </div>
               </div>
-              <div className="w-[72px] h-[1px] bg-[#535962] mb-4"></div>
-              <div className="text-center">
-                <h3 className="font-['Inter'] font-semibold text-[28px] leading-[1.14] text-[#0E0E0F] mb-4">Seslendirme</h3>
-                <p className="font-['Inter'] font-normal text-[18px] leading-[1.21] text-[#0E0E0F] max-w-[261.88px]">İstediğin metni yapay zeka ile seslendir</p>
-              </div>
-            </div>
+            </Link>
 
             {/* Report Creation */}
-            <div className="w-[300px] h-[255px] min-w-[300px] min-h-[255px] bg-white border border-[#C7CAD0] rounded-[10px] flex flex-col items-center justify-center p-4">
-              <div className="w-[72px] h-[72px] flex items-center justify-center mb-3">
-                <Clipboard className="w-[51.75px] h-[63px] text-[#0E0E0F]" />
+            <Link href="/use-cases/rapor-olusturma/" className="block">
+              <div className="w-[300px] h-[255px] min-w-[300px] min-h-[255px] bg-white border border-[#C7CAD0] rounded-[10px] flex flex-col items-center justify-center p-4 cursor-pointer hover:shadow-lg transition-shadow">
+                <div className="w-[72px] h-[72px] flex items-center justify-center mb-3">
+                  <Clipboard className="w-[51.75px] h-[63px] text-[#0E0E0F]" />
+                </div>
+                <div className="w-[72px] h-[1px] bg-[#535962] mb-4"></div>
+                <div className="text-center">
+                  <h3 className="font-['Inter'] font-semibold text-[28px] leading-[1.14] text-[#0E0E0F] mb-4">Rapor Oluşturma</h3>
+                  <p className="font-['Inter'] font-normal text-[18px] leading-[1.21] text-[#0E0E0F] max-w-[261.88px]">Yapay zeka desteği ile rapor oluşturabilirsin</p>
+                </div>
               </div>
-              <div className="w-[72px] h-[1px] bg-[#535962] mb-4"></div>
-              <div className="text-center">
-                <h3 className="font-['Inter'] font-semibold text-[28px] leading-[1.14] text-[#0E0E0F] mb-4">Rapor Oluşturma</h3>
-                <p className="font-['Inter'] font-normal text-[18px] leading-[1.21] text-[#0E0E0F] max-w-[261.88px]">Yapay zeka desteği ile rapor oluşturabilirsin</p>
-              </div>
-            </div>
+            </Link>
 
             {/* Legal Support */}
             <div className="w-[300px] h-[255px] min-w-[300px] min-h-[255px] bg-white border border-[#C7CAD0] rounded-[10px] flex flex-col items-center justify-center p-4">
@@ -214,16 +220,18 @@ export default function HomePage() {
             </div>
 
             {/* Code Generation */}
-            <div className="w-[300px] h-[255px] min-w-[300px] min-h-[255px] bg-white border border-[#C7CAD0] rounded-[10px] flex flex-col items-center justify-center p-4">
-              <div className="w-[72px] h-[72px] flex items-center justify-center mb-3">
-                <Code className="w-[60.75px] h-[51.75px] text-[#0E0E0F]" />
+            <Link href="/use-cases/kod-yazdir/" className="block">
+              <div className="w-[300px] h-[255px] min-w-[300px] min-h-[255px] bg-white border border-[#C7CAD0] rounded-[10px] flex flex-col items-center justify-center p-4 cursor-pointer hover:shadow-lg transition-shadow">
+                <div className="w-[72px] h-[72px] flex items-center justify-center mb-3">
+                  <Code className="w-[60.75px] h-[51.75px] text-[#0E0E0F]" />
+                </div>
+                <div className="w-[72px] h-[1px] bg-[#535962] mb-4"></div>
+                <div className="text-center">
+                  <h3 className="font-['Inter'] font-semibold text-[28px] leading-[1.14] text-[#0E0E0F] mb-4">Kod Yazdır</h3>
+                  <p className="font-['Inter'] font-normal text-[18px] leading-[1.21] text-[#0E0E0F] max-w-[261.88px]">Yapay zeka ile uygulama geliştir veya yazılım desteği al</p>
+                </div>
               </div>
-              <div className="w-[72px] h-[1px] bg-[#535962] mb-4"></div>
-              <div className="text-center">
-                <h3 className="font-['Inter'] font-semibold text-[28px] leading-[1.14] text-[#0E0E0F] mb-4">Kod Yazdır</h3>
-                <p className="font-['Inter'] font-normal text-[18px] leading-[1.21] text-[#0E0E0F] max-w-[261.88px]">Yapay zeka ile uygulama geliştir veya yazılım desteği al</p>
-              </div>
-            </div>
+            </Link>
           </div>
         </div>
       </section>

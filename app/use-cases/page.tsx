@@ -32,6 +32,10 @@ export default function UseCasesPage() {
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {useCasesData.map((useCase) => {
           const isVideoCase = useCase.slug === 'video-production' || useCase.name === 'Video Production' || useCase.name === 'Video Oluşturma' || useCase.id === '3';
+          const isImageCase = useCase.slug === 'image-generation' || useCase.name === 'Image Generation' || useCase.name === 'Görsel Oluşturma' || useCase.id === '2';
+          const isReportCase = useCase.slug === 'report-creation' || useCase.name === 'Rapor Oluşturma' || useCase.id === '13';
+          const isVoiceCase = useCase.slug === 'voice-creation' || useCase.name === 'Seslendirme' || useCase.id === '14';
+          const isCodeCase = useCase.slug === 'code-development' || useCase.name === 'Kod Yazdır' || useCase.id === '15';
           
           return (
           <Link
@@ -39,6 +43,14 @@ export default function UseCasesPage() {
             href={
               isVideoCase
                 ? '/use-cases/video-creation/'
+                : isImageCase
+                ? '/use-cases/gorsel-olusturma/'
+                : isReportCase
+                ? '/use-cases/rapor-olusturma/'
+                : isVoiceCase
+                ? '/use-cases/seslendirme/'
+                : isCodeCase
+                ? '/use-cases/kod-yazdir/'
                 : `/agents?useCase=${useCase.slug}`
             }
             className="block"
@@ -68,7 +80,7 @@ export default function UseCasesPage() {
                     {useCase.agentCount} tools
                   </Badge>
                   <div className="text-sm font-medium text-primary">
-                    {isVideoCase
+                    {isVideoCase || isImageCase || isReportCase || isVoiceCase || isCodeCase
                       ? 'Learn More →' 
                       : 'Browse Tools →'
                     }
