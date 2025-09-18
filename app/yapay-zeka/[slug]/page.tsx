@@ -68,22 +68,22 @@ export default function AIDetailPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
-        <div className="text-xl">Yükleniyor...</div>
+      <div className="min-h-screen bg-white dark:bg-white flex items-center justify-center">
+        <div className="text-xl text-black dark:text-black">Yükleniyor...</div>
       </div>
     )
   }
 
   if (!agent) {
     return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
-        <div className="text-xl">AI tool not found</div>
+      <div className="min-h-screen bg-white dark:bg-white flex items-center justify-center">
+        <div className="text-xl text-black dark:text-black">AI tool not found</div>
       </div>
     )
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white dark:bg-white">
       {/* Hero Section */}
       <div className="relative">
         {/* Background Image with 40px gap from screen edges */}
@@ -122,12 +122,12 @@ export default function AIDetailPage() {
         </div>
         
         {/* AI Name - positioned exactly as per Figma coordinates */}
-        <h1 className="absolute left-[73.89px] top-[349px] w-[200px] h-[36px] text-[30px] font-bold text-black leading-[36px] whitespace-nowrap">
+        <h1 className="absolute left-[73.89px] top-[349px] w-[200px] h-[36px] text-[30px] font-bold text-black dark:text-black leading-[36px] whitespace-nowrap">
           {agent.name}
         </h1>
         
         {/* AI Description - positioned exactly as per Figma coordinates */}
-        <p className="absolute left-[73.89px] top-[393px] w-[544px] h-[19px] text-base font-medium text-black leading-[19px] tracking-[0.01em] whitespace-nowrap">
+        <p className="absolute left-[73.89px] top-[393px] w-[544px] h-[19px] text-base font-medium text-black dark:text-black leading-[19px] tracking-[0.01em] whitespace-nowrap">
           {agent.description_tr || agent.overview_tr || 'AI tool description'}
         </p>
         
@@ -143,7 +143,7 @@ export default function AIDetailPage() {
             
           </a>
           {agent.categories.slice(0, 2).map((category) => (
-            <button key={category} className="bg-white text-[#6A6C72] border border-[rgba(199,202,208,0.6)] px-4 py-2 rounded-md text-xs font-semibold hover:bg-gray-50 transition-colors whitespace-nowrap">
+            <button key={category} className="bg-white text-[#6A6C72] border border-[rgba(199,202,208,0.6)] px-4 py-2 rounded-md text-xs font-semibold hover:bg-gray-50 transition-colors whitespace-nowrap dark:bg-white dark:text-[#6A6C72] dark:border-[rgba(199,202,208,0.6)]">
               {category}
             </button>
           ))}
@@ -167,17 +167,17 @@ export default function AIDetailPage() {
       <div className="container mx-auto px-10 py-16 mt-[214px]">
         {/* About AI Section */}
         <div className="mb-16">
-          <h2 className="text-2xl font-semibold text-black mb-6">
+          <h2 className="text-2xl font-semibold text-black dark:text-black mb-6">
             Yapay Zeka Hakkında
           </h2>
-          <p className="text-sm text-black leading-relaxed max-w-[1170px]">
+          <p className="text-sm text-black dark:text-black leading-relaxed max-w-[1170px]">
             {agent.overview_tr || agent.description_tr || 'Detailed description about this AI tool.'}
           </p>
         </div>
 
         {/* Pricing Section */}
         <div className="mb-16">
-          <h2 className="text-2xl font-semibold text-black mb-6">
+          <h2 className="text-2xl font-semibold text-black dark:text-black mb-6">
             Fiyatlar
           </h2>
           
@@ -187,63 +187,63 @@ export default function AIDetailPage() {
               <>
                 {/* Free Plan */}
                 {agent.has_free_plan && (
-                  <div className="w-[206px] h-[49px] bg-white border-2 border-[rgba(199,202,208,0.6)] rounded-md flex items-center justify-center p-1">
+                  <div className="w-[206px] h-[49px] bg-white dark:bg-white border-2 border-[rgba(199,202,208,0.6)] dark:border-[rgba(199,202,208,0.6)] rounded-md flex items-center justify-center p-1">
                     <span className="text-lg font-semibold text-[#6A6C72]">
-                      <span className="text-black font-bold">$0</span> / ay
+                      <span className="text-black dark:text-black font-bold">$0</span> / ay
                     </span>
                   </div>
                 )}
                 
                 {/* Pro Plan - only show if price is valid */}
                 {agent.prices?.pro !== undefined && agent.prices?.pro !== null && String(agent.prices.pro) !== '-' && (
-                  <div className="w-[206px] h-[49px] bg-white border-2 border-[rgba(199,202,208,0.6)] rounded-md flex items-center justify-center p-1">
+                  <div className="w-[206px] h-[49px] bg-white dark:bg-white border-2 border-[rgba(199,202,208,0.6)] dark:border-[rgba(199,202,208,0.6)] rounded-md flex items-center justify-center p-1">
                     <span className="text-lg font-semibold text-[#6A6C72]">
-                      <span className="text-black font-bold">${agent.prices.pro}</span> / ay
+                      <span className="text-black dark:text-black font-bold">${agent.prices.pro}</span> / ay
                     </span>
                   </div>
                 )}
                 
                 {/* Team Plan - only show if price is valid */}
                 {agent.prices?.team !== undefined && agent.prices?.team !== null && String(agent.prices.team) !== '-' && (
-                  <div className="w-[206px] h-[49px] bg-white border-2 border-[rgba(199,202,208,0.6)] rounded-md flex items-center justify-center p-1">
+                  <div className="w-[206px] h-[49px] bg-white dark:bg-white border-2 border-[rgba(199,202,208,0.6)] dark:border-[rgba(199,202,208,0.6)] rounded-md flex items-center justify-center p-1">
                     <span className="text-lg font-semibold text-[#6A6C72]">
-                      <span className="text-black font-bold">${agent.prices.team}</span> / ay
+                      <span className="text-black dark:text-black font-bold">${agent.prices.team}</span> / ay
                     </span>
                   </div>
                 )}
                 
                 {/* Business Plan - only show if price is valid */}
                 {agent.prices?.business !== undefined && agent.prices?.business !== null && String(agent.prices.business) !== '-' && (
-                  <div className="w-[206px] h-[49px] bg-white border-2 border-[rgba(199,202,208,0.6)] rounded-md flex items-center justify-center p-1">
+                  <div className="w-[206px] h-[49px] bg-white dark:bg-white border-2 border-[rgba(199,202,208,0.6)] dark:border-[rgba(199,202,208,0.6)] rounded-md flex items-center justify-center p-1">
                     <span className="text-lg font-semibold text-[#6A6C72]">
-                      <span className="text-black font-bold">${agent.prices.business}</span> / ay
+                      <span className="text-black dark:text-black font-bold">${agent.prices.business}</span> / ay
                     </span>
                   </div>
                 )}
                 
                 {/* Organization Plan - only show if price is valid */}
                 {agent.prices?.organization !== undefined && agent.prices?.organization !== null && String(agent.prices.organization) !== '-' && (
-                  <div className="w-[206px] h-[49px] bg-white border-2 border-[rgba(199,202,208,0.6)] rounded-md flex items-center justify-center p-1">
+                  <div className="w-[206px] h-[49px] bg-white dark:bg-white border-2 border-[rgba(199,202,208,0.6)] dark:border-[rgba(199,202,208,0.6)] rounded-md flex items-center justify-center p-1">
                     <span className="text-lg font-semibold text-[#6A6C72]">
-                      <span className="text-black font-bold">${agent.prices.organization}</span> / ay
+                      <span className="text-black dark:text-black font-bold">${agent.prices.organization}</span> / ay
                     </span>
                   </div>
                 )}
                 
                 {/* Plus Plan - only show if price is valid */}
                 {agent.prices?.plus !== undefined && agent.prices?.plus !== null && String(agent.prices.plus) !== '-' && agent.prices.plus !== 0 && (
-                  <div className="w-[206px] h-[49px] bg-white border-2 border-[rgba(199,202,208,0.6)] rounded-md flex items-center justify-center p-1">
+                  <div className="w-[206px] h-[49px] bg-white dark:bg-white border-2 border-[rgba(199,202,208,0.6)] dark:border-[rgba(199,202,208,0.6)] rounded-md flex items-center justify-center p-1">
                     <span className="text-lg font-semibold text-[#6A6C72]">
-                      <span className="text-black font-bold">${agent.prices.plus}</span> / ay
+                      <span className="text-black dark:text-black font-bold">${agent.prices.plus}</span> / ay
                     </span>
                   </div>
                 )}
                 
                 {/* Plus Plan with 0 value - special case */}
                 {agent.prices?.plus === 0 && (
-                  <div className="w-[206px] h-[49px] bg-white border-2 border-[rgba(199,202,208,0.6)] rounded-md flex items-center justify-center p-1">
+                  <div className="w-[206px] h-[49px] bg-white dark:bg-white border-2 border-[rgba(199,202,208,0.6)] dark:border-[rgba(199,202,208,0.6)] rounded-md flex items-center justify-center p-1">
                     <span className="text-lg font-semibold text-[#6A6C72]">
-                      <span className="text-black font-bold">$0</span> / ay
+                      <span className="text-black dark:text-black font-bold">$0</span> / ay
                     </span>
                   </div>
                 )}
@@ -253,7 +253,7 @@ export default function AIDetailPage() {
               /* If sales_action is not "price", show the sales_action value */
               <div className="w-[206px] h-[49px] bg-white border-2 border-[rgba(199,202,208,0.6)] rounded-md flex items-center justify-center p-1">
                 <span className="text-lg font-semibold text-[#6A6C72]">
-                  <span className="text-black font-bold">{agent.sales_action || 'Fiyat bilgisi yok'}</span>
+                  <span className="text-black dark:text-black font-bold">{agent.sales_action || 'Fiyat bilgisi yok'}</span>
                 </span>
               </div>
             )}
@@ -262,7 +262,7 @@ export default function AIDetailPage() {
 
         {/* Features Section */}
         <div className="mb-0">
-          <h2 className="text-2xl font-semibold text-black mb-6">
+          <h2 className="text-2xl font-semibold text-black dark:text-black mb-6">
             Özellikler ve Kullanım Senaryoları
           </h2>
           
@@ -274,7 +274,7 @@ export default function AIDetailPage() {
               .map((feature, index) => (
                 <div key={index} className="flex items-end gap-[9px]">
                   <CheckCircle className="w-4 h-4 text-[#65D46A] flex-shrink-0" />
-                  <span className="text-sm text-black">{feature}</span>
+                  <span className="text-sm text-black dark:text-black">{feature}</span>
                 </div>
               ))}
           </div>
@@ -283,12 +283,12 @@ export default function AIDetailPage() {
 
       {/* Separator Line */}
       <div className="container mx-auto px-10">
-        <div className="w-full h-px bg-[rgba(199,202,208,0.6)] mb-10"></div>
+        <div className="w-full h-px bg-[rgba(199,202,208,0.6)] dark:bg-[rgba(199,202,208,0.6)] mb-10"></div>
       </div>
 
       {/* Related AI Section */}
       <div className="container mx-auto px-10 mb-16">
-        <h2 className="text-2xl font-semibold text-black mb-8">
+        <h2 className="text-2xl font-semibold text-black dark:text-black mb-8">
           Bu yapay zekaları da beğenebilirsin
         </h2>
         <div className="flex gap-6 overflow-x-auto pb-4">
@@ -324,7 +324,7 @@ export default function AIDetailPage() {
                   </div>
 
                   {/* Bottom Section - Tool info */}
-                  <div className="w-[385px] h-[103px] bg-white rounded-b-[10px] flex flex-row justify-center items-start px-[12px] pt-[12px] pb-[20px] gap-[12px]">
+                  <div className="w-[385px] h-[103px] bg-white dark:bg-white rounded-b-[10px] flex flex-row justify-center items-start px-[12px] pt-[12px] pb-[20px] gap-[12px]">
                     {/* Logo */}
                     <div className="w-[45px] h-[45px] rounded-[8px] flex items-center justify-center flex-shrink-0 overflow-hidden">
                       {tool.logo_url ? (
@@ -343,7 +343,7 @@ export default function AIDetailPage() {
                     {/* Tool Details */}
                     <div className="flex-1 min-w-0 flex flex-col items-start p-0">
                       {/* Title */}
-                      <div className="w-full font-['Inter'] font-semibold text-base leading-[19px] text-[#000000] mb-1 flex items-center">
+                      <div className="w-full font-['Inter'] font-semibold text-base leading-[19px] text-[#000000] dark:text-[#000000] mb-1 flex items-center">
                         <span className="truncate">{tool.name}</span>
                       </div>
                       
@@ -366,7 +366,7 @@ export default function AIDetailPage() {
                     </div>
                     
                     {/* Price */}
-                    <div className="w-[50px] h-[17px] font-['Inter'] font-semibold text-sm leading-[17px] tracking-[-0.01em] text-[#000000] flex-shrink-0 flex items-center justify-center mr-3">
+                    <div className="w-[50px] h-[17px] font-['Inter'] font-semibold text-sm leading-[17px] tracking-[-0.01em] text-[#000000] dark:text-[#000000] flex-shrink-0 flex items-center justify-center mr-3">
                       <span className="whitespace-nowrap">
                         {tool.has_free_plan ? 'Bedava' : 
                          tool.sales_action === 'price' && tool.prices?.pro ? `$${tool.prices.pro}` : 
@@ -379,7 +379,7 @@ export default function AIDetailPage() {
             ))
           ) : (
             // Fallback: Show placeholder message when no related tools found
-            <div className="w-full text-center text-gray-500 py-8">
+            <div className="w-full text-center text-gray-500 dark:text-gray-500 py-8">
               <p>Bu kategoriden başka araç bulunamadı.</p>
             </div>
           )}

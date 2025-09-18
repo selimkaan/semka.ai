@@ -70,13 +70,13 @@ export function SiteHeader() {
                   <Input
                     name="search"
                     placeholder="Yapay zeka ile ne yapmak istersin?"
-                    className="pl-3 pr-12 py-1 border border-gray-200 rounded-md text-sm text-gray-500 placeholder:text-gray-500"
+                    className="pl-3 pr-12 py-1 border border-gray-200 rounded-md text-sm text-gray-500 placeholder:text-gray-500 bg-white dark:bg-white dark:text-gray-500 dark:border-gray-200 dark:placeholder:text-gray-500"
                   />
                   <button 
                     type="submit"
-                    className="absolute right-0 top-0 h-full w-12 border-l border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors"
+                    className="absolute right-0 top-0 h-full w-12 border-l border-gray-200 dark:border-gray-200 flex items-center justify-center hover:bg-[#0053E2] hover:text-white transition-colors bg-white dark:bg-white"
                   >
-                    <Search className="h-4 w-4 text-gray-500" />
+                    <Search className="h-4 w-4 text-gray-500 dark:text-gray-500" />
                   </button>
                 </div>
               </form>
@@ -113,7 +113,7 @@ export function SiteHeader() {
           <div className="flex items-end justify-center gap-4 overflow-x-auto scrollbar-hide">
             <Button
               variant="ghost"
-              className={`h-12 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
+              className={`h-12 px-2 text-sm font-normal text-black hover:bg-[#0053E2] hover:text-white whitespace-nowrap flex-shrink-0 relative transition-colors ${
                 isCategoryActive('agentlar') 
                   ? 'border-b-[3px] border-[#0053E2] rounded-none' 
                   : ''
@@ -126,7 +126,7 @@ export function SiteHeader() {
             </Button>
             <Button
               variant="ghost"
-              className={`h-12 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
+              className={`h-12 px-2 text-sm font-normal text-black hover:bg-[#0053E2] hover:text-white whitespace-nowrap flex-shrink-0 relative transition-colors ${
                 isCategoryActive('otomasyon') 
                   ? 'border-b-[3px] border-[#0053E2] rounded-none' 
                   : ''
@@ -139,7 +139,7 @@ export function SiteHeader() {
             </Button>
             <Button
               variant="ghost"
-              className={`h-12 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
+              className={`h-12 px-2 text-sm font-normal text-black hover:bg-[#0053E2] hover:text-white whitespace-nowrap flex-shrink-0 relative transition-colors ${
                 isCategoryActive('fotograf-video') 
                   ? 'border-b-[3px] border-[#0053E2] rounded-none' 
                   : ''
@@ -152,7 +152,7 @@ export function SiteHeader() {
             </Button>
             <Button
               variant="ghost"
-              className={`h-12 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
+              className={`h-12 px-2 text-sm font-normal text-black hover:bg-[#0053E2] hover:text-white whitespace-nowrap flex-shrink-0 relative transition-colors ${
                 isCategoryActive('kurumsal') 
                   ? 'border-b-[3px] border-[#0053E2] rounded-none' 
                   : ''
@@ -165,7 +165,7 @@ export function SiteHeader() {
             </Button>
             <Button
               variant="ghost"
-              className={`h-12 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
+              className={`h-12 px-2 text-sm font-normal text-black hover:bg-[#0053E2] hover:text-white whitespace-nowrap flex-shrink-0 relative transition-colors ${
                 isCategoryActive('altyapi') 
                   ? 'border-b-[3px] border-[#0053E2] rounded-none' 
                   : ''
@@ -178,7 +178,7 @@ export function SiteHeader() {
             </Button>
             <Button
               variant="ghost"
-              className={`h-12 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
+              className={`h-12 px-2 text-sm font-normal text-black hover:bg-[#0053E2] hover:text-white whitespace-nowrap flex-shrink-0 relative transition-colors ${
                 isCategoryActive('verimlilik') 
                   ? 'border-b-[3px] border-[#0053E2] rounded-none' 
                   : ''
@@ -191,7 +191,7 @@ export function SiteHeader() {
             </Button>
             <Button
               variant="ghost"
-              className={`h-12 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
+              className={`h-12 px-2 text-sm font-normal text-black hover:bg-[#0053E2] hover:text-white whitespace-nowrap flex-shrink-0 relative transition-colors ${
                 isCategoryActive('veri') 
                   ? 'border-b-[3px] border-[#0053E2] rounded-none' 
                   : ''
@@ -204,7 +204,7 @@ export function SiteHeader() {
             </Button>
             <Button
               variant="ghost"
-              className={`h-12 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
+              className={`h-12 px-2 text-sm font-normal text-black hover:bg-[#0053E2] hover:text-white whitespace-nowrap flex-shrink-0 relative transition-colors ${
                 isCategoryActive('sosyal-medya') 
                   ? 'border-b-[3px] border-[#0053E2] rounded-none' 
                   : ''
@@ -217,7 +217,7 @@ export function SiteHeader() {
             </Button>
             <Button
               variant="ghost"
-              className={`h-12 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
+              className={`h-12 px-2 text-sm font-normal text-black hover:bg-[#0053E2] hover:text-white whitespace-nowrap flex-shrink-0 relative transition-colors ${
                 isCategoryActive('ses') 
                   ? 'border-b-[3px] border-[#0053E2] rounded-none' 
                   : ''
@@ -230,7 +230,7 @@ export function SiteHeader() {
             </Button>
             <Button
               variant="ghost"
-              className={`h-12 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
+              className={`h-12 px-2 text-sm font-normal text-black hover:bg-[#0053E2] hover:text-white whitespace-nowrap flex-shrink-0 relative transition-colors ${
                 isCategoryActive('sohbet-botu') 
                   ? 'border-b-[3px] border-[#0053E2] rounded-none' 
                   : ''
@@ -243,7 +243,7 @@ export function SiteHeader() {
             </Button>
             <Button
               variant="ghost"
-              className={`h-12 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
+              className={`h-12 px-2 text-sm font-normal text-black hover:bg-[#0053E2] hover:text-white whitespace-nowrap flex-shrink-0 relative transition-colors ${
                 isCategoryActive('yazilim-araclari') 
                   ? 'border-b-[3px] border-[#0053E2] rounded-none' 
                   : ''
@@ -256,7 +256,7 @@ export function SiteHeader() {
             </Button>
             <Button
               variant="ghost"
-              className={`h-12 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
+              className={`h-12 px-2 text-sm font-normal text-black hover:bg-[#0053E2] hover:text-white whitespace-nowrap flex-shrink-0 relative transition-colors ${
                 isCategoryActive('kodsuz-yazilim') 
                   ? 'border-b-[3px] border-[#0053E2] rounded-none' 
                   : ''
@@ -269,7 +269,7 @@ export function SiteHeader() {
             </Button>
             <Button
               variant="ghost"
-              className={`h-12 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
+              className={`h-12 px-2 text-sm font-normal text-black hover:bg-[#0053E2] hover:text-white whitespace-nowrap flex-shrink-0 relative transition-colors ${
                 isCategoryActive('tasarim') 
                   ? 'border-b-[3px] border-[#0053E2] rounded-none' 
                   : ''
@@ -282,7 +282,7 @@ export function SiteHeader() {
             </Button>
             <Button
               variant="ghost"
-              className={`h-12 px-2 text-sm font-normal text-black hover:bg-gray-50 whitespace-nowrap flex-shrink-0 relative ${
+              className={`h-12 px-2 text-sm font-normal text-black hover:bg-[#0053E2] hover:text-white whitespace-nowrap flex-shrink-0 relative transition-colors ${
                 isCategoryActive('akademi') 
                   ? 'border-b-[3px] border-[#0053E2] rounded-none' 
                   : ''

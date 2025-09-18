@@ -390,7 +390,7 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
                             e.stopPropagation(); // Prevent card click when clicking button
                             window.open(product.website_url, '_blank');
                           }}
-                          className="text-xs"
+                          className="text-xs border-gray-300 bg-white text-black hover:bg-blue-50 hover:text-blue-600 dark:border-gray-300 dark:bg-white dark:text-black"
                         >
                           Siteye Git
                         </Button>
