@@ -92,12 +92,12 @@ export default function HomePage() {
                   router.push(`/aramasonucu/${encodeURIComponent(searchTerm.trim())}`);
                 }
               }}>
-                <div className="flex items-center border-2 border-black rounded-[36px] px-6 py-3 bg-white w-full max-w-[895px] h-[54px] mx-auto">
+                <div className="flex items-center border-2 border-black focus-within:border-[#0053E2] rounded-[36px] px-6 py-3 bg-white w-full max-w-[895px] h-[54px] mx-auto transition-colors">
                   <input
                     type="text"
                     name="search"
                     placeholder="Yapay zeka ile ne yapmak istiyorsun?"
-                    className="flex-1 text-base font-medium text-gray-400 placeholder:text-gray-400 placeholder:font-medium outline-none bg-transparent"
+                    className="flex-1 text-base font-medium text-black placeholder:text-gray-400 placeholder:font-medium outline-none bg-transparent"
                   />
                   <button type="submit" className="flex-shrink-0">
                     <Search className="h-5 w-5 text-[#343330] ml-2" />
