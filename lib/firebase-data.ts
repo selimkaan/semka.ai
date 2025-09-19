@@ -222,7 +222,7 @@ function extractKeywords(query: string): string[] {
   keywords.push(...words);
   
   // Remove duplicates
-  return [...new Set(keywords)];
+  return Array.from(new Set(keywords));
 }
 
 export async function searchAIs(searchTerm: string): Promise<AIProduct[]> {
