@@ -4,7 +4,7 @@ import { X, Linkedin, Instagram } from 'lucide-react'
 
 export function SiteFooter() {
   return (
-    <footer className="bg-white dark:bg-white border-t border-gray-200 dark:border-gray-200">
+    <footer className="hidden lg:block bg-white dark:bg-white border-t border-gray-200 dark:border-gray-200">
       <div className="container mx-auto px-9 py-8">
         <div className="flex flex-col items-center gap-8">
           {/* Main Footer Content */}

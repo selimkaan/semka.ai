@@ -3,10 +3,11 @@
 import { useState, useEffect } from 'react'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Button } from '@/components/ui/button'
-import { ExternalLink, Users, Star } from 'lucide-react'
+import { ExternalLink, Users, Star, Search, Sliders, X } from 'lucide-react'
 import { getAIsByCategory, AIProduct, getUseCasesForCategory, getUseCasesArray } from '@/lib/firebase-data'
 import { useRouter } from 'next/navigation'
 import { Pagination } from '@/components/pagination'
+import Image from 'next/image'
 
 // Dynamic use case filters will be loaded based on category
 
@@ -28,10 +29,25 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
   const [error, setError] = useState<string | null>(null)
   const [useCaseFilters, setUseCaseFilters] = useState<string[]>([])
   const [allProducts, setAllProducts] = useState<AIProduct[]>([]) // Store original products for filtering
+  const [showMobileFilters, setShowMobileFilters] = useState(false)
   
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1)
   const itemsPerPage = 10
+
+  // Prevent background scrolling when modal is open
+  useEffect(() => {
+    if (showMobileFilters) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'unset'
+    }
+    
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = 'unset'
+    }
+  }, [showMobileFilters])
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -236,8 +252,204 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header Section */}
-      <div className="border-b border-gray-200">
+      {/* Mobile Header */}
+      <div className="lg:hidden">
+        {/* Status Bar */}
+        <div className="bg-[#343739] text-white px-4 py-2 text-xs">
+          <div className="flex justify-between items-center">
+            <span className="font-semibold">9:41</span>
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-3 bg-white rounded-sm"></div>
+              <div className="w-4 h-3 bg-white rounded-sm"></div>
+              <div className="w-6 h-3 bg-white rounded-sm"></div>
+            </div>
+          </div>
+        </div>
+
+        {/* URL Bar */}
+        <div className="bg-gray-800 text-white px-4 py-2 text-sm text-center">
+          semka.ai
+        </div>
+
+        {/* Main Header */}
+        <div className="bg-white border-b border-gray-200 px-5 py-4">
+          <div className="flex items-center justify-between">
+            <div 
+              className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity"
+              onClick={() => router.push('/')}
+            >
+              <Image
+                src="/images/semka_logo_sinek_golgeli.png"
+                alt="Semka Logo"
+                width={32}
+                height={32}
+                className="w-8 h-8"
+              />
+              <span className="text-2xl font-semibold text-black">Semka</span>
+            </div>
+            <button 
+              onClick={() => {
+                const searchTerm = prompt('Arama yapmak istediğiniz yapay zeka aracını yazın:');
+                if (searchTerm && searchTerm.trim()) {
+                  router.push(`/aramasonucu/${encodeURIComponent(searchTerm.trim())}`);
+                }
+              }}
+              className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+            >
+              <Search className="h-5 w-5 text-gray-600" />
+            </button>
+          </div>
+        </div>
+
+        {/* Categories Navigation */}
+        <div className="bg-white border-b border-gray-200 px-5">
+          <div className="flex gap-8 overflow-x-auto">
+            <button 
+              onClick={() => router.push('/yapay-zeka-araclari/agentlar')}
+              className={`text-sm whitespace-nowrap hover:text-blue-600 h-[45px] border-b-2 transition-colors ${
+                params.slug === 'agentlar' 
+                  ? 'text-black border-[#0053E2] font-medium' 
+                  : 'text-gray-600 border-transparent'
+              }`}
+            >
+              Agentlar
+            </button>
+            <button 
+              onClick={() => router.push('/yapay-zeka-araclari/otomasyon')}
+              className={`text-sm whitespace-nowrap hover:text-blue-600 h-[45px] border-b-2 transition-colors ${
+                params.slug === 'otomasyon' 
+                  ? 'text-black border-[#0053E2] font-medium' 
+                  : 'text-gray-600 border-transparent'
+              }`}
+            >
+              Otomasyon
+            </button>
+            <button 
+              onClick={() => router.push('/yapay-zeka-araclari/fotograf-video')}
+              className={`text-sm whitespace-nowrap hover:text-blue-600 h-[45px] border-b-2 transition-colors ${
+                params.slug === 'fotograf-video' 
+                  ? 'text-black border-[#0053E2] font-medium' 
+                  : 'text-gray-600 border-transparent'
+              }`}
+            >
+              Fotoğraf & Video
+            </button>
+            <button 
+              onClick={() => router.push('/yapay-zeka-araclari/kurumsal')}
+              className={`text-sm whitespace-nowrap hover:text-blue-600 h-[45px] border-b-2 transition-colors ${
+                params.slug === 'kurumsal' 
+                  ? 'text-black border-[#0053E2] font-medium' 
+                  : 'text-gray-600 border-transparent'
+              }`}
+            >
+              Kurumsal
+            </button>
+            <button 
+              onClick={() => router.push('/yapay-zeka-araclari/altyapi')}
+              className={`text-sm whitespace-nowrap hover:text-blue-600 h-[45px] border-b-2 transition-colors ${
+                params.slug === 'altyapi' 
+                  ? 'text-black border-[#0053E2] font-medium' 
+                  : 'text-gray-600 border-transparent'
+              }`}
+            >
+              Altyapı
+            </button>
+            <button 
+              onClick={() => router.push('/yapay-zeka-araclari/verimlilik')}
+              className={`text-sm whitespace-nowrap hover:text-blue-600 h-[45px] border-b-2 transition-colors ${
+                params.slug === 'verimlilik' 
+                  ? 'text-black border-[#0053E2] font-medium' 
+                  : 'text-gray-600 border-transparent'
+              }`}
+            >
+              Verimlilik
+            </button>
+            <button 
+              onClick={() => router.push('/yapay-zeka-araclari/veri')}
+              className={`text-sm whitespace-nowrap hover:text-blue-600 h-[45px] border-b-2 transition-colors ${
+                params.slug === 'veri' 
+                  ? 'text-black border-[#0053E2] font-medium' 
+                  : 'text-gray-600 border-transparent'
+              }`}
+            >
+              Veri
+            </button>
+            <button 
+              onClick={() => router.push('/yapay-zeka-araclari/sosyal-medya')}
+              className={`text-sm whitespace-nowrap hover:text-blue-600 h-[45px] border-b-2 transition-colors ${
+                params.slug === 'sosyal-medya' 
+                  ? 'text-black border-[#0053E2] font-medium' 
+                  : 'text-gray-600 border-transparent'
+              }`}
+            >
+              Sosyal Medya
+            </button>
+            <button 
+              onClick={() => router.push('/yapay-zeka-araclari/ses')}
+              className={`text-sm whitespace-nowrap hover:text-blue-600 h-[45px] border-b-2 transition-colors ${
+                params.slug === 'ses' 
+                  ? 'text-black border-[#0053E2] font-medium' 
+                  : 'text-gray-600 border-transparent'
+              }`}
+            >
+              Ses
+            </button>
+            <button 
+              onClick={() => router.push('/yapay-zeka-araclari/sohbet-botu')}
+              className={`text-sm whitespace-nowrap hover:text-blue-600 h-[45px] border-b-2 transition-colors ${
+                params.slug === 'sohbet-botu' 
+                  ? 'text-black border-[#0053E2] font-medium' 
+                  : 'text-gray-600 border-transparent'
+              }`}
+            >
+              Sohbet Botu
+            </button>
+            <button 
+              onClick={() => router.push('/yapay-zeka-araclari/yazilim-araclari')}
+              className={`text-sm whitespace-nowrap hover:text-blue-600 h-[45px] border-b-2 transition-colors ${
+                params.slug === 'yazilim-araclari' 
+                  ? 'text-black border-[#0053E2] font-medium' 
+                  : 'text-gray-600 border-transparent'
+              }`}
+            >
+              Yazılım Araçları
+            </button>
+            <button 
+              onClick={() => router.push('/yapay-zeka-araclari/kodsuz-yazilim')}
+              className={`text-sm whitespace-nowrap hover:text-blue-600 h-[45px] border-b-2 transition-colors ${
+                params.slug === 'kodsuz-yazilim' 
+                  ? 'text-black border-[#0053E2] font-medium' 
+                  : 'text-gray-600 border-transparent'
+              }`}
+            >
+              Kodsuz Yazılım
+            </button>
+            <button 
+              onClick={() => router.push('/yapay-zeka-araclari/tasarim')}
+              className={`text-sm whitespace-nowrap hover:text-blue-600 h-[45px] border-b-2 transition-colors ${
+                params.slug === 'tasarim' 
+                  ? 'text-black border-[#0053E2] font-medium' 
+                  : 'text-gray-600 border-transparent'
+              }`}
+            >
+              Tasarım
+            </button>
+            <button 
+              onClick={() => router.push('/yapay-zeka-araclari/akademi')}
+              className={`text-sm whitespace-nowrap hover:text-blue-600 h-[45px] border-b-2 transition-colors ${
+                params.slug === 'akademi' 
+                  ? 'text-black border-[#0053E2] font-medium' 
+                  : 'text-gray-600 border-transparent'
+              }`}
+            >
+              Akademi
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Desktop Header Section */}
+      <div className="hidden lg:block border-b border-gray-200">
         <div className="container mx-auto px-10 py-2">
           <div className="mb-[6px] flex items-center gap-6">
             <h1 className="text-4xl font-bold text-black">
@@ -246,13 +458,366 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
             <p className="text-lg text-gray-600">
               {getCategorySubtitle(params.slug)}
             </p>
-
           </div>
         </div>
       </div>
 
-      {/* Main Content */}
-      <div className="container mx-auto px-10 py-8">
+      {/* Mobile Content */}
+      <div className="lg:hidden">
+        {/* Mobile Title and Filter */}
+        <div className="px-5 py-4">
+          <h1 className="text-3xl font-semibold text-black mb-4">
+            {getCategoryTitle(params.slug)}
+          </h1>
+          
+          <div className="flex items-center justify-between mb-4">
+            <span className="text-base font-semibold text-[#535962]">
+              {products.length} yapay zeka
+            </span>
+            <button 
+              onClick={() => setShowMobileFilters(true)}
+              className="flex items-center gap-2 px-3 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+            >
+              <span className="text-base font-normal text-black">Filtre</span>
+              <Sliders className="w-6 h-6 text-[#343330]" />
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Product Cards */}
+        <div className="px-5 space-y-3">
+          {paginatedProducts.length === 0 ? (
+            <div className="text-center py-12">
+              <p className="text-gray-500 text-lg">Bu kategoride ürün bulunamadı.</p>
+            </div>
+          ) : (
+            paginatedProducts.map((product, index) => (
+              <div key={product.id} className="relative">
+                {/* Divider */}
+                {index > 0 && (
+                  <div className="w-full h-px bg-[rgba(199,202,208,0.6)] mb-3"></div>
+                )}
+                
+                {/* Product Card */}
+                <div 
+                  className="bg-white rounded-lg overflow-hidden cursor-pointer hover:shadow-lg transition-shadow"
+                  onClick={() => {
+                    console.log('Card clicked for product:', product.name);
+                    try {
+                      router.push(`/yapay-zeka/${product.slug}`);
+                    } catch (error) {
+                      console.error('Router navigation failed, using fallback:', error);
+                      window.location.href = `/yapay-zeka/${product.slug}`;
+                    }
+                  }}
+                >
+                  {/* Banner Image */}
+                  <div className="w-full h-40 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 relative rounded-lg">
+                    {product.banner_url ? (
+                      <img 
+                        src={product.banner_url} 
+                        alt={product.name}
+                        className="w-full h-full object-cover rounded-lg"
+                      />
+                    ) : (
+                      <>
+                        <div className="absolute inset-0 bg-gradient-to-br from-green-500/20 to-blue-500/20 opacity-30"></div>
+                        <div className="absolute top-4 left-4 w-16 h-16 bg-gray-700 rounded-lg flex items-center justify-center">
+                          <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+                            <div className="w-4 h-4 bg-gray-800 rounded-full"></div>
+                          </div>
+                        </div>
+                        <div className="absolute bottom-4 left-4 text-white text-xs font-medium">
+                          {product.name.toLowerCase().replace(/\s+/g, '')}.ai
+                        </div>
+                      </>
+                    )}
+                  </div>
+
+                  {/* Product Info */}
+                  <div className="p-4">
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="flex items-center gap-3">
+                        {product.logo_url ? (
+                          <img 
+                            src={product.logo_url} 
+                            alt={`${product.name} logo`}
+                            className="w-8 h-8 rounded object-cover"
+                          />
+                        ) : (
+                          <div className="w-8 h-8 bg-black rounded flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">
+                              {product.name.charAt(0).toUpperCase()}
+                            </span>
+                          </div>
+                        )}
+                        <span className="text-base font-semibold text-black">
+                          {product.name}
+                        </span>
+                      </div>
+                      <a
+                        href={product.website_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => {
+                          e.stopPropagation(); // Prevent card click when clicking button
+                        }}
+                        className="bg-[#0053E2] text-white px-3 py-1 rounded-lg text-xs font-bold hover:bg-blue-600 transition-colors"
+                      >
+                        Siteye Git
+                      </a>
+                    </div>
+
+                    {/* Categories */}
+                    <div className="flex items-center gap-1 mb-3">
+                      {product.categories.slice(0, 3).map((category, catIndex) => (
+                        <div key={category} className="flex items-center">
+                          <span className="text-xs text-[#888E96]">{category}</span>
+                          {catIndex < product.categories.slice(0, 3).length - 1 && (
+                            <span className="text-xs text-[#888E96] mx-1">·</span>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Description */}
+                    <p className="text-sm text-[#535961] leading-6 line-clamp-2">
+                      {product.description_tr || product.overview_tr || 'Açıklama mevcut değil'}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))
+          )}
+        </div>
+
+        {/* Mobile Pagination */}
+        {products.length > 0 && (
+          <div className="px-5 py-4">
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={handlePageChange}
+              itemsPerPage={itemsPerPage}
+              totalItems={products.length}
+            />
+          </div>
+        )}
+
+        {/* Mobile Footer */}
+        <div className="bg-white border-t border-gray-200 px-5 py-4 mt-8">
+          <div className="max-w-sm mx-auto text-center">
+            {/* Logo */}
+            <div className="flex items-center justify-center gap-2 mb-3">
+              <Image
+                src="/images/semka_logo_sinek_golgeli.png"
+                alt="Semka Logo"
+                width={40}
+                height={40}
+                className="w-10 h-10"
+              />
+              <span className="text-2xl font-semibold text-black">Semka</span>
+            </div>
+
+            {/* Subtitle */}
+            <p className="text-sm text-black mb-3">Yapay Zeka Rehberiniz</p>
+
+            {/* Email */}
+            <p className="text-sm text-black mb-4">hello@semka.ai</p>
+
+            {/* Social Icons */}
+            <div className="flex justify-center gap-4 mb-4">
+              <a 
+                href="https://x.com/semkaai" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-4 h-4 hover:opacity-70 transition-opacity"
+              >
+                <svg className="w-full h-full text-black" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+              </a>
+              <a 
+                href="https://linkedin.com/company/semkaai" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-4 h-4 hover:opacity-70 transition-opacity"
+              >
+                <svg className="w-full h-full text-black" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+              </a>
+              <button 
+                onClick={() => {
+                  if (navigator.share) {
+                    navigator.share({
+                      title: 'Semka - Yapay Zeka Rehberi',
+                      text: 'Yapay zeka araçlarını keşfet!',
+                      url: window.location.href
+                    });
+                  } else {
+                    navigator.clipboard.writeText(window.location.href);
+                    alert('Link kopyalandı!');
+                  }
+                }}
+                className="w-4 h-4 hover:opacity-70 transition-opacity"
+              >
+                <svg className="w-full h-full text-black" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+              </button>
+            </div>
+
+            {/* Navigation Links */}
+            <div className="space-y-5 mb-4">
+              <div className="space-y-5">
+                <a 
+                  href="/about" 
+                  className="block text-sm text-black hover:text-blue-600 transition-colors"
+                >
+                  Hakkımızda
+                </a>
+                <a 
+                  href="mailto:hello@semka.ai" 
+                  className="block text-sm text-black hover:text-blue-600 transition-colors"
+                >
+                  Şirketini Ekle
+                </a>
+                <a 
+                  href="/use-cases" 
+                  className="block text-sm text-black hover:text-blue-600 transition-colors"
+                >
+                  Kullanım Senaryoları
+                </a>
+              </div>
+            </div>
+
+            {/* Copyright */}
+            <p className="text-xs text-black">Semka A.Ş. Tüm Hakları Saklıdır</p>
+          </div>
+        </div>
+
+        {/* iOS Home Indicator */}
+        <div className="flex justify-center py-2">
+          <div className="w-32 h-1 bg-black rounded-full"></div>
+        </div>
+
+        {/* Mobile Filter Modal */}
+        {showMobileFilters && (
+          <div 
+            className="fixed inset-0 z-50 bg-black bg-opacity-50 flex items-end lg:hidden"
+            onClick={() => setShowMobileFilters(false)}
+          >
+            <div 
+              className="bg-white w-full h-[80vh] rounded-t-2xl flex flex-col"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Filter Header */}
+              <div className="flex items-center justify-between p-4 border-b border-gray-200 flex-shrink-0">
+                <h2 className="text-lg font-semibold text-black">Filtreler</h2>
+                <button 
+                  onClick={() => setShowMobileFilters(false)}
+                  className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                >
+                  <X className="w-5 h-5 text-black" />
+                </button>
+              </div>
+
+              {/* Filter Content */}
+              <div className="flex-1 overflow-y-auto p-4 space-y-6 min-h-0">
+                {/* Use Cases Filter */}
+                <div>
+                  <h3 className="text-base font-semibold text-black mb-3">Kullanım Senaryoları
+                  </h3>
+                  <div className="space-y-3">
+                    {useCaseFilters.map((useCase) => (
+                      <div key={useCase} className="flex items-center justify-between">
+                        <div className="flex items-center space-x-3">
+                          <Checkbox
+                            id={`mobile-${useCase}`}
+                            checked={selectedUseCases.includes(useCase)}
+                            onCheckedChange={() => handleUseCaseToggle(useCase)}
+                          />
+                          <label htmlFor={`mobile-${useCase}`} className="text-sm text-black cursor-pointer">
+                            {useCase}
+                          </label>
+                        </div>
+                        <span className="text-sm text-gray-500">
+                          {allProducts.filter(product => {
+                            const productUseCases = getUseCasesArray(product);
+                            return productUseCases.some(productUseCase => 
+                              productUseCase.toLowerCase().includes(useCase.toLowerCase()) ||
+                              useCase.toLowerCase().includes(productUseCase.toLowerCase())
+                            );
+                          }).length}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Pricing Filter */}
+                <div>
+                  <h3 className="text-base font-semibold text-black mb-3">Fiyatlandırma</h3>
+                  <div className="space-y-3">
+                    {pricingFilters.map((pricing) => (
+                      <div key={pricing} className="flex items-center justify-between">
+                        <div className="flex items-center space-x-3">
+                          <Checkbox
+                            id={`mobile-pricing-${pricing}`}
+                            checked={selectedPricing.includes(pricing)}
+                            onCheckedChange={() => handlePricingToggle(pricing)}
+                          />
+                          <label htmlFor={`mobile-pricing-${pricing}`} className="text-sm text-black cursor-pointer">
+                            {pricing}
+                          </label>
+                        </div>
+                        <span className="text-sm text-gray-500">
+                          {allProducts.filter(product => {
+                            if (pricing === '0 - $20' && product.has_free_plan) return true;
+                            if (product.price) {
+                              const price = product.price.toLowerCase();
+                              if (pricing === '0 - $20' && (price.includes('free') || price.includes('0'))) return true;
+                              if (pricing === '$20 - $40' && price.includes('20')) return true;
+                              if (pricing === '$60 - $80' && price.includes('60')) return true;
+                              if (pricing === '$80 - $100' && price.includes('80')) return true;
+                              if (pricing === '$100 - $150' && price.includes('100')) return true;
+                              if (pricing === '$150+' && price.includes('150')) return true;
+                            }
+                            return false;
+                          }).length}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Filter Footer */}
+              <div className="border-t border-gray-200 p-4 flex gap-3 flex-shrink-0">
+                <button 
+                  onClick={() => {
+                    setSelectedUseCases([]);
+                    setSelectedPricing([]);
+                  }}
+                  className="flex-1 px-4 py-2 bg-gray-100 text-gray-700 rounded-lg font-medium hover:bg-gray-200 transition-colors"
+                >
+                  Temizle
+                </button>
+                <button 
+                  onClick={() => setShowMobileFilters(false)}
+                  className="flex-1 px-4 py-2 bg-[#0053E2] text-white rounded-lg font-medium hover:bg-blue-600 transition-colors"
+                >
+                  Uygula
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Desktop Content */}
+      <div className="hidden lg:block container mx-auto px-10 py-8">
         <div className="flex gap-8">
           {/* Left Sidebar - Filters */}
           <div className="w-80 flex-shrink-0">
