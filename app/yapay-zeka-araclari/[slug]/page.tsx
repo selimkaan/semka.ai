@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button'
 import { ExternalLink, Users, Star } from 'lucide-react'
 import { getAIsByCategory, AIProduct, getUseCasesForCategory, getUseCasesArray } from '@/lib/firebase-data'
 import { useRouter } from 'next/navigation'
+import { Pagination } from '@/components/pagination'
 
 // Dynamic use case filters will be loaded based on category
 
@@ -27,6 +28,10 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
   const [error, setError] = useState<string | null>(null)
   const [useCaseFilters, setUseCaseFilters] = useState<string[]>([])
   const [allProducts, setAllProducts] = useState<AIProduct[]>([]) // Store original products for filtering
+  
+  // Pagination state
+  const [currentPage, setCurrentPage] = useState(1)
+  const itemsPerPage = 10
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -104,6 +109,7 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
     }
 
     setProducts(filtered);
+    setCurrentPage(1); // Reset to first page when filters change
   }, [selectedUseCases, selectedPricing, allProducts]);
 
   const handleUseCaseToggle = (useCase: string) => {
@@ -120,6 +126,18 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
         ? prev.filter(item => item !== pricing)
         : [...prev, pricing]
     )
+  }
+
+  // Calculate pagination
+  const totalPages = Math.ceil(products.length / itemsPerPage)
+  const startIndex = (currentPage - 1) * itemsPerPage
+  const endIndex = startIndex + itemsPerPage
+  const paginatedProducts = products.slice(startIndex, endIndex)
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page)
+    // Scroll to top when page changes
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   const getCategoryTitle = (slug: string) => {
@@ -314,12 +332,12 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
           {/* Right Section - Product Listings */}
           <div className="flex-1">
             <div className="space-y-4">
-              {filteredProducts.length === 0 ? (
+              {paginatedProducts.length === 0 ? (
                 <div className="text-center py-12">
                   <p className="text-gray-500 text-lg">No products found for this category.</p>
                 </div>
               ) : (
-                filteredProducts.map((product) => (
+                paginatedProducts.map((product) => (
                   <div key={product.id} className="flex w-full h-[134px] bg-white border border-gray-200 rounded-lg hover:shadow-md transition-shadow overflow-hidden">
                     {/* Left Section - Banner Image */}
                     <div className="w-[260px] h-[134px] bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 flex-shrink-0 relative rounded-lg">
@@ -440,6 +458,17 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
                 ))
               )}
             </div>
+            
+            {/* Pagination */}
+            {products.length > 0 && (
+              <Pagination
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={handlePageChange}
+                itemsPerPage={itemsPerPage}
+                totalItems={products.length}
+              />
+            )}
           </div>
         </div>
       </div>

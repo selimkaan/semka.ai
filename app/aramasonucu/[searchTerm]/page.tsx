@@ -7,6 +7,7 @@ import { ExternalLink, Users, Star } from 'lucide-react'
 import { searchAIs, AIProduct } from '@/lib/firebase-data'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import { Pagination } from '@/components/pagination'
 
 interface SearchPageProps {
   params: {
@@ -29,6 +30,10 @@ export default function SearchPage({ params }: SearchPageProps) {
   const [selectedPricing, setSelectedPricing] = useState<string[]>([])
   const [searchResults, setSearchResults] = useState<AIProduct[]>([])
   const [isLoading, setIsLoading] = useState(true)
+  
+  // Pagination state
+  const [currentPage, setCurrentPage] = useState(1)
+  const itemsPerPage = 10
 
   useEffect(() => {
     // Search for products using Firebase
@@ -54,6 +59,19 @@ export default function SearchPage({ params }: SearchPageProps) {
         ? prev.filter(item => item !== pricing)
         : [...prev, pricing]
     )
+    setCurrentPage(1) // Reset to first page when filters change
+  }
+
+  // Calculate pagination
+  const totalPages = Math.ceil(filteredProducts.length / itemsPerPage)
+  const startIndex = (currentPage - 1) * itemsPerPage
+  const endIndex = startIndex + itemsPerPage
+  const paginatedProducts = filteredProducts.slice(startIndex, endIndex)
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page)
+    // Scroll to top when page changes
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   // Filter products based on selected filters
@@ -170,7 +188,7 @@ export default function SearchPage({ params }: SearchPageProps) {
                   </Link>
                 </div>
               ) : (
-                filteredProducts.map((product) => (
+                paginatedProducts.map((product) => (
                   <div key={product.id} className="flex w-full h-[134px] bg-white border border-gray-200 rounded-lg hover:shadow-md transition-shadow overflow-hidden">
                     {/* Left Section - Banner Image */}
                     <div className="w-[260px] h-[134px] bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 flex-shrink-0 relative rounded-lg">
@@ -291,6 +309,17 @@ export default function SearchPage({ params }: SearchPageProps) {
                 ))
               )}
             </div>
+            
+            {/* Pagination */}
+            {filteredProducts.length > 0 && (
+              <Pagination
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={handlePageChange}
+                itemsPerPage={itemsPerPage}
+                totalItems={filteredProducts.length}
+              />
+            )}
           </div>
         </div>
       </div>
