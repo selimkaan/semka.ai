@@ -157,6 +157,74 @@ export async function getAllAIs(): Promise<AIProduct[]> {
 }
 
 // Search AIs by name and description
+// Intent mapping for natural language queries
+const intentMapping: { [key: string]: string[] } = {
+  // Video creation
+  'video': ['video', 'görsel', 'animasyon', 'film', 'kısa film', 'reklam', 'tanıtım', 'youtube', 'tiktok', 'instagram'],
+  'oluştur': ['oluştur', 'yap', 'hazırla', 'üret', 'düzenle', 'edit', 'create', 'make', 'generate'],
+  'video oluştur': ['video', 'görsel', 'animasyon', 'film', 'kısa film', 'reklam', 'tanıtım', 'youtube', 'tiktok', 'instagram'],
+  
+  // Image creation
+  'görsel': ['görsel', 'resim', 'fotoğraf', 'image', 'picture', 'photo', 'illustration', 'art', 'sanat'],
+  'görsel oluştur': ['görsel', 'resim', 'fotoğraf', 'image', 'picture', 'photo', 'illustration', 'art', 'sanat'],
+  
+  // Writing and content
+  'yazı': ['yazı', 'metin', 'içerik', 'blog', 'makale', 'article', 'text', 'content', 'writing'],
+  'yazı yaz': ['yazı', 'metin', 'içerik', 'blog', 'makale', 'article', 'text', 'content', 'writing'],
+  
+  // Audio and voice
+  'ses': ['ses', 'müzik', 'podcast', 'seslendirme', 'voice', 'audio', 'sound', 'music'],
+  'ses oluştur': ['ses', 'müzik', 'podcast', 'seslendirme', 'voice', 'audio', 'sound', 'music'],
+  
+  // Code and development
+  'kod': ['kod', 'programlama', 'yazılım', 'uygulama', 'website', 'web sitesi', 'code', 'programming', 'development'],
+  'kod yaz': ['kod', 'programlama', 'yazılım', 'uygulama', 'website', 'web sitesi', 'code', 'programming', 'development'],
+  
+  // Design
+  'tasarım': ['tasarım', 'design', 'logo', 'branding', 'marka', 'grafik', 'graphic'],
+  'tasarım yap': ['tasarım', 'design', 'logo', 'branding', 'marka', 'grafik', 'graphic'],
+  
+  // Data and analysis
+  'veri': ['veri', 'analiz', 'rapor', 'data', 'analysis', 'report', 'excel', 'spreadsheet'],
+  'veri analiz': ['veri', 'analiz', 'rapor', 'data', 'analysis', 'report', 'excel', 'spreadsheet'],
+  
+  // Social media
+  'sosyal medya': ['sosyal medya', 'instagram', 'facebook', 'twitter', 'linkedin', 'tiktok', 'youtube', 'social media'],
+  'sosyal medya yönet': ['sosyal medya', 'instagram', 'facebook', 'twitter', 'linkedin', 'tiktok', 'youtube', 'social media'],
+  
+  // Chat and communication
+  'sohbet': ['sohbet', 'chat', 'müşteri hizmetleri', 'customer service', 'destek', 'support'],
+  'sohbet botu': ['sohbet', 'chat', 'müşteri hizmetleri', 'customer service', 'destek', 'support', 'bot'],
+  
+  // Productivity
+  'verimlilik': ['verimlilik', 'productivity', 'organizasyon', 'organization', 'planlama', 'planning'],
+  'verimlilik artır': ['verimlilik', 'productivity', 'organizasyon', 'organization', 'planlama', 'planning'],
+  
+  // Automation
+  'otomasyon': ['otomasyon', 'automation', 'otomatik', 'automatic', 'workflow', 'iş akışı'],
+  'otomatikleştir': ['otomasyon', 'automation', 'otomatik', 'automatic', 'workflow', 'iş akışı']
+};
+
+// Extract keywords from natural language query
+function extractKeywords(query: string): string[] {
+  const queryLower = query.toLowerCase().trim();
+  const keywords: string[] = [];
+  
+  // Check for exact intent matches
+  for (const [intent, relatedKeywords] of Object.entries(intentMapping)) {
+    if (queryLower.includes(intent)) {
+      keywords.push(...relatedKeywords);
+    }
+  }
+  
+  // Add individual words from the query
+  const words = queryLower.split(/\s+/).filter(word => word.length > 2);
+  keywords.push(...words);
+  
+  // Remove duplicates
+  return [...new Set(keywords)];
+}
+
 export async function searchAIs(searchTerm: string): Promise<AIProduct[]> {
   try {
     console.log(`Searching for: "${searchTerm}"`);
@@ -169,32 +237,98 @@ export async function searchAIs(searchTerm: string): Promise<AIProduct[]> {
     
     const searchLower = searchTerm.toLowerCase().trim();
     
-    // Search by name (partial match) and description (case-insensitive)
-    const matchingAIs = allAIs.filter(ai => {
-      const nameMatch = ai.name.toLowerCase().includes(searchLower);
-      const descriptionMatch = ai.description_tr.toLowerCase().includes(searchLower);
-      const overviewMatch = ai.overview_tr.toLowerCase().includes(searchLower);
-      
-      return nameMatch || descriptionMatch || overviewMatch;
-    });
+    // Extract keywords for intelligent matching
+    const keywords = extractKeywords(searchTerm);
+    console.log('Extracted keywords:', keywords);
     
-    // Sort results: exact name matches first, then partial name matches, then description matches
-    const sortedResults = matchingAIs.sort((a, b) => {
+    // Search by name, description, overview, features, and use cases
+    const matchingAIs = allAIs.filter(ai => {
+      // Direct text matches
+      const nameMatch = ai.name.toLowerCase().includes(searchLower);
+      const descriptionMatch = ai.description_tr?.toLowerCase().includes(searchLower) || false;
+      const overviewMatch = ai.overview_tr?.toLowerCase().includes(searchLower) || false;
+      
+      // Keyword-based matches
+      const keywordMatches = keywords.some(keyword => {
+        const keywordLower = keyword.toLowerCase();
+        return (
+          ai.name.toLowerCase().includes(keywordLower) ||
+          ai.description_tr?.toLowerCase().includes(keywordLower) ||
+          ai.overview_tr?.toLowerCase().includes(keywordLower) ||
+          ai.categories.some(cat => cat.toLowerCase().includes(keywordLower))
+        );
+      });
+      
+      // Feature and use case matches
+      const featureMatches = keywords.some(keyword => {
+        const keywordLower = keyword.toLowerCase();
+        for (let i = 1; i <= 10; i++) {
+          const feature = ai[`features${i}` as keyof AIProduct] as string;
+          if (feature && feature.toLowerCase().includes(keywordLower)) {
+            return true;
+          }
+        }
+        return false;
+      });
+      
+      const useCaseMatches = keywords.some(keyword => {
+        const keywordLower = keyword.toLowerCase();
+        for (let i = 1; i <= 6; i++) {
+          const useCase = ai[`usecase${i}` as keyof AIProduct] as string;
+          if (useCase && useCase.toLowerCase().includes(keywordLower)) {
+            return true;
+          }
+        }
+        return false;
+      });
+      
+      return nameMatch || descriptionMatch || overviewMatch || keywordMatches || featureMatches || useCaseMatches;
+    });
+
+    // Enhanced sorting by relevance
+    const sortedAIs = matchingAIs.sort((a, b) => {
+      // Exact name matches first
       const aNameExact = a.name.toLowerCase() === searchLower;
       const bNameExact = b.name.toLowerCase() === searchLower;
-      const aNameMatch = a.name.toLowerCase().includes(searchLower);
-      const bNameMatch = b.name.toLowerCase().includes(searchLower);
-      
       if (aNameExact && !bNameExact) return -1;
       if (!aNameExact && bNameExact) return 1;
-      if (aNameMatch && !bNameMatch) return -1;
-      if (!aNameMatch && bNameMatch) return 1;
       
-      return 0;
+      // Partial name matches
+      const aNamePartial = a.name.toLowerCase().includes(searchLower);
+      const bNamePartial = b.name.toLowerCase().includes(searchLower);
+      if (aNamePartial && !bNamePartial) return -1;
+      if (!aNamePartial && bNamePartial) return 1;
+      
+      // Keyword relevance scoring
+      const aKeywordScore = keywords.reduce((score, keyword) => {
+        const keywordLower = keyword.toLowerCase();
+        let keywordScore = 0;
+        
+        if (a.name.toLowerCase().includes(keywordLower)) keywordScore += 3;
+        if (a.description_tr?.toLowerCase().includes(keywordLower)) keywordScore += 2;
+        if (a.overview_tr?.toLowerCase().includes(keywordLower)) keywordScore += 2;
+        if (a.categories.some(cat => cat.toLowerCase().includes(keywordLower))) keywordScore += 1;
+        
+        return score + keywordScore;
+      }, 0);
+      
+      const bKeywordScore = keywords.reduce((score, keyword) => {
+        const keywordLower = keyword.toLowerCase();
+        let keywordScore = 0;
+        
+        if (b.name.toLowerCase().includes(keywordLower)) keywordScore += 3;
+        if (b.description_tr?.toLowerCase().includes(keywordLower)) keywordScore += 2;
+        if (b.overview_tr?.toLowerCase().includes(keywordLower)) keywordScore += 2;
+        if (b.categories.some(cat => cat.toLowerCase().includes(keywordLower))) keywordScore += 1;
+        
+        return score + keywordScore;
+      }, 0);
+      
+      return bKeywordScore - aKeywordScore;
     });
-    
-    console.log(`Found ${sortedResults.length} matching AIs`);
-    return sortedResults;
+
+    console.log(`Found ${sortedAIs.length} matching AIs`);
+    return sortedAIs;
   } catch (error) {
     console.error('Error searching AIs:', error);
     return [];
