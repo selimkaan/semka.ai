@@ -86,23 +86,6 @@ export default function AIDetailPage() {
     <div className="min-h-screen bg-white dark:bg-white">
       {/* Mobile Header */}
       <div className="lg:hidden">
-        {/* Status Bar */}
-        <div className="bg-[#343739] text-white px-4 py-2 text-xs">
-          <div className="flex justify-between items-center">
-            <span className="font-semibold">9:41</span>
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-3 bg-white rounded-sm"></div>
-              <div className="w-4 h-3 bg-white rounded-sm"></div>
-              <div className="w-6 h-3 bg-white rounded-sm"></div>
-            </div>
-          </div>
-        </div>
-
-        {/* URL Bar */}
-        <div className="bg-gray-800 text-white px-4 py-2 text-sm text-center">
-          semka.ai
-        </div>
-
         {/* Main Header */}
         <div className="bg-white border-b border-gray-200 px-5 py-4">
           <div className="flex items-center justify-between">
