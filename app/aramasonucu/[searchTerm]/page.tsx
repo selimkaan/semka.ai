@@ -62,18 +62,6 @@ export default function SearchPage({ params }: SearchPageProps) {
     setCurrentPage(1) // Reset to first page when filters change
   }
 
-  // Calculate pagination
-  const totalPages = Math.ceil(filteredProducts.length / itemsPerPage)
-  const startIndex = (currentPage - 1) * itemsPerPage
-  const endIndex = startIndex + itemsPerPage
-  const paginatedProducts = filteredProducts.slice(startIndex, endIndex)
-
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page)
-    // Scroll to top when page changes
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
-
   // Filter products based on selected filters
   const filteredProducts = searchResults.filter(product => {
     // Apply pricing filters if any are selected
@@ -96,6 +84,18 @@ export default function SearchPage({ params }: SearchPageProps) {
 
     return true;
   });
+
+  // Calculate pagination
+  const totalPages = Math.ceil(filteredProducts.length / itemsPerPage)
+  const startIndex = (currentPage - 1) * itemsPerPage
+  const endIndex = startIndex + itemsPerPage
+  const paginatedProducts = filteredProducts.slice(startIndex, endIndex)
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page)
+    // Scroll to top when page changes
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
 
   if (isLoading) {
     return (
