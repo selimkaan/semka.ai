@@ -61,23 +61,6 @@ export default function HomePage() {
     <div className="min-h-screen bg-white overflow-x-hidden">
       {/* Mobile Header */}
       <div className="lg:hidden">
-        {/* Status Bar */}
-        <div className="bg-[#343739] text-white px-4 py-2 text-xs">
-          <div className="flex justify-between items-center">
-            <span className="font-semibold">9:41</span>
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-3 bg-white rounded-sm"></div>
-              <div className="w-4 h-3 bg-white rounded-sm"></div>
-              <div className="w-6 h-3 bg-white rounded-sm"></div>
-            </div>
-          </div>
-        </div>
-
-        {/* URL Bar */}
-        <div className="bg-gray-800 text-white px-4 py-2 text-sm text-center">
-          semka.ai
-        </div>
-
         {/* Main Header */}
         <div className="bg-white border-b border-gray-200 px-5 py-4">
           <div className="flex items-center justify-between">
@@ -202,15 +185,15 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="pt-4 lg:pt-20 pb-4 lg:pb-16 px-5 lg:px-4">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Main Title */}
-          <div className="mb-4 lg:mb-8">
-            <h1 className="text-3xl lg:text-8xl font-bold text-black mb-1">
-              Yapay Zeka
-            </h1>
-            <h1 className="text-3xl lg:text-8xl font-bold text-[#0053E2]">
-              Rehberi
-            </h1>
-          </div>
+            {/* Main Title */}
+            <div className="mb-4 lg:mb-8">
+              <h1 className="text-[46px] lg:text-8xl font-bold text-black mb-1">
+                Yapay Zeka
+              </h1>
+              <h1 className="text-[46px] lg:text-8xl font-bold text-[#0053E2]">
+                Rehberi
+              </h1>
+            </div>
 
           {/* Description */}
           <div className="mb-4 lg:mb-32">
