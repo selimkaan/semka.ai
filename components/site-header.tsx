@@ -44,7 +44,7 @@ export function SiteHeader() {
   }
 
   return (
-    <header className="hidden lg:block w-full bg-white border-b border-gray-200">
+    <header className="w-full bg-white border-b border-gray-200">
       {/* Top Header */}
       <div className="border-b border-gray-200">
         <div className="px-10 py-4">

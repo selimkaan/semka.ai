@@ -63,9 +63,13 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div className="relative flex min-h-screen flex-col">
-            <SiteHeader />
+            <div className="hidden lg:block">
+              <SiteHeader />
+            </div>
             <main className="flex-1">{children}</main>
-            <SiteFooter />
+            <div className="hidden lg:block">
+              <SiteFooter />
+            </div>
           </div>
           <Toaster />
         </ThemeProvider>

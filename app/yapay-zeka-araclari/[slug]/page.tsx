@@ -254,7 +254,7 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
     <div className="min-h-screen bg-white">
       {/* Mobile Header */}
       <div className="lg:hidden">
-        {/* Main Header */}
+        {/* Main Header (same as home) */}
         <div className="bg-white border-b border-gray-200 px-5 py-4">
           <div className="flex items-center justify-between">
             <div 
@@ -284,8 +284,8 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
           </div>
         </div>
 
-        {/* Categories Navigation */}
-        <div className="bg-white border-b border-gray-200 px-5">
+        {/* Categories Navigation (same spacing as home header) */}
+        <div className="bg-white border-b border-gray-200 px-5 py-0">
           <div className="flex gap-8 overflow-x-auto">
             <button 
               onClick={() => router.push('/yapay-zeka-araclari/agentlar')}
@@ -345,7 +345,7 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
                   : 'text-gray-600 border-transparent'
               }`}
             >
-              Verimlilik
+              Üretkenlik
             </button>
             <button 
               onClick={() => router.push('/yapay-zeka-araclari/veri')}

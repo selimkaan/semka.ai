@@ -92,89 +92,89 @@ export default function HomePage() {
         </div>
 
         {/* Categories Navigation */}
-        <div className="bg-white border-b border-gray-200 px-5 py-3">
+        <div className="bg-white border-b border-gray-200 px-5 py-0">
           <div className="flex gap-8 overflow-x-auto">
             <button 
               onClick={() => router.push('/yapay-zeka-araclari/agentlar')}
-              className="text-sm font-medium text-black whitespace-nowrap hover:text-[#0053E2] transition-colors"
+              className="text-sm font-medium text-black whitespace-nowrap hover:text-[#0053E2] transition-colors h-[45px]"
             >
               Agentlar
             </button>
             <button 
               onClick={() => router.push('/yapay-zeka-araclari/otomasyon')}
-              className="text-sm text-gray-600 whitespace-nowrap hover:text-[#0053E2] transition-colors"
+              className="text-sm text-gray-600 whitespace-nowrap hover:text-[#0053E2] transition-colors h-[45px]"
             >
               Otomasyon
             </button>
             <button 
               onClick={() => router.push('/yapay-zeka-araclari/fotograf-video')}
-              className="text-sm text-gray-600 whitespace-nowrap hover:text-[#0053E2] transition-colors"
+              className="text-sm text-gray-600 whitespace-nowrap hover:text-[#0053E2] transition-colors h-[45px]"
             >
               Fotoğraf & Video
             </button>
             <button 
               onClick={() => router.push('/yapay-zeka-araclari/kurumsal')}
-              className="text-sm text-gray-600 whitespace-nowrap hover:text-[#0053E2] transition-colors"
+              className="text-sm text-gray-600 whitespace-nowrap hover:text-[#0053E2] transition-colors h-[45px]"
             >
               Kurumsal
             </button>
             <button 
               onClick={() => router.push('/yapay-zeka-araclari/altyapi')}
-              className="text-sm text-gray-600 whitespace-nowrap hover:text-[#0053E2] transition-colors"
+              className="text-sm text-gray-600 whitespace-nowrap hover:text-[#0053E2] transition-colors h-[45px]"
             >
               Altyapı
             </button>
             <button 
               onClick={() => router.push('/yapay-zeka-araclari/uretkenlik')}
-              className="text-sm text-gray-600 whitespace-nowrap hover:text-[#0053E2] transition-colors"
+              className="text-sm text-gray-600 whitespace-nowrap hover:text-[#0053E2] transition-colors h-[45px]"
             >
-              Verimlilik
+              Üretkenlik
             </button>
             <button 
               onClick={() => router.push('/yapay-zeka-araclari/veri')}
-              className="text-sm text-gray-600 whitespace-nowrap hover:text-[#0053E2] transition-colors"
+              className="text-sm text-gray-600 whitespace-nowrap hover:text-[#0053E2] transition-colors h-[45px]"
             >
               Veri
             </button>
             <button 
               onClick={() => router.push('/yapay-zeka-araclari/sosyal-medya')}
-              className="text-sm text-gray-600 whitespace-nowrap hover:text-[#0053E2] transition-colors"
+              className="text-sm text-gray-600 whitespace-nowrap hover:text-[#0053E2] transition-colors h-[45px]"
             >
               Sosyal Medya
             </button>
             <button 
               onClick={() => router.push('/yapay-zeka-araclari/ses')}
-              className="text-sm text-gray-600 whitespace-nowrap hover:text-[#0053E2] transition-colors"
+              className="text-sm text-gray-600 whitespace-nowrap hover:text-[#0053E2] transition-colors h-[45px]"
             >
               Ses
             </button>
             <button 
               onClick={() => router.push('/yapay-zeka-araclari/sohbet-botu')}
-              className="text-sm text-gray-600 whitespace-nowrap hover:text-[#0053E2] transition-colors"
+              className="text-sm text-gray-600 whitespace-nowrap hover:text-[#0053E2] transition-colors h-[45px]"
             >
               Sohbet Botu
             </button>
             <button 
               onClick={() => router.push('/yapay-zeka-araclari/yazilim-araclari')}
-              className="text-sm text-gray-600 whitespace-nowrap hover:text-[#0053E2] transition-colors"
+              className="text-sm text-gray-600 whitespace-nowrap hover:text-[#0053E2] transition-colors h-[45px]"
             >
               Yazılım Araçları
             </button>
             <button 
               onClick={() => router.push('/yapay-zeka-araclari/kodsuz-yazilim')}
-              className="text-sm text-gray-600 whitespace-nowrap hover:text-[#0053E2] transition-colors"
+              className="text-sm text-gray-600 whitespace-nowrap hover:text-[#0053E2] transition-colors h-[45px]"
             >
               Kodsuz Yazılım
             </button>
             <button 
               onClick={() => router.push('/yapay-zeka-araclari/tasarim')}
-              className="text-sm text-gray-600 whitespace-nowrap hover:text-[#0053E2] transition-colors"
+              className="text-sm text-gray-600 whitespace-nowrap hover:text-[#0053E2] transition-colors h-[45px]"
             >
               Tasarım
             </button>
             <button 
               onClick={() => router.push('/yapay-zeka-araclari/akademi')}
-              className="text-sm text-gray-600 whitespace-nowrap hover:text-[#0053E2] transition-colors"
+              className="text-sm text-gray-600 whitespace-nowrap hover:text-[#0053E2] transition-colors h-[45px]"
             >
               Akademi
             </button>
@@ -185,15 +185,15 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="pt-4 lg:pt-20 pb-4 lg:pb-16 px-5 lg:px-4">
         <div className="max-w-4xl mx-auto text-center">
-            {/* Main Title */}
-            <div className="mb-4 lg:mb-8">
-              <h1 className="text-[46px] lg:text-8xl font-bold text-black mb-1">
-                Yapay Zeka
-              </h1>
-              <h1 className="text-[46px] lg:text-8xl font-bold text-[#0053E2]">
-                Rehberi
-              </h1>
-            </div>
+          {/* Main Title */}
+          <div className="mb-4 lg:mb-8">
+            <h1 className="text-3xl lg:text-8xl font-bold text-black mb-1">
+              Yapay Zeka
+            </h1>
+            <h1 className="text-3xl lg:text-8xl font-bold text-[#0053E2]">
+              Rehberi
+            </h1>
+          </div>
 
           {/* Description */}
           <div className="mb-4 lg:mb-32">
