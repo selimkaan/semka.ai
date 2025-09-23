@@ -231,9 +231,9 @@ export function PopularAppCard({
             </div>
           </div>
           
-          {/* Price - Ensured proper positioning */}
-          <div className="w-[50px] h-[17px] font-['Inter'] font-semibold text-sm leading-[17px] tracking-[-0.01em] text-[#000000] flex-shrink-0 flex items-center justify-center mr-3">
-            <span className="whitespace-nowrap">{price}</span>
+          {/* Price - Ensure at least 10px gap to the right edge and allow wider texts */}
+          <div className="min-w-[50px] h-[17px] font-['Inter'] font-semibold text-sm leading-[17px] tracking-[-0.01em] text-[#000000] flex-shrink-0 flex items-center justify-end pr-[10px]">
+            <span className="whitespace-nowrap truncate">{price}</span>
           </div>
         </div>
       </CardContent>
