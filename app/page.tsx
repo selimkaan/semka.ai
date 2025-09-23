@@ -4,7 +4,6 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Search, ArrowLeft, ArrowRight, Video, Image as ImageIcon, Clipboard, Scale, Mic, Code } from 'lucide-react'
 import ScrollableCards from '@/components/scrollable-cards'
 import { getPopularAIs, getTrendingAIs, AIProduct } from '@/lib/firebase-data'
-import agentsData from '@/data/agents.json'
 import { Button } from '@/components/ui/button'
 import { useRouter } from 'next/navigation'
 import { useState, useEffect } from 'react'
@@ -15,47 +14,39 @@ export default function HomePage() {
   const router = useRouter();
   const [popularAIs, setPopularAIs] = useState<AIProduct[]>([]);
   const [trendingAIs, setTrendingAIs] = useState<AIProduct[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Fetch real data from Firebase with error handling
+    // Fetch real data from Firebase
     const fetchData = async () => {
       try {
-        const fetchedPopularAIs = await getPopularAIs();
-        const fetchedTrendingAIs = await getTrendingAIs();
-        setPopularAIs(fetchedPopularAIs);
-        setTrendingAIs(fetchedTrendingAIs);
+        console.log('Starting to fetch AI data...');
+        setIsLoading(true);
+        const [fetchedPopularAIs, fetchedTrendingAIs] = await Promise.all([
+          getPopularAIs(),
+          getTrendingAIs(),
+        ]);
+
+        console.log('Fetched popular AIs:', fetchedPopularAIs?.length || 0);
+        console.log('Fetched trending AIs:', fetchedTrendingAIs?.length || 0);
+
+        setPopularAIs(fetchedPopularAIs || []);
+        setTrendingAIs(fetchedTrendingAIs || []);
       } catch (error) {
         console.error('Error fetching AI data:', error);
-        // Fallback to empty arrays if Firebase fails
+        setPopularAIs([]);
+        setTrendingAIs([]);
+      } finally {
+        setIsLoading(false);
       }
     };
 
     fetchData();
   }, []);
 
-  // Convert local agents data to AIProduct format for fallback
-  const localAgentsAsAIProducts: AIProduct[] = agentsData.slice(0, 6).map((agent, index) => ({
-    id: agent.id,
-    name: agent.name,
-    description_tr: agent.description_tr || agent.shortDescription,
-    overview_tr: agent.description,
-    categories: agent.categories,
-    banner_url: agent.cover || '',
-    logo_url: agent.icon || '',
-    website_url: agent.providerUrl || '',
-    sales_action: agent.pricing === 'Freemium' ? 'Ücretsiz' : agent.pricing,
-    price: agent.price || undefined,
-    has_free_plan: agent.pricing === 'Freemium' || agent.pricing === 'Free',
-    slug: agent.slug,
-    tool_id: parseInt(agent.id),
-    category_id: index + 1,
-    category_tool_id: index + 1,
-    sort_id: agent.id
-  }));
-
-  // Use fallback data if Firebase data is empty
-  const displayPopularAIs = popularAIs.length > 0 ? popularAIs : localAgentsAsAIProducts;
-  const displayTrendingAIs = trendingAIs.length > 0 ? trendingAIs : localAgentsAsAIProducts.slice(3);
+  // Use Firebase data directly - no local fallback
+  const displayPopularAIs = popularAIs;
+  const displayTrendingAIs = trendingAIs;
 
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
@@ -246,7 +237,7 @@ export default function HomePage() {
         title="Popüler Yapay Zekalar"
         subtitle="En sık kullanılan yapay zekalar"
         scrollId="popular-ais"
-        cards={displayPopularAIs.map((ai, index) => ({
+        cards={isLoading ? [] : displayPopularAIs.map((ai, index) => ({
           index: index + 1,
           title: ai.name,
           description: ai.description_tr,
@@ -472,7 +463,7 @@ export default function HomePage() {
         title="Trend Yapay Zekalar"
         subtitle="Yeni çıkan yapay zekalar"
         scrollId="trending-ais"
-        cards={displayTrendingAIs.map((ai, index) => ({
+        cards={isLoading ? [] : displayTrendingAIs.map((ai, index) => ({
           index: index + 1,
           title: ai.name,
           description: ai.description_tr,

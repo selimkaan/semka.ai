@@ -86,18 +86,52 @@ export function getUseCasesArray(ai: AIProduct): string[] {
 // Fetch popular AI applications (you can adjust the logic based on your needs)
 export async function getPopularAIs(): Promise<AIProduct[]> {
   try {
-    // For now, fetch all AIs and you can add popularity logic later
-    const q = query(
+    console.log('Fetching popular AIs from popular-agents collection...');
+    
+    // Test if collection exists by trying to get all documents
+    const testQuery = query(collection(db, 'popular-agents'));
+    const testSnapshot = await getDocs(testQuery);
+    console.log('Total documents in popular-agents:', testSnapshot.size);
+    
+    if (testSnapshot.empty) {
+      console.log('popular-agents collection is empty, trying fallback...');
+    } else {
+      console.log('Found documents in popular-agents, processing...');
+    }
+    
+    // Primary strategy: query the popular-agents collection directly
+    const popularQuery = query(
+      collection(db, 'popular-agents'),
+      limit(10)
+    );
+    const popularSnapshot = await getDocs(popularQuery);
+    
+    console.log('Popular agents query result:', popularSnapshot.size, 'documents found');
+    
+    if (!popularSnapshot.empty) {
+      const results = popularSnapshot.docs.map(d => ({ id: d.id, ...(d.data() as any) })) as AIProduct[];
+      console.log('Popular AIs loaded:', results.length);
+      return results;
+    }
+
+    console.log('No documents found in popular-agents, trying fallback...');
+
+    // Fallback: try the tools collection with is_popular flag
+    const popularFlagQuery = query(
       collection(db, 'tools'),
+      where('is_popular', '==', true),
       orderBy('sort_id', 'asc'),
       limit(10)
     );
-    
+    const popularFlagSnap = await getDocs(popularFlagQuery);
+    if (!popularFlagSnap.empty) {
+      return popularFlagSnap.docs.map(d => ({ id: d.id, ...(d.data() as any) })) as AIProduct[];
+    }
+
+    // Final fallback: get first 10 tools from tools collection
+    const q = query(collection(db, 'tools'), orderBy('sort_id', 'asc'), limit(10));
     const querySnapshot = await getDocs(q);
-    return querySnapshot.docs.map(doc => ({
-      id: doc.id,
-      ...doc.data()
-    })) as AIProduct[];
+    return querySnapshot.docs.map(doc => ({ id: doc.id, ...(doc.data() as any) })) as AIProduct[];
   } catch (error) {
     console.error('Error fetching popular AIs:', error);
     return [];
@@ -107,18 +141,41 @@ export async function getPopularAIs(): Promise<AIProduct[]> {
 // Fetch trending AI applications
 export async function getTrendingAIs(): Promise<AIProduct[]> {
   try {
-    // For now, fetch all AIs and you can add trending logic later
-    const q = query(
+    console.log('Fetching trending AIs from trend-agents collection...');
+    
+    // Primary strategy: query the trend-agents collection directly
+    const trendingQuery = query(
+      collection(db, 'trend-agents'),
+      limit(10)
+    );
+    const trendingSnapshot = await getDocs(trendingQuery);
+    
+    console.log('Trend agents query result:', trendingSnapshot.size, 'documents found');
+    
+    if (!trendingSnapshot.empty) {
+      const results = trendingSnapshot.docs.map(d => ({ id: d.id, ...(d.data() as any) })) as AIProduct[];
+      console.log('Trending AIs loaded:', results.length);
+      return results;
+    }
+
+    console.log('No documents found in trend-agents, trying fallback...');
+
+    // Fallback: try the tools collection with is_trending flag
+    const trendingFlagQuery = query(
       collection(db, 'tools'),
+      where('is_trending', '==', true),
       orderBy('sort_id', 'asc'),
       limit(10)
     );
-    
+    const trendingFlagSnap = await getDocs(trendingFlagQuery);
+    if (!trendingFlagSnap.empty) {
+      return trendingFlagSnap.docs.map(d => ({ id: d.id, ...(d.data() as any) })) as AIProduct[];
+    }
+
+    // Final fallback: get first 10 tools from tools collection
+    const q = query(collection(db, 'tools'), orderBy('sort_id', 'asc'), limit(10));
     const querySnapshot = await getDocs(q);
-    return querySnapshot.docs.map(doc => ({
-      id: doc.id,
-      ...doc.data()
-    })) as AIProduct[];
+    return querySnapshot.docs.map(doc => ({ id: doc.id, ...(doc.data() as any) })) as AIProduct[];
   } catch (error) {
     console.error('Error fetching trending AIs:', error);
     return [];
