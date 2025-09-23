@@ -26,11 +26,10 @@ function MobileAICard({
       {/* Banner Image */}
       <div className="w-full h-[163px] bg-gray-200 relative">
         {bannerUrl ? (
-          <Image
+          <img
             src={bannerUrl}
             alt={title}
-            fill
-            className="object-cover"
+            className="w-full h-full object-cover"
           />
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
@@ -45,14 +44,12 @@ function MobileAICard({
       <div className="p-3 pt-3">
         <div className="flex items-start gap-2">
           {/* Logo */}
-          <div className="w-[57px] h-[57px] bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
+          <div className="w-[57px] h-[57px] bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden">
             {logoUrl ? (
-              <Image
+              <img
                 src={logoUrl}
                 alt={`${title} logo`}
-                width={57}
-                height={57}
-                className="rounded-lg object-cover"
+                className="w-full h-full rounded-lg object-cover"
               />
             ) : (
               <span className="text-lg">🤖</span>
