@@ -55,9 +55,9 @@ export default function AboutPage() {
               <br /><br />
               Çocukluğumdan beri ulaşabildiğim her yeni teknolojiye adapte olmaya ve o teknolojiyi kullanmaya çalıştım. Birkaç yıldır işin mutfağındayım ve arkadaşlarımla insanların sorunlarına teknolojik çözümler geliştirmeye çalışıyoruz (çok çalışıyoruz).
               <br /><br />
-              Bir girişimci olarak bilginin ve bilgiye ulaşmanın çok değerli olduğuna inanıyorum. Bilgiye ulaşmaya verdiğim bu değer, arkadaşım Mehmet ile beraber Semka’yı kurma konusunda en büyük motivasyonlarımdan birisiydi.
+              Bir girişimci olarak bilginin ve bilgiye ulaşmanın çok değerli olduğuna inanıyorum. Semka'yı hayata geçirmek için en büyük motivasyonlarımdan birisi de insanların yapay zekaya dair bilgilere ulaşabilmelerini sağlayabilmekti.
               <br /><br />
-              Şu anda da İTÜ’de İşletme Mühendisliği’nde okuyorum ve kendimi yapay zeka, ekonomi, siyaset gibi farklı alanlarda geliştirmeye çalışıyorum.
+              Şu anda da İTÜ’de İşletme Mühendisliği’nde okuyorum ve kendimi teknoloji, ekonomi, siyaset gibi farklı alanlarda geliştirmeye çalışıyorum.
             </p>
           </div>
 
