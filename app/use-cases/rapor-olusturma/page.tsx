@@ -3,8 +3,171 @@
 export default function RaporOlusturmaPage() {
   return (
     <div className="min-h-screen bg-white">
+      {/* Mobile Layout */}
+      <div className="lg:hidden">
+        {/* Mobile Header (same as other blogs) */}
+        <div className="bg-white border-b border-gray-200 px-5 py-4">
+          <div className="flex items-center justify-between">
+            <div
+              className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity"
+              onClick={() => (window.location.href = '/')}
+            >
+              <img src="/images/semka_logo_sinek_golgeli.png" alt="Semka Logo" className="w-8 h-8" />
+              <span className="text-2xl font-semibold text-black">Semka</span>
+            </div>
+            <button
+              onClick={() => {
+                const term = prompt('Aramak istediğiniz konuyu yazın:')
+                if (term && term.trim()) {
+                  window.location.href = `/aramasonucu/${encodeURIComponent(term.trim())}`
+                }
+              }}
+              className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+            >
+              <svg className="h-5 w-5 text-gray-600" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/></svg>
+            </button>
+          </div>
+        </div>
+
+        {/* Categories Navigation */}
+        <div className="bg-white border-b border-gray-200 px-5 py-0">
+          <div className="flex gap-8 overflow-x-auto">
+            <button className="text-sm font-medium text-black whitespace-nowrap hover:text-[#0053E2] transition-colors h-[45px]" onClick={() => (window.location.href = '/yapay-zeka-araclari/agentlar')}>Agentlar</button>
+            <button className="text-sm text-gray-600 whitespace-nowrap hover:text-[#0053E2] transition-colors h-[45px]" onClick={() => (window.location.href = '/yapay-zeka-araclari/otomasyon')}>Otomasyon</button>
+            <button className="text-sm text-gray-600 whitespace-nowrap hover:text-[#0053E2] transition-colors h-[45px]" onClick={() => (window.location.href = '/yapay-zeka-araclari/fotograf-video')}>Fotoğraf & Video</button>
+            <button className="text-sm text-gray-600 whitespace-nowrap hover:text-[#0053E2] transition-colors h-[45px]" onClick={() => (window.location.href = '/yapay-zeka-araclari/kurumsal')}>Kurumsal</button>
+            <button className="text-sm text-gray-600 whitespace-nowrap hover:text-[#0053E2] transition-colors h-[45px]" onClick={() => (window.location.href = '/yapay-zeka-araclari/altyapi')}>Altyapı</button>
+            <button className="text-sm text-gray-600 whitespace-nowrap hover:text-[#0053E2] transition-colors h-[45px]" onClick={() => (window.location.href = '/yapay-zeka-araclari/uretkenlik')}>Üretkenlik</button>
+            <button className="text-sm text-gray-600 whitespace-nowrap hover:text-[#0053E2] transition-colors h-[45px]" onClick={() => (window.location.href = '/yapay-zeka-araclari/veri')}>Veri</button>
+            <button className="text-sm text-gray-600 whitespace-nowrap hover:text-[#0053E2] transition-colors h-[45px]" onClick={() => (window.location.href = '/yapay-zeka-araclari/sosyal-medya')}>Sosyal Medya</button>
+            <button className="text-sm text-gray-600 whitespace-nowrap hover:text-[#0053E2] transition-colors h-[45px]" onClick={() => (window.location.href = '/yapay-zeka-araclari/ses')}>Ses</button>
+            <button className="text-sm text-gray-600 whitespace-nowrap hover:text-[#0053E2] transition-colors h-[45px]" onClick={() => (window.location.href = '/yapay-zeka-araclari/sohbet-botu')}>Sohbet Botu</button>
+            <button className="text-sm text-gray-600 whitespace-nowrap hover:text-[#0053E2] transition-colors h-[45px]" onClick={() => (window.location.href = '/yapay-zeka-araclari/yazilim-araclari')}>Yazılım Araçları</button>
+            <button className="text-sm text-gray-600 whitespace-nowrap hover:text-[#0053E2] transition-colors h-[45px]" onClick={() => (window.location.href = '/yapay-zeka-araclari/kodsuz-yazilim')}>Kodsuz Yazılım</button>
+            <button className="text-sm text-gray-600 whitespace-nowrap hover:text-[#0053E2] transition-colors h-[45px]" onClick={() => (window.location.href = '/yapay-zeka-araclari/tasarim')}>Tasarım</button>
+            <button className="text-sm text-gray-600 whitespace-nowrap hover:text-[#0053E2] transition-colors h-[45px]" onClick={() => (window.location.href = '/yapay-zeka-araclari/akademi')}>Akademi</button>
+          </div>
+        </div>
+
+        {/* Mobile Content */}
+        <div className="container mx-auto px-5 py-2">
+          {/* Page Header */}
+          <div className="mb-[6px]">
+            <h1 className="text-[28px] font-semibold text-black">Rapor Oluşturma</h1>
+            <p className="mt-1 text-[14px] text-[#535961]">Yapay Zeka Araçlarıyla Rapor Oluşturma Rehberi</p>
+          </div>
+
+          {/* Separator */}
+          <div className="w-full h-px bg-gray-300 mb-5"></div>
+
+          {/* Step 1 */}
+          <div className="mb-5">
+            <div>
+              <h2 className="text-[28px] font-semibold text-[#0053E2] mb-5">1. Adım: Veriyi ve Amacı Belirleyin</h2>
+              <p className="text-lg text-black leading-relaxed px-5">
+                Hazırlayacağınız raporun hedefini ve hangi verilerden besleneceğini netleştirin. Başlıkları kabaca çıkarın; girdi verilerini tablo ya da metin halinde hazır bulundurun.
+              </p>
+            </div>
+            <div className="flex flex-col items-center mt-4">
+              <h3 className="text-xl font-semibold text-black mb-5">Kullanabileceğin Yapay Zekalar</h3>
+              <div className="flex gap-4">
+                {/* Notion AI */}
+                <div className="flex flex-col items-center">
+                  <a href="https://www.notion.so/product/ai" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="w-[88px] h-[118px] border border-[#0053E2] rounded-lg p-2 flex flex-col hover:shadow-lg transition-shadow">
+                      <div className="w-full h-16 bg-white rounded-[10px] flex items-center justify-center mb-2">
+                        <img src="/images/notion-ai-logo.png" alt="Notion AI" className="w-14 h-14 object-contain" />
+                      </div>
+                      <div className="w-full h-[1px] bg-black mb-2"></div>
+                      <span className="text-sm font-semibold text-black text-center mt-auto">Notion AI</span>
+                    </div>
+                  </a>
+                </div>
+                {/* Wordtune */}
+                <div className="flex flex-col items-center">
+                  <a href="https://www.wordtune.com" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="w-[88px] h-[118px] border border-[#0053E2] rounded-lg p-2 flex flex-col hover:shadow-lg transition-shadow">
+                      <div className="w-full h-16 bg-white rounded-[10px] flex items-center justify-center mb-2">
+                        <img src="/images/wordtune-logo.png" alt="Wordtune" className="w-14 h-14 object-contain" />
+                      </div>
+                      <div className="w-full h-[1px] bg-black mb-2"></div>
+                      <span className="text-sm font-semibold text-black text-center mt-auto">Wordtune</span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Separator */}
+          <div className="w-full h-px bg-gray-300 mb-5"></div>
+
+          {/* Step 2 */}
+          <div className="mb-5">
+            <div>
+              <h2 className="text-[28px] font-semibold text-[#0053E2] mb-5">2. Adım: Analiz ve Görselleştirme</h2>
+              <p className="text-lg text-black leading-relaxed px-5">
+                Verileri analiz ederek öne çıkan bulguları çıkarın. Gerekirse grafikleri otomatik üreten araçlardan yararlanın ve kısa özetler oluşturun.
+              </p>
+            </div>
+            <div className="flex flex-col items-center mt-4">
+              <h3 className="text-xl font-semibold text-black mb-5">Kullanabileceğin Yapay Zekalar</h3>
+              <div className="flex gap-4">
+                {/* Julius AI */}
+                <div className="flex flex-col items-center">
+                  <a href="https://julius.ai" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="w-[88px] h-[118px] border border-[#0053E2] rounded-lg p-2 flex flex-col hover:shadow-lg transition-shadow">
+                      <div className="w-full h-16 bg-white rounded-[10px] flex items-center justify-center mb-2">
+                        <img src="/images/julius-ai-logo.png" alt="Julius AI" className="w-14 h-14 object-contain" />
+                      </div>
+                      <div className="w-full h-[1px] bg-black mb-2"></div>
+                      <span className="text-sm font-semibold text-black text-center mt-auto">Julius AI</span>
+                    </div>
+                  </a>
+                </div>
+                {/* Shortcut AI */}
+                <div className="flex flex-col items-center">
+                  <a href="https://www.shortcut.com/" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="w-[88px] h-[118px] border border-[#0053E2] rounded-lg p-2 flex flex-col hover:shadow-lg transition-shadow">
+                      <div className="w-full h-16 bg-white rounded-[10px] flex items-center justify-center mb-2">
+                        <img src="/images/shortcut-ai-logo.png" alt="Shortcut AI" className="w-14 h-14 object-contain" />
+                      </div>
+                      <div className="w-full h-[1px] bg-black mb-2"></div>
+                      <span className="text-sm font-semibold text-black text-center mt-auto">Shortcut AI</span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Separator */}
+          <div className="w-full h-px bg-gray-300 mb-5"></div>
+
+          {/* Step 3 */}
+          <div className="mb-16">
+            <div>
+              <h2 className="text-[28px] font-semibold text-[#0053E2] mb-5">3. Adım: Sonuç ve Sunum</h2>
+              <p className="text-lg text-black leading-relaxed px-5">
+                Bulguları kısa maddelerle toparlayın ve görsellerle destekleyin. Sunum ya da paylaşım için PDF/Doc çıktısı alın.
+              </p>
+            </div>
+            <div className="flex flex-col items-center mt-4">
+              <h3 className="text-xl font-semibold text-black mb-5">İpucu</h3>
+              <div className="px-5">
+                <div className="border border-black rounded-lg p-3 w-full relative">
+                  <p className="text-[16px] text-black">Rapor içinde tablo ve grafik sayısını sınırlı tutun; her görsel net bir bulguyu desteklesin. En sonda 5-7 maddelik bir özet eklemek okunabilirliği artırır.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Desktop Layout (unchanged) */}
+      <div className="hidden lg:block">
       {/* Main Content */}
-      <div className="container mx-auto px-10 py-2">
+      <div className="hidden lg:block container mx-auto px-10 py-2">
         {/* Page Header */}
         <div className="flex items-center gap-8 mb-[6px]">
           <h1 className="text-[32px] font-bold text-black">
@@ -343,6 +506,7 @@ export default function RaporOlusturmaPage() {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </div>
   );
