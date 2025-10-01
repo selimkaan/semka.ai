@@ -315,7 +315,7 @@ export default function AIDetailPage() {
             {/* Links */}
             <div className="space-y-2 text-sm">
               <div className="flex justify-center gap-6">
-                <a href="/about" className="text-black">Hakkımızda</a>
+                <a href="/hakkimizda" className="text-black">Hakkımızda</a>
                 <a href="/add-company" className="text-black">Şirketini Ekle</a>
               </div>
               <a href="/use-cases" className="text-black">Kullanım Senaryoları</a>

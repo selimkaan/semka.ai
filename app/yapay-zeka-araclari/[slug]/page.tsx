@@ -655,7 +655,7 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
             <div className="space-y-5 mb-4">
               <div className="space-y-5">
                 <a 
-                  href="/about" 
+                  href="/hakkimizda" 
                   className="block text-sm text-black hover:text-blue-600 transition-colors"
                 >
                   Hakkımızda

@@ -177,7 +177,7 @@ export default function AboutPage() {
           
           {/* Navigation Links */}
           <div className="flex flex-col gap-5">
-            <a href="/about" className="text-sm text-black">Hakkımızda</a>
+            <a href="/hakkimizda" className="text-sm text-black">Hakkımızda</a>
             <a href="/use-cases" className="text-sm text-black">Kullanım Senaryoları</a>
             <a href="/success-stories" className="text-sm text-black">Yapay Zeka İle Başarı Hikayeleri</a>
           </div>

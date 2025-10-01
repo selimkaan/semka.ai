@@ -91,7 +91,7 @@ export function SiteHeader() {
                 Kullanım Senaryoları
               </Link>
               <Link
-                href="/about"
+                href="/hakkimizda"
                 className="text-sm font-semibold text-black hover:text-primary transition-colors"
               >
                 Hakkımızda
@@ -318,7 +318,7 @@ export function SiteHeader() {
                 Kullanım Senaryoları
               </Link>
               <Link
-                href="/about"
+                href="/hakkimizda"
                 className="text-lg font-medium transition-colors hover:text-primary"
               >
                 Hakkımızda

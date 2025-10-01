@@ -47,7 +47,7 @@ export function SiteFooter() {
 
             {/* Right Side - Navigation */}
             <div className="flex flex-col gap-8">
-              <Link href="/about" className="text-sm font-medium text-black dark:text-black hover:text-primary transition-colors">
+              <Link href="/hakkimizda" className="text-sm font-medium text-black dark:text-black hover:text-primary transition-colors">
                 Hakkımızda
               </Link>
               <Link href="/use-cases" className="text-sm font-medium text-black dark:text-black hover:text-primary transition-colors">

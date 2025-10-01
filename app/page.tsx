@@ -523,7 +523,7 @@ export default function HomePage() {
           {/* Links */}
           <div className="space-y-2 text-sm">
             <div className="flex justify-center gap-6">
-              <button className="text-black">Hakkımızda</button>
+              <a href="/hakkimizda" className="text-black">Hakkımızda</a>
               <button className="text-black">Şirketini Ekle</button>
             </div>
             <button className="text-black">Kullanım Senaryoları</button>
