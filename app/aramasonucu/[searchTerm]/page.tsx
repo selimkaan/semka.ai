@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Button } from '@/components/ui/button'
 import { ExternalLink, Users, Star } from 'lucide-react'
-import { searchAIs, AIProduct } from '@/lib/firebase-data'
+import { semanticSearchAIs, AIProduct } from '@/lib/firebase-data'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { Pagination } from '@/components/pagination'
@@ -40,7 +40,7 @@ export default function SearchPage({ params }: SearchPageProps) {
     const performSearch = async () => {
       setIsLoading(true)
       try {
-        const results = await searchAIs(searchTerm)
+        const results = await semanticSearchAIs(searchTerm)
         setSearchResults(results)
       } catch (error) {
         console.error('Error searching AIs:', error)

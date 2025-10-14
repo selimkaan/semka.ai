@@ -48,6 +48,11 @@ export interface AIProduct {
   usecase4?: string;
   usecase5?: string;
   usecase6?: string;
+  
+  // Semantic search properties
+  popularity_score?: number;
+  similarity_score?: number;
+  final_score?: number;
 }
 
 export interface UseCase {
@@ -280,6 +285,65 @@ function extractKeywords(query: string): string[] {
   
   // Remove duplicates
   return Array.from(new Set(keywords));
+}
+
+// Semantic search function using Pinecone
+export async function semanticSearchAIs(searchTerm: string): Promise<AIProduct[]> {
+  try {
+    console.log(`🔍 Semantic search for: "${searchTerm}"`);
+    
+    const response = await fetch('/api/semantic-search', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ query: searchTerm }),
+    });
+    
+    if (!response.ok) {
+      throw new Error(`Semantic search API error: ${response.status}`);
+    }
+    
+    const data = await response.json();
+    
+    if (data.error) {
+      console.warn('Semantic search error:', data.error);
+      // Fallback to keyword search
+      return await searchAIs(searchTerm);
+    }
+    
+    // Convert semantic search results to AIProduct format
+    const results: AIProduct[] = data.results.map((result: any) => ({
+      id: result.id,
+      name: result.name,
+      description_tr: result.description_tr || '',
+      overview_tr: result.overview_tr || '',
+      categories: Array.isArray(result.categories) ? result.categories : (result.category_name ? [result.category_name] : []),
+      banner_url: result.banner_url || '',
+      logo_url: result.logo_url || '',
+      website_url: result.website_url || '',
+      sales_action: result.sales_action || '',
+      has_free_plan: Boolean(result.has_free_plan),
+      slug: result.slug || '',
+      tool_id: parseInt(result.id) || 0,
+      category_id: 0,
+      category_tool_id: 0,
+      sort_id: result.id,
+      price: result.price,
+      prices: result.prices,
+      popularity_score: result.popularity_score || 50,
+      similarity_score: result.similarity_score || 0,
+      final_score: result.final_score || 0,
+    }));
+    
+    console.log(`✅ Semantic search returned ${results.length} results (source: ${data.source})`);
+    return results;
+    
+  } catch (error) {
+    console.error('❌ Semantic search failed, falling back to keyword search:', error);
+    // Fallback to existing keyword search
+    return await searchAIs(searchTerm);
+  }
 }
 
 export async function searchAIs(searchTerm: string): Promise<AIProduct[]> {
