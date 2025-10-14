@@ -3,12 +3,17 @@ import { collection, getDocs, query, where, limit } from 'firebase/firestore';
 import { db } from '../../../lib/firebase';
 import { Pinecone } from '@pinecone-database/pinecone';
 
-// Initialize Pinecone client
-const pinecone = new Pinecone({
-  apiKey: process.env.PINECONE_API_KEY!,
-});
-
-const index = pinecone.index(process.env.PINECONE_INDEX_NAME!);
+// Lazy Pinecone initialization to avoid build-time crashes
+function getPineconeIndex() {
+  const apiKey = process.env.PINECONE_API_KEY;
+  const indexName = process.env.PINECONE_INDEX_NAME;
+  if (!apiKey || !indexName) {
+    throw new Error('Missing Pinecone env vars');
+  }
+  const client = new Pinecone({ apiKey });
+  const ns = process.env.PINECONE_NAMESPACE || '__default__';
+  return client.index(indexName).namespace(ns);
+}
 
 // OpenAI API configuration
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
@@ -150,6 +155,7 @@ export async function POST(request: NextRequest) {
     console.log('🔍 Querying Pinecone...');
     let pineconeResults;
     try {
+      const index = getPineconeIndex();
       pineconeResults = await index.query({
         vector: queryEmbedding,
         topK: 32, // widen candidate pool
@@ -160,9 +166,8 @@ export async function POST(request: NextRequest) {
       if (pineconeResults.matches && pineconeResults.matches.length > 0) {
         console.log('🎯 Top match score:', pineconeResults.matches[0].score);
       }
-    } catch (error) {
-      console.error('❌ Pinecone query failed:', error);
-      console.log('🔄 Falling back to keyword search...');
+    } catch (error: any) {
+      console.error('❌ Pinecone query failed or env not set, using keyword fallback:', (error && error.message) ? error.message : String(error));
       const keywordResults = await keywordSearch(searchQuery);
       return NextResponse.json({ results: keywordResults, source: 'keyword' });
     }
