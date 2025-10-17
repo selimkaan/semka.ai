@@ -214,7 +214,7 @@ export default function HomePage() {
                   <input
                     type="text"
                     name="search"
-                    placeholder="Yapay zeka ara"
+                    placeholder="Yapay zeka ile ne yapmak istersin?"
                     className="flex-1 text-base font-medium text-black placeholder:text-gray-400 placeholder:font-medium outline-none bg-transparent"
                   />
                   <button type="submit" className="flex-shrink-0">

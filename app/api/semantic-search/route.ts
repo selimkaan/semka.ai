@@ -146,6 +146,14 @@ export async function POST(request: NextRequest) {
     
     console.log(`🔍 Semantic search for: "${searchQuery}"`);
     
+    // Debug: Check environment variables
+    console.log('--- Environment Check ---');
+    console.log('OPENAI_API_KEY:', process.env.OPENAI_API_KEY ? 'SET' : 'NOT SET');
+    console.log('PINECONE_API_KEY:', process.env.PINECONE_API_KEY ? 'SET' : 'NOT SET');
+    console.log('PINECONE_INDEX_NAME:', process.env.PINECONE_INDEX_NAME || 'NOT SET');
+    console.log('PINECONE_NAMESPACE:', process.env.PINECONE_NAMESPACE || '__default__');
+    console.log('------------------------');
+    
     // Generate embedding for the search query
     console.log('📝 Generating embedding...');
     const queryEmbedding = await generateEmbedding(searchQuery.trim());
