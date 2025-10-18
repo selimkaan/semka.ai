@@ -12,7 +12,9 @@ function getPineconeIndex() {
   }
   const client = new Pinecone({ apiKey });
   const ns = process.env.PINECONE_NAMESPACE || '__default__';
-  return client.index(indexName).namespace(ns);
+  // Handle both 'default' and '__default__' formats
+  const normalizedNs = ns === 'default' ? '__default__' : ns;
+  return client.index(indexName).namespace(normalizedNs);
 }
 
 // OpenAI API configuration
