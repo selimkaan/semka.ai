@@ -9,12 +9,14 @@ import { useRouter } from 'next/navigation'
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import MobileSearchModal from '@/components/mobile-search-modal'
 
 export default function HomePage() {
   const router = useRouter();
   const [popularAIs, setPopularAIs] = useState<AIProduct[]>([]);
   const [trendingAIs, setTrendingAIs] = useState<AIProduct[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
 
   useEffect(() => {
     // Fetch real data from Firebase
@@ -32,8 +34,8 @@ export default function HomePage() {
 
         setPopularAIs(fetchedPopularAIs || []);
         setTrendingAIs(fetchedTrendingAIs || []);
-      } catch (error) {
-        console.error('Error fetching AI data:', error);
+  } catch (error) {
+    console.error('Error fetching AI data:', error);
         setPopularAIs([]);
         setTrendingAIs([]);
       } finally {
@@ -49,11 +51,11 @@ export default function HomePage() {
   const displayTrendingAIs = trendingAIs;
 
   return (
-    <div className="min-h-screen bg-white overflow-x-hidden">
+    <div className="min-h-screen bg-white dark:bg-white overflow-x-hidden">
       {/* Mobile Header */}
       <div className="lg:hidden">
         {/* Main Header */}
-        <div className="bg-white border-b border-gray-200 px-5 py-4">
+        <div className="bg-white dark:bg-white border-b border-gray-200 px-5 py-4">
           <div className="flex items-center justify-between">
             <div 
               className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity"
@@ -69,12 +71,7 @@ export default function HomePage() {
               <span className="text-2xl font-semibold text-black">Semka</span>
             </div>
             <button 
-              onClick={() => {
-                const searchTerm = prompt('Arama yapmak istediğiniz yapay zeka aracını yazın:');
-                if (searchTerm && searchTerm.trim()) {
-                  router.push(`/aramasonucu/${encodeURIComponent(searchTerm.trim())}`);
-                }
-              }}
+              onClick={() => setIsSearchModalOpen(true)}
               className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
             >
               <Search className="h-5 w-5 text-gray-600" />
@@ -83,7 +80,7 @@ export default function HomePage() {
         </div>
 
         {/* Categories Navigation */}
-        <div className="bg-white border-b border-gray-200 px-5 py-0">
+        <div className="bg-white dark:bg-white border-b border-gray-200 px-5 py-0">
           <div className="flex gap-8 overflow-x-auto">
             <button 
               onClick={() => router.push('/yapay-zeka-araclari/agentlar')}
@@ -174,27 +171,27 @@ export default function HomePage() {
       </div>
 
       {/* Hero Section */}
-      <section className="pt-4 lg:pt-20 pb-4 lg:pb-16 px-5 lg:px-4">
+      <section className="pt-4 lg:pt-20 pb-4 lg:pb-16 px-5 lg:px-4 bg-white dark:bg-white">
         <div className="max-w-4xl mx-auto text-center">
           {/* Main Title */}
           <div className="mb-4 lg:mb-8">
-            <h1 className="text-3xl lg:text-8xl font-bold text-black mb-1">
+            <h1 className="text-3xl lg:text-8xl font-bold text-black dark:text-black mb-1">
               Yapay Zeka
             </h1>
-            <h1 className="text-3xl lg:text-8xl font-bold text-[#0053E2]">
+            <h1 className="text-3xl lg:text-8xl font-bold text-[#0053E2] dark:text-[#0053E2]">
               Rehberi
             </h1>
           </div>
 
           {/* Description */}
           <div className="mb-4 lg:mb-32">
-            <p className="text-sm lg:text-base text-black max-w-4xl mx-auto leading-relaxed mb-1">
+            <p className="text-sm lg:text-base text-black dark:text-black max-w-4xl mx-auto leading-relaxed mb-1">
               Semka geleceği şekillendiren yapay zekaların
             </p>
-            <p className="text-sm lg:text-base text-black max-w-4xl mx-auto leading-relaxed mb-1">
+            <p className="text-sm lg:text-base text-black dark:text-black max-w-4xl mx-auto leading-relaxed mb-1">
               bulunduğu bir pazar yeri platformudur.
             </p>
-            <p className="text-sm lg:text-base text-black max-w-4xl mx-auto leading-relaxed">
+            <p className="text-sm lg:text-base text-black dark:text-black max-w-4xl mx-auto leading-relaxed">
               En iyi yapay zekaları keşfedebilir ve satın alabilirsin.
             </p>
           </div>
@@ -211,16 +208,16 @@ export default function HomePage() {
                 }
               }}>
                 <div className="flex items-center border-2 border-black focus-within:border-[#0053E2] rounded-[36px] px-6 py-3 bg-white w-full max-w-[349px] lg:max-w-[895px] h-[54px] mx-auto transition-colors">
-                  <input
-                    type="text"
+                <input
+                  type="text"
                     name="search"
                     placeholder="Yapay zeka ile ne yapmak istersin?"
                     className="flex-1 text-base font-medium text-black placeholder:text-gray-400 placeholder:font-medium outline-none bg-transparent"
-                  />
+                />
                   <button type="submit" className="flex-shrink-0">
                     <Search className="h-5 w-5 text-[#343330] ml-2" />
                   </button>
-                </div>
+              </div>
               </form>
             </div>
           </div>
@@ -265,7 +262,7 @@ export default function HomePage() {
               Yapay zekayı kullanmak için yol haritaları
             </p>
           </div>
-
+          
           {/* Mobile Layout */}
           <div className="lg:hidden space-y-0">
             {/* Video Creation */}
@@ -376,57 +373,57 @@ export default function HomePage() {
             {/* Video Creation */}
             <Link href="/use-cases/video-creation/" className="block">
               <div className="w-[300px] h-[255px] min-w-[300px] min-h-[255px] bg-white border-2 border-[#C7CAD0] rounded-[10px] flex flex-col items-center justify-center p-4 cursor-pointer hover:shadow-lg transition-shadow">
-                <div className="w-[72px] h-[72px] flex items-center justify-center mb-3">
-                  <Video className="w-[58.5px] h-[56.25px] text-[#0E0E0F]" />
-                </div>
-                <div className="w-[72px] h-[1px] bg-[#535962] mb-4"></div>
-                <div className="text-center">
-                  <h3 className="font-['Inter'] font-semibold text-[28px] leading-[1.14] text-[#0E0E0F] mb-4">Video Oluşturma</h3>
-                  <p className="font-['Inter'] font-normal text-[18px] leading-[1.21] text-[#0E0E0F] max-w-[261.88px]">Sadece metin girerek istediğin videoyu oluştur</p>
-                </div>
+              <div className="w-[72px] h-[72px] flex items-center justify-center mb-3">
+                <Video className="w-[58.5px] h-[56.25px] text-[#0E0E0F]" />
               </div>
+              <div className="w-[72px] h-[1px] bg-[#535962] mb-4"></div>
+              <div className="text-center">
+                <h3 className="font-['Inter'] font-semibold text-[28px] leading-[1.14] text-[#0E0E0F] mb-4">Video Oluşturma</h3>
+                <p className="font-['Inter'] font-normal text-[18px] leading-[1.21] text-[#0E0E0F] max-w-[261.88px]">Sadece metin girerek istediğin videoyu oluştur</p>
+              </div>
+            </div>
             </Link>
 
             {/* Image Generation */}
             <Link href="/use-cases/gorsel-olusturma/" className="block">
               <div className="w-[300px] h-[255px] min-w-[300px] min-h-[255px] bg-white border border-[#C7CAD0] rounded-[10px] flex flex-col items-center justify-center p-4 cursor-pointer hover:shadow-lg transition-shadow">
-                <div className="w-[72px] h-[72px] flex items-center justify-center mb-3">
-                  <ImageIcon className="w-[60.75px] h-[51.75px] text-[#0E0E0F]" />
-                </div>
-                <div className="w-[72px] h-[1px] bg-[#535962] mb-4"></div>
-                <div className="text-center">
-                  <h3 className="font-['Inter'] font-semibold text-[28px] leading-[1.14] text-[#0E0E0F] mb-4">Görsel Oluşturma</h3>
-                  <p className="font-['Inter'] font-normal text-[18px] leading-[1.21] text-[#0E0E0F] max-w-[261.88px]">Sadece metin girerek istediğin görseli oluştur</p>
-                </div>
+              <div className="w-[72px] h-[72px] flex items-center justify-center mb-3">
+                <ImageIcon className="w-[60.75px] h-[51.75px] text-[#0E0E0F]" />
               </div>
+              <div className="w-[72px] h-[1px] bg-[#535962] mb-4"></div>
+              <div className="text-center">
+                <h3 className="font-['Inter'] font-semibold text-[28px] leading-[1.14] text-[#0E0E0F] mb-4">Görsel Oluşturma</h3>
+                <p className="font-['Inter'] font-normal text-[18px] leading-[1.21] text-[#0E0E0F] max-w-[261.88px]">Sadece metin girerek istediğin görseli oluştur</p>
+              </div>
+            </div>
             </Link>
 
             {/* Voiceover */}
             <Link href="/use-cases/seslendirme/" className="block">
               <div className="w-[300px] h-[255px] min-w-[300px] min-h-[255px] bg-white border border-[#C7CAD0] rounded-[10px] flex flex-col items-center justify-center p-4 cursor-pointer hover:shadow-lg transition-shadow">
-                <div className="w-[72px] h-[72px] flex items-center justify-center mb-3">
-                  <Mic className="w-[60.75px] h-[51.75px] text-[#0E0E0F]" />
-                </div>
-                <div className="w-[72px] h-[1px] bg-[#535962] mb-4"></div>
-                <div className="text-center">
-                  <h3 className="font-['Inter'] font-semibold text-[28px] leading-[1.14] text-[#0E0E0F] mb-4">Seslendirme</h3>
-                  <p className="font-['Inter'] font-normal text-[18px] leading-[1.21] text-[#0E0E0F] max-w-[261.88px]">İstediğin metni yapay zeka ile seslendir</p>
-                </div>
+              <div className="w-[72px] h-[72px] flex items-center justify-center mb-3">
+                <Mic className="w-[60.75px] h-[51.75px] text-[#0E0E0F]" />
               </div>
+              <div className="w-[72px] h-[1px] bg-[#535962] mb-4"></div>
+              <div className="text-center">
+                <h3 className="font-['Inter'] font-semibold text-[28px] leading-[1.14] text-[#0E0E0F] mb-4">Seslendirme</h3>
+                <p className="font-['Inter'] font-normal text-[18px] leading-[1.21] text-[#0E0E0F] max-w-[261.88px]">İstediğin metni yapay zeka ile seslendir</p>
+              </div>
+            </div>
             </Link>
 
             {/* Report Creation */}
             <Link href="/use-cases/rapor-olusturma/" className="block">
               <div className="w-[300px] h-[255px] min-w-[300px] min-h-[255px] bg-white border border-[#C7CAD0] rounded-[10px] flex flex-col items-center justify-center p-4 cursor-pointer hover:shadow-lg transition-shadow">
-                <div className="w-[72px] h-[72px] flex items-center justify-center mb-3">
-                  <Clipboard className="w-[51.75px] h-[63px] text-[#0E0E0F]" />
-                </div>
-                <div className="w-[72px] h-[1px] bg-[#535962] mb-4"></div>
-                <div className="text-center">
-                  <h3 className="font-['Inter'] font-semibold text-[28px] leading-[1.14] text-[#0E0E0F] mb-4">Rapor Oluşturma</h3>
-                  <p className="font-['Inter'] font-normal text-[18px] leading-[1.21] text-[#0E0E0F] max-w-[261.88px]">Yapay zeka desteği ile rapor oluşturabilirsin</p>
-                </div>
+              <div className="w-[72px] h-[72px] flex items-center justify-center mb-3">
+                <Clipboard className="w-[51.75px] h-[63px] text-[#0E0E0F]" />
               </div>
+              <div className="w-[72px] h-[1px] bg-[#535962] mb-4"></div>
+              <div className="text-center">
+                <h3 className="font-['Inter'] font-semibold text-[28px] leading-[1.14] text-[#0E0E0F] mb-4">Rapor Oluşturma</h3>
+                <p className="font-['Inter'] font-normal text-[18px] leading-[1.21] text-[#0E0E0F] max-w-[261.88px]">Yapay zeka desteği ile rapor oluşturabilirsin</p>
+              </div>
+            </div>
             </Link>
 
             {/* Legal Support */}
@@ -444,15 +441,15 @@ export default function HomePage() {
             {/* Code Generation */}
             <Link href="/use-cases/kod-yazdir/" className="block">
               <div className="w-[300px] h-[255px] min-w-[300px] min-h-[255px] bg-white border border-[#C7CAD0] rounded-[10px] flex flex-col items-center justify-center p-4 cursor-pointer hover:shadow-lg transition-shadow">
-                <div className="w-[72px] h-[72px] flex items-center justify-center mb-3">
-                  <Code className="w-[60.75px] h-[51.75px] text-[#0E0E0F]" />
-                </div>
-                <div className="w-[72px] h-[1px] bg-[#535962] mb-4"></div>
-                <div className="text-center">
-                  <h3 className="font-['Inter'] font-semibold text-[28px] leading-[1.14] text-[#0E0E0F] mb-4">Kod Yazdır</h3>
-                  <p className="font-['Inter'] font-normal text-[18px] leading-[1.21] text-[#0E0E0F] max-w-[261.88px]">Yapay zeka ile uygulama geliştir veya yazılım desteği al</p>
-                </div>
+              <div className="w-[72px] h-[72px] flex items-center justify-center mb-3">
+                <Code className="w-[60.75px] h-[51.75px] text-[#0E0E0F]" />
               </div>
+              <div className="w-[72px] h-[1px] bg-[#535962] mb-4"></div>
+              <div className="text-center">
+                <h3 className="font-['Inter'] font-semibold text-[28px] leading-[1.14] text-[#0E0E0F] mb-4">Kod Yazdır</h3>
+                <p className="font-['Inter'] font-normal text-[18px] leading-[1.21] text-[#0E0E0F] max-w-[261.88px]">Yapay zeka ile uygulama geliştir veya yazılım desteği al</p>
+              </div>
+            </div>
             </Link>
           </div>
         </div>
@@ -538,6 +535,12 @@ export default function HomePage() {
       <div className="lg:hidden flex justify-center py-2">
         <div className="w-32 h-1 bg-black rounded-full"></div>
       </div>
+
+      {/* Mobile Search Modal */}
+      <MobileSearchModal 
+        isOpen={isSearchModalOpen} 
+        onClose={() => setIsSearchModalOpen(false)} 
+      />
     </div>
   )
 }
