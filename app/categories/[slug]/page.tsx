@@ -276,7 +276,7 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
             <div className="space-y-4">
               {filteredProducts.length === 0 ? (
                 <div className="text-center py-12">
-                  <p className="text-gray-500 text-lg">No products found for this category.</p>
+                  <p className="text-gray-500 text-lg">Yapay zeka aracı bulunamadı.</p>
                 </div>
               ) : (
                 filteredProducts.map((product) => (

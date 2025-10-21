@@ -12,12 +12,10 @@ import Image from 'next/image'
 // Dynamic use case filters will be loaded based on category
 
 const pricingFilters = [
-  '0 - $20',
-  '$20 - $40',
-  '$60 - $80',
-  '$80 - $100',
-  '$100 - $150',
-  '$150+'
+  'Ücretsiz',
+  'Ücretsiz Deneme',
+  'Demo talep edilebilenler',
+  'Kullanıma bağlı olanlar'
 ]
 
 export default function CategoryPage({ params }: { params: { slug: string } }) {
@@ -104,20 +102,14 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
       });
     }
 
-    // Filter by pricing (existing logic)
+    // Filter by pricing
     if (selectedPricing.length > 0) {
       filtered = filtered.filter(product => {
         const hasMatchingPricing = selectedPricing.some(pricing => {
-          if (pricing === '0 - $20' && product.has_free_plan) return true;
-          if (product.price) {
-            const price = product.price.toLowerCase();
-            if (pricing === '0 - $20' && (price.includes('free') || price.includes('0'))) return true;
-            if (pricing === '$20 - $40' && price.includes('20')) return true;
-            if (pricing === '$60 - $80' && price.includes('60')) return true;
-            if (pricing === '$80 - $100' && price.includes('80')) return true;
-            if (pricing === '$100 - $150' && price.includes('100')) return true;
-            if (pricing === '$150+' && price.includes('150')) return true;
-          }
+          if (pricing === 'Ücretsiz' && product.sales_action === 'Ücretsiz') return true;
+          if (pricing === 'Ücretsiz Deneme' && product.has_free_plan) return true;
+          if (pricing === 'Demo talep edilebilenler' && product.sales_action === 'Demo talep et') return true;
+          if (pricing === 'Kullanıma bağlı olanlar' && product.sales_action === 'Kullanıma bağlı') return true;
           return false;
         });
         return hasMatchingPricing;
@@ -216,16 +208,10 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
     // Apply pricing filters if any are selected
     if (selectedPricing.length > 0) {
       const hasMatchingPricing = selectedPricing.some(pricing => {
-        if (pricing === '0 - $20' && product.has_free_plan) return true;
-        if (product.price) {
-          const price = product.price.toLowerCase();
-          if (pricing === '0 - $20' && (price.includes('free') || price.includes('0'))) return true;
-          if (pricing === '$20 - $40' && price.includes('20')) return true;
-          if (pricing === '$60 - $80' && price.includes('60')) return true;
-          if (pricing === '$80 - $100' && price.includes('80')) return true;
-          if (pricing === '$100 - $150' && price.includes('100')) return true;
-          if (pricing === '$150+' && price.includes('150')) return true;
-        }
+        if (pricing === 'Ücretsiz' && product.sales_action === 'Ücretsiz') return true;
+        if (pricing === 'Ücretsiz Deneme' && product.has_free_plan) return true;
+        if (pricing === 'Demo talep edilebilenler' && product.sales_action === 'Demo talep et') return true;
+        if (pricing === 'Kullanıma bağlı olanlar' && product.sales_action === 'Kullanıma bağlı') return true;
         return false;
       });
       if (!hasMatchingPricing) return false;
@@ -757,16 +743,10 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
                         </div>
                         <span className="text-sm text-gray-500">
                           {allProducts.filter(product => {
-                            if (pricing === '0 - $20' && product.has_free_plan) return true;
-                            if (product.price) {
-                              const price = product.price.toLowerCase();
-                              if (pricing === '0 - $20' && (price.includes('free') || price.includes('0'))) return true;
-                              if (pricing === '$20 - $40' && price.includes('20')) return true;
-                              if (pricing === '$60 - $80' && price.includes('60')) return true;
-                              if (pricing === '$80 - $100' && price.includes('80')) return true;
-                              if (pricing === '$100 - $150' && price.includes('100')) return true;
-                              if (pricing === '$150+' && price.includes('150')) return true;
-                            }
+                            if (pricing === 'Ücretsiz' && product.sales_action === 'Ücretsiz') return true;
+                            if (pricing === 'Ücretsiz Deneme' && product.has_free_plan) return true;
+                            if (pricing === 'Demo talep edilebilenler' && product.sales_action === 'Demo talep et') return true;
+                            if (pricing === 'Kullanıma bağlı olanlar' && product.sales_action === 'Kullanıma bağlı') return true;
                             return false;
                           }).length}
                         </span>
@@ -856,17 +836,11 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
                         </label>
                       </div>
                       <span className="text-sm text-gray-500">
-                        {filteredProducts.filter(product => {
-                          if (pricing === '0 - $20' && product.has_free_plan) return true;
-                          if (product.price) {
-                            const price = product.price.toLowerCase();
-                            if (pricing === '0 - $20' && (price.includes('free') || price.includes('0'))) return true;
-                            if (pricing === '$20 - $40' && price.includes('20')) return true;
-                            if (pricing === '$60 - $80' && price.includes('60')) return true;
-                            if (pricing === '$80 - $100' && price.includes('80')) return true;
-                            if (pricing === '$100 - $150' && price.includes('100')) return true;
-                            if (pricing === '$150+' && price.includes('150')) return true;
-                          }
+                        {allProducts.filter(product => {
+                          if (pricing === 'Ücretsiz' && product.sales_action === 'Ücretsiz') return true;
+                          if (pricing === 'Ücretsiz Deneme' && product.has_free_plan) return true;
+                          if (pricing === 'Demo talep edilebilenler' && product.sales_action === 'Demo talep et') return true;
+                          if (pricing === 'Kullanıma bağlı olanlar' && product.sales_action === 'Kullanıma bağlı') return true;
                           return false;
                         }).length}
                       </span>
@@ -882,7 +856,7 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
             <div className="space-y-4">
               {paginatedProducts.length === 0 ? (
                 <div className="text-center py-12">
-                  <p className="text-gray-500 text-lg">No products found for this category.</p>
+                  <p className="text-gray-500 text-lg">Yapay zeka aracı bulunamadı</p>
                 </div>
               ) : (
                 paginatedProducts.map((product) => (
