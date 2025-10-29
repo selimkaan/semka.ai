@@ -91,9 +91,9 @@ export default function ImageCreationPage() {
               Kullanabileceğin Yapay Zekalar
             </h3>
             <div className="flex gap-4">
-              {/* ChatGPT */}
+                {/* ChatGPT */}
               <div className="flex flex-col items-center">
-                <a href="https://openai.com/" target="_blank" rel="noopener noreferrer" className="block">
+                <a href="https://openai.com/?utm_source=semka.ai&utm_medium=semka.ai&utm_campaign=semka.ai" target="_blank" rel="noopener noreferrer" className="block">
                     <div className="w-[88px] h-[118px] border border-[#0053E2] rounded-lg p-2 flex flex-col cursor-pointer hover:shadow-lg transition-shadow">
                     <div className="w-full h-16 bg-white rounded-[10px] flex items-center justify-center mb-2">
                       <img src="/images/chatgpt-logo.png" alt="ChatGPT" className="w-16 h-16 object-contain" />
@@ -128,7 +128,7 @@ export default function ImageCreationPage() {
               <div className="flex gap-4">
                 {/* Higgsfield */}
               <div className="flex flex-col items-center">
-                  <a href="https://higgsfield.ai/" target="_blank" rel="noopener noreferrer" className="block">
+                  <a href="https://higgsfield.ai/?utm_source=semka.ai&utm_medium=semka.ai&utm_campaign=semka.ai" target="_blank" rel="noopener noreferrer" className="block">
                     <div className="w-[88px] h-[118px] border border-[#0053E2] rounded-lg p-2 flex flex-col cursor-pointer hover:shadow-lg transition-shadow">
                     <div className="w-full h-16 bg-white rounded-[10px] flex items-center justify-center mb-2">
                         <img src="/images/Higgsfield_logo.jpg" alt="Higgsfield" className="w-16 h-16 object-contain" />
@@ -141,7 +141,7 @@ export default function ImageCreationPage() {
                 </div>
                 {/* Midjourney */}
                 <div className="flex flex-col items-center">
-                  <a href="https://www.midjourney.com/" target="_blank" rel="noopener noreferrer" className="block">
+                  <a href="https://www.midjourney.com/?utm_source=semka.ai&utm_medium=semka.ai&utm_campaign=semka.ai" target="_blank" rel="noopener noreferrer" className="block">
                     <div className="w-[88px] h-[118px] border border-[#0053E2] rounded-lg p-2 flex flex-col cursor-pointer hover:shadow-lg transition-shadow">
                       <div className="w-full h-16 bg-white rounded-[10px] flex items-center justify-center mb-2">
                         <img src="/images/Midjourney_logo.jpg" alt="Midjourney" className="w-16 h-16 object-contain" />
@@ -154,7 +154,7 @@ export default function ImageCreationPage() {
               </div>
                 {/* Krea */}
               <div className="flex flex-col items-center">
-                  <a href="https://www.krea.ai/" target="_blank" rel="noopener noreferrer" className="block">
+                  <a href="https://www.krea.ai/?utm_source=semka.ai&utm_medium=semka.ai&utm_campaign=semka.ai" target="_blank" rel="noopener noreferrer" className="block">
                     <div className="w-[88px] h-[118px] border border-[#0053E2] rounded-lg p-2 flex flex-col cursor-pointer hover:shadow-lg transition-shadow">
                     <div className="w-full h-16 bg-white rounded-[10px] flex items-center justify-center mb-2">
                         <img src="/images/Krea_logo.jpg" alt="Krea" className="w-16 h-16 object-contain" />

@@ -181,7 +181,7 @@ export default function KodYazdirPage() {
 
             {/* AI Tool Card - Lovable - aligned with "Lovable" header */}
             <div className="absolute" style={{ top: '215px', right: '80px' }}>
-              <a href="https://lovable.dev" target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity">
+              <a href="https://lovable.dev?utm_source=semka.ai&utm_medium=semka.ai&utm_campaign=semka.ai" target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity">
                 <div className="border border-[#0053E2] rounded-[10px] p-3 w-[116px]">
                   <div className="w-[92px] h-[92px] bg-white rounded-[10px] flex items-center justify-center mb-2">
                     <img src="/images/lovable-logo.png" alt="Lovable" className="w-16 h-16 object-contain" />
@@ -195,7 +195,7 @@ export default function KodYazdirPage() {
 
             {/* AI Tool Card - v0 - aligned with "v0 (Vercel)" header */}
             <div className="absolute" style={{ top: '573px', right: '80px' }}>
-              <a href="https://v0.dev" target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity">
+              <a href="https://v0.dev?utm_source=semka.ai&utm_medium=semka.ai&utm_campaign=semka.ai" target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity">
                 <div className="border border-[#0053E2] rounded-[10px] p-3 w-[116px]">
                   <div className="w-[92px] h-[92px] bg-white rounded-[10px] flex items-center justify-center mb-2">
                     <img src="/images/v0-logo.png" alt="v0" className="w-16 h-16 object-contain" />
@@ -209,7 +209,7 @@ export default function KodYazdirPage() {
 
             {/* AI Tool Card - Cursor - aligned with "Cursor" header */}
             <div className="absolute" style={{ top: '873px', right: '80px' }}>
-              <a href="https://cursor.sh" target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity">
+              <a href="https://cursor.sh?utm_source=semka.ai&utm_medium=semka.ai&utm_campaign=semka.ai" target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity">
                 <div className="border border-[#0053E2] rounded-[10px] p-3 w-[116px]">
                   <div className="w-[92px] h-[92px] bg-white rounded-[10px] flex items-center justify-center mb-2">
                     <img src="/images/cursor-logo.png" alt="Cursor" className="w-16 h-16 object-contain" />
@@ -223,7 +223,7 @@ export default function KodYazdirPage() {
 
             {/* AI Tool Card - n8n - aligned with "n8n" header */}
             <div className="absolute" style={{ top: '1492px', right: '80px' }}>
-              <a href="https://n8n.io" target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity">
+              <a href="https://n8n.io?utm_source=semka.ai&utm_medium=semka.ai&utm_campaign=semka.ai" target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity">
                 <div className="border border-[#0053E2] rounded-[10px] p-3 w-[116px]">
                   <div className="w-[92px] h-[92px] bg-white rounded-[10px] flex items-center justify-center mb-2">
                     <img src="/images/n8n-logo.png" alt="n8n" className="w-16 h-16 object-contain" />
@@ -237,7 +237,7 @@ export default function KodYazdirPage() {
 
             {/* AI Tool Card - CrewAI - aligned with "CrewAI" header */}
             <div className="absolute" style={{ top: '1909px', right: '80px' }}>
-              <a href="https://www.crewai.com" target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity">
+              <a href="https://www.crewai.com?utm_source=semka.ai&utm_medium=semka.ai&utm_campaign=semka.ai" target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity">
                 <div className="border border-[#0053E2] rounded-[10px] p-3 w-[116px]">
                   <div className="w-[92px] h-[92px] bg-white rounded-[10px] flex items-center justify-center mb-2">
                     <img src="/images/crewai-logo.png" alt="Crew AI" className="w-16 h-16 object-contain" />
@@ -251,7 +251,7 @@ export default function KodYazdirPage() {
 
             {/* AI Tool Card - Lindy - aligned with "Lindy" header */}
             <div className="absolute" style={{ top: '2178px', right: '80px' }}>
-              <a href="https://www.lindy.ai" target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity">
+              <a href="https://www.lindy.ai?utm_source=semka.ai&utm_medium=semka.ai&utm_campaign=semka.ai" target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity">
                 <div className="border border-[#0053E2] rounded-[10px] p-3 w-[116px]">
                   <div className="w-[92px] h-[92px] bg-white rounded-[10px] flex items-center justify-center mb-2">
                     <img src="/images/lindy-logo.png" alt="Lindy" className="w-16 h-16 object-contain" />

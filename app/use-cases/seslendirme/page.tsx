@@ -97,7 +97,7 @@ export default function SeslendirmePage() {
               </p>
               {/* Tool Card */}
               <div className="mb-4 px-5 flex justify-center">
-                <a href="https://elevenlabs.io/" target="_blank" rel="noopener noreferrer" className="inline-block">
+                <a href="https://elevenlabs.io/?utm_source=semka.ai&utm_medium=semka.ai&utm_campaign=semka.ai" target="_blank" rel="noopener noreferrer" className="inline-block">
                   <div className="w-[88px] h-[118px] border border-[#0053E2] rounded-lg p-2 flex flex-col hover:shadow-lg transition-shadow">
                     <div className="w-full h-16 bg-white rounded-[10px] flex items-center justify-center mb-2">
                       <img src="/images/elevenlabs.png" alt="ElevenLabs" className="w-14 h-14 object-contain" />
@@ -129,7 +129,7 @@ export default function SeslendirmePage() {
               </p>
               {/* Tool Card */}
               <div className="mb-4 px-5 flex justify-center">
-                <a href="https://play.ht/" target="_blank" rel="noopener noreferrer" className="inline-block">
+                <a href="https://play.ht/?utm_source=semka.ai&utm_medium=semka.ai&utm_campaign=semka.ai" target="_blank" rel="noopener noreferrer" className="inline-block">
                   <div className="w-[88px] h-[118px] border border-[#0053E2] rounded-lg p-2 flex flex-col hover:shadow-lg transition-shadow">
                     <div className="w-full h-16 bg-white rounded-[10px] flex items-center justify-center mb-2">
                       <img src="/images/playht.svg" alt="Play.HT" className="w-14 h-14 object-contain" />
@@ -160,7 +160,7 @@ export default function SeslendirmePage() {
               </p>
               {/* Tool Card */}
               <div className="mb-4 px-5 flex justify-center">
-                <a href="https://www.captions.ai" target="_blank" rel="noopener noreferrer" className="inline-block">
+                <a href="https://www.captions.ai?utm_source=semka.ai&utm_medium=semka.ai&utm_campaign=semka.ai" target="_blank" rel="noopener noreferrer" className="inline-block">
                   <div className="w-[88px] h-[118px] border border-[#0053E2] rounded-lg p-2 flex flex-col hover:shadow-lg transition-shadow">
                     <div className="w-full h-16 bg-white rounded-[10px] flex items-center justify-center mb-2">
                       <img src="/images/captions.png" alt="Captions" className="w-14 h-14 object-contain" />
@@ -191,7 +191,7 @@ export default function SeslendirmePage() {
               </p>
               {/* Tool Card */}
               <div className="mb-4 px-5 flex justify-center">
-                <a href="https://kits.ai" target="_blank" rel="noopener noreferrer" className="inline-block">
+                <a href="https://kits.ai?utm_source=semka.ai&utm_medium=semka.ai&utm_campaign=semka.ai" target="_blank" rel="noopener noreferrer" className="inline-block">
                   <div className="w-[88px] h-[118px] border border-[#0053E2] rounded-lg p-2 flex flex-col hover:shadow-lg transition-shadow">
                     <div className="w-full h-16 bg-white rounded-[10px] flex items-center justify-center mb-2">
                       <img src="/images/kitsai.jpg" alt="Kits AI" className="w-14 h-14 object-contain" />
@@ -233,7 +233,7 @@ export default function SeslendirmePage() {
               </p>
               {/* Tool Card */}
               <div className="mb-4 px-5 flex justify-center">
-                <a href="https://www.resemble.ai/" target="_blank" rel="noopener noreferrer" className="inline-block">
+                <a href="https://www.resemble.ai/?utm_source=semka.ai&utm_medium=semka.ai&utm_campaign=semka.ai" target="_blank" rel="noopener noreferrer" className="inline-block">
                   <div className="w-[88px] h-[118px] border border-[#0053E2] rounded-lg p-2 flex flex-col hover:shadow-lg transition-shadow">
                     <div className="w-full h-16 bg-white rounded-[10px] flex items-center justify-center mb-2">
                       <img src="/images/resemble.png" alt="Resemble AI" className="w-14 h-14 object-contain" />
@@ -265,7 +265,7 @@ export default function SeslendirmePage() {
               </p>
               {/* Tool Card */}
               <div className="mb-4 px-5 flex justify-center">
-                <a href="https://cartesia.ai" target="_blank" rel="noopener noreferrer" className="inline-block">
+                <a href="https://cartesia.ai?utm_source=semka.ai&utm_medium=semka.ai&utm_campaign=semka.ai" target="_blank" rel="noopener noreferrer" className="inline-block">
                   <div className="w-[88px] h-[118px] border border-[#0053E2] rounded-lg p-2 flex flex-col hover:shadow-lg transition-shadow">
                     <div className="w-full h-16 bg-white rounded-[10px] flex items-center justify-center mb-2">
                       <img src="/images/cartesia.jpg" alt="Cartesia" className="w-14 h-14 object-contain" />
@@ -497,7 +497,7 @@ export default function SeslendirmePage() {
 
               {/* AI Tool Card - Eleven Labs - aligned with "Eleven Labs" header */}
               <div className="absolute" style={{ top: '364px', right: '80px' }}>
-                <a href="https://elevenlabs.io" target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity">
+                <a href="https://elevenlabs.io?utm_source=semka.ai&utm_medium=semka.ai&utm_campaign=semka.ai" target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity">
                   <div className="border border-[#0053E2] rounded-[10px] p-3 w-[116px]">
                     <div className="w-[92px] h-[92px] bg-white rounded-[10px] flex items-center justify-center mb-2">
                       <img src="/images/elevenlabs.png" alt="Eleven Labs" className="w-16 h-16 object-contain" />
@@ -511,7 +511,7 @@ export default function SeslendirmePage() {
 
               {/* AI Tool Card - Play.ht - aligned with "Play.ht" header */}
               <div className="absolute" style={{ top: '829px', right: '80px' }}>
-                <a href="https://play.ht" target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity">
+                <a href="https://play.ht?utm_source=semka.ai&utm_medium=semka.ai&utm_campaign=semka.ai" target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity">
                   <div className="border border-[#0053E2] rounded-[10px] p-3 w-[116px]">
                     <div className="w-[92px] h-[92px] bg-white rounded-[10px] flex items-center justify-center mb-2">
                       <img src="/images/playht.svg" alt="Play.ht" className="w-16 h-16 object-contain" />
@@ -525,7 +525,7 @@ export default function SeslendirmePage() {
 
               {/* AI Tool Card - Captions - aligned with "Captions" header */}
               <div className="absolute" style={{ top: '1258px', right: '80px' }}>
-                <a href="https://www.captions.ai" target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity">
+                <a href="https://www.captions.ai?utm_source=semka.ai&utm_medium=semka.ai&utm_campaign=semka.ai" target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity">
                   <div className="border border-[#0053E2] rounded-[10px] p-3 w-[116px]">
                     <div className="w-[92px] h-[92px] bg-white rounded-[10px] flex items-center justify-center mb-2">
                       <img src="/images/captions.png" alt="Captions" className="w-16 h-16 object-contain" />
@@ -539,7 +539,7 @@ export default function SeslendirmePage() {
 
               {/* AI Tool Card - Kits AI - aligned with "Kits AI" header */}
               <div className="absolute" style={{ top: '1630px', right: '80px' }}>
-                <a href="https://kits.ai" target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity">
+                <a href="https://kits.ai?utm_source=semka.ai&utm_medium=semka.ai&utm_campaign=semka.ai" target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity">
                   <div className="border border-[#0053E2] rounded-[10px] p-3 w-[116px]">
                     <div className="w-[92px] h-[92px] bg-white rounded-[10px] flex items-center justify-center mb-2">
                       <img src="/images/kitsai.jpg" alt="Kits AI" className="w-16 h-16 object-contain" />
@@ -553,7 +553,7 @@ export default function SeslendirmePage() {
 
               {/* AI Tool Card - Resemble AI - aligned with "Resemble AI" header */}
               <div className="absolute" style={{ top: '2106px', right: '80px' }}>
-                <a href="https://www.resemble.ai" target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity">
+                <a href="https://www.resemble.ai?utm_source=semka.ai&utm_medium=semka.ai&utm_campaign=semka.ai" target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity">
                   <div className="border border-[#0053E2] rounded-[10px] p-3 w-[116px]">
                     <div className="w-[92px] h-[92px] bg-white rounded-[10px] flex items-center justify-center mb-2">
                       <img src="/images/resemble.png" alt="Resemble AI" className="w-16 h-16 object-contain" />
@@ -567,7 +567,7 @@ export default function SeslendirmePage() {
 
               {/* AI Tool Card - Cartesia - aligned with "Cartesia" header */}
               <div className="absolute" style={{ top: '2654px', right: '80px' }}>
-                <a href="https://cartesia.ai" target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity">
+                <a href="https://cartesia.ai?utm_source=semka.ai&utm_medium=semka.ai&utm_campaign=semka.ai" target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity">
                   <div className="border border-[#0053E2] rounded-[10px] p-3 w-[116px]">
                     <div className="w-[92px] h-[92px] bg-white rounded-[10px] flex items-center justify-center mb-2">
                       <img src="/images/cartesia.jpg" alt="Cartesia" className="w-16 h-16 object-contain" />

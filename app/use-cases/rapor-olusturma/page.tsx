@@ -73,7 +73,7 @@ export default function RaporOlusturmaPage() {
               <div className="flex gap-4">
                 {/* Notion AI */}
                 <div className="flex flex-col items-center">
-                  <a href="https://www.notion.so/product/ai" target="_blank" rel="noopener noreferrer" className="block">
+                  <a href="https://www.notion.so/product/ai?utm_source=semka.ai&utm_medium=semka.ai&utm_campaign=semka.ai" target="_blank" rel="noopener noreferrer" className="block">
                     <div className="w-[88px] h-[118px] border border-[#0053E2] rounded-lg p-2 flex flex-col hover:shadow-lg transition-shadow">
                       <div className="w-full h-16 bg-white rounded-[10px] flex items-center justify-center mb-2">
                         <img src="/images/notion-ai-logo.png" alt="Notion AI" className="w-14 h-14 object-contain" />
@@ -85,7 +85,7 @@ export default function RaporOlusturmaPage() {
                 </div>
                 {/* Wordtune */}
                 <div className="flex flex-col items-center">
-                  <a href="https://www.wordtune.com" target="_blank" rel="noopener noreferrer" className="block">
+                  <a href="https://www.wordtune.com?utm_source=semka.ai&utm_medium=semka.ai&utm_campaign=semka.ai" target="_blank" rel="noopener noreferrer" className="block">
                     <div className="w-[88px] h-[118px] border border-[#0053E2] rounded-lg p-2 flex flex-col hover:shadow-lg transition-shadow">
                       <div className="w-full h-16 bg-white rounded-[10px] flex items-center justify-center mb-2">
                         <img src="/images/wordtune-logo.png" alt="Wordtune" className="w-14 h-14 object-contain" />
@@ -115,7 +115,7 @@ export default function RaporOlusturmaPage() {
               <div className="flex gap-4">
                 {/* Julius AI */}
                 <div className="flex flex-col items-center">
-                  <a href="https://julius.ai" target="_blank" rel="noopener noreferrer" className="block">
+                  <a href="https://julius.ai?utm_source=semka.ai&utm_medium=semka.ai&utm_campaign=semka.ai" target="_blank" rel="noopener noreferrer" className="block">
                     <div className="w-[88px] h-[118px] border border-[#0053E2] rounded-lg p-2 flex flex-col hover:shadow-lg transition-shadow">
                       <div className="w-full h-16 bg-white rounded-[10px] flex items-center justify-center mb-2">
                         <img src="/images/julius-ai-logo.png" alt="Julius AI" className="w-14 h-14 object-contain" />
@@ -127,7 +127,7 @@ export default function RaporOlusturmaPage() {
                 </div>
                 {/* Shortcut AI */}
                 <div className="flex flex-col items-center">
-                  <a href="https://www.shortcut.com/" target="_blank" rel="noopener noreferrer" className="block">
+                  <a href="https://www.shortcut.com/?utm_source=semka.ai&utm_medium=semka.ai&utm_campaign=semka.ai" target="_blank" rel="noopener noreferrer" className="block">
                     <div className="w-[88px] h-[118px] border border-[#0053E2] rounded-lg p-2 flex flex-col hover:shadow-lg transition-shadow">
                       <div className="w-full h-16 bg-white rounded-[10px] flex items-center justify-center mb-2">
                         <img src="/images/shortcut-ai-logo.png" alt="Shortcut AI" className="w-14 h-14 object-contain" />
@@ -381,7 +381,7 @@ export default function RaporOlusturmaPage() {
 
             {/* AI Tool Card - Notion AI - aligned with "1. Notion AI" header */}
             <div className="absolute" style={{ top: '310px', right: '80px' }}>
-              <a href="https://www.notion.so/product/ai" target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity">
+              <a href="https://www.notion.so/product/ai?utm_source=semka.ai&utm_medium=semka.ai&utm_campaign=semka.ai" target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity">
                 <div className="border border-[#0053E2] rounded-[10px] p-3 w-[116px]">
                   <div className="w-[92px] h-[92px] bg-white rounded-[10px] flex items-center justify-center mb-2">
                     <img src="/images/notion-ai-logo.png" alt="Notion AI" className="w-16 h-16 object-contain" />
@@ -395,7 +395,7 @@ export default function RaporOlusturmaPage() {
 
             {/* AI Tool Card - Wordtune - aligned with "2. Wordtune" header */}
             <div className="absolute" style={{ top: '642px', right: '80px' }}>
-              <a href="https://www.wordtune.com" target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity">
+              <a href="https://www.wordtune.com?utm_source=semka.ai&utm_medium=semka.ai&utm_campaign=semka.ai" target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity">
                 <div className="border border-[#0053E2] rounded-[10px] p-3 w-[116px]">
                   <div className="w-[92px] h-[92px] bg-white rounded-[10px] flex items-center justify-center mb-2">
                     <img src="/images/wordtune-logo.png" alt="Wordtune" className="w-16 h-16 object-contain" />
@@ -409,7 +409,7 @@ export default function RaporOlusturmaPage() {
 
             {/* AI Tool Card - Origami AI - aligned with "3. Origami AI" header */}
             <div className="absolute" style={{ top: '976px', right: '80px' }}>
-              <a href="https://www.origamiagents.com/" target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity">
+              <a href="https://www.origamiagents.com/?utm_source=semka.ai&utm_medium=semka.ai&utm_campaign=semka.ai" target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity">
                 <div className="border border-[#0053E2] rounded-[10px] p-3 w-[117px]">
                   <div className="w-[92px] h-[92px] bg-white rounded-[10px] flex items-center justify-center mb-2">
                     <img src="/images/origami-ai-logo.png" alt="Origami AI" className="w-16 h-16 object-contain" />
@@ -423,7 +423,7 @@ export default function RaporOlusturmaPage() {
 
             {/* AI Tool Card - Fireflies.ai - aligned with "4. Fireflies.ai" header */}
             <div className="absolute" style={{ top: '1347px', right: '80px' }}>
-              <a href="https://fireflies.ai" target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity">
+              <a href="https://fireflies.ai?utm_source=semka.ai&utm_medium=semka.ai&utm_campaign=semka.ai" target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity">
                 <div className="border border-[#0053E2] rounded-[10px] p-3 w-[116px]">
                   <div className="w-[92px] h-[92px] bg-white rounded-[10px] flex items-center justify-center mb-2">
                     <img src="/images/fireflies-ai-logo.png" alt="Fireflies.ai" className="w-16 h-16 object-contain" />
@@ -437,7 +437,7 @@ export default function RaporOlusturmaPage() {
 
             {/* AI Tool Card - Julius AI - aligned with "5. Julius AI" header */}
             <div className="absolute" style={{ top: '1680px', right: '80px' }}>
-              <a href="https://julius.ai" target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity">
+              <a href="https://julius.ai?utm_source=semka.ai&utm_medium=semka.ai&utm_campaign=semka.ai" target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity">
                 <div className="border border-[#0053E2] rounded-[10px] p-3 w-[116px]">
                   <div className="w-[92px] h-[92px] bg-white rounded-[10px] flex items-center justify-center mb-2">
                     <img src="/images/julius-ai-logo.png" alt="Julius AI" className="w-16 h-16 object-contain" />
@@ -451,7 +451,7 @@ export default function RaporOlusturmaPage() {
 
             {/* AI Tool Card - Lindy - aligned with "6. Lindy" header */}
             <div className="absolute" style={{ top: '1957px', right: '80px' }}>
-              <a href="https://www.lindy.ai" target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity">
+              <a href="https://www.lindy.ai?utm_source=semka.ai&utm_medium=semka.ai&utm_campaign=semka.ai" target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity">
                 <div className="border border-[#0053E2] rounded-[10px] p-3 w-[116px]">
                   <div className="w-[92px] h-[92px] bg-white rounded-[10px] flex items-center justify-center mb-2">
                     <img src="/images/lindy-logo.png" alt="Lindy" className="w-16 h-16 object-contain" />
@@ -465,7 +465,7 @@ export default function RaporOlusturmaPage() {
 
             {/* AI Tool Card - Artisan AI - aligned with "7. Artisan AI" header */}
             <div className="absolute" style={{ top: '2206px', right: '80px' }}>
-              <a href="https://www.artisan.co" target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity">
+              <a href="https://www.artisan.co?utm_source=semka.ai&utm_medium=semka.ai&utm_campaign=semka.ai" target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity">
                 <div className="border border-[#0053E2] rounded-[10px] p-3 w-[116px]">
                   <div className="w-[92px] h-[92px] bg-white rounded-[10px] flex items-center justify-center mb-2">
                     <img src="/images/artisan-ai-logo.png" alt="Artisan AI" className="w-16 h-16 object-contain" />
@@ -479,7 +479,7 @@ export default function RaporOlusturmaPage() {
 
             {/* AI Tool Card - CrewAI - aligned with "8. CrewAI" header */}
             <div className="absolute" style={{ top: '2483px', right: '80px' }}>
-              <a href="https://www.crewai.com" target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity">
+              <a href="https://www.crewai.com?utm_source=semka.ai&utm_medium=semka.ai&utm_campaign=semka.ai" target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity">
                 <div className="border border-[#0053E2] rounded-[10px] p-3 w-[116px]">
                   <div className="w-[92px] h-[92px] bg-white rounded-[10px] flex items-center justify-center mb-2">
                     <img src="/images/crewai-logo.png" alt="CrewAI" className="w-16 h-16 object-contain" />
@@ -493,7 +493,7 @@ export default function RaporOlusturmaPage() {
 
             {/* AI Tool Card - Shortcut AI - aligned with "9. Shortcut AI" header */}
             <div className="absolute" style={{ top: '2760px', right: '80px' }}>
-              <a href="https://www.shortcut.com/" target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity">
+              <a href="https://www.shortcut.com/?utm_source=semka.ai&utm_medium=semka.ai&utm_campaign=semka.ai" target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity">
                 <div className="border border-[#0053E2] rounded-[10px] p-3 w-[116px]">
                   <div className="w-[92px] h-[92px] bg-white rounded-[10px] flex items-center justify-center mb-2">
                     <img src="/images/shortcut-ai-logo.png" alt="Shortcut AI" className="w-16 h-16 object-contain" />
