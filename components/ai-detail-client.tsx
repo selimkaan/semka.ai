@@ -204,7 +204,7 @@ export function AIDetailClient({ agent, relatedTools }: AIDetailClientProps) {
                   {/* Price */}
                   <div className="text-black text-[12px] font-semibold ml-2 flex-shrink-0 self-start">
                     {tool.has_free_plan
-                      ? 'Bedava'
+                      ? 'Ücretsiz Sürümü Var'
                       : tool.sales_action === 'price' && tool.prices?.pro
                         ? `$${tool.prices.pro}`
                         : 'Fiyat'}
@@ -541,7 +541,7 @@ export function AIDetailClient({ agent, relatedTools }: AIDetailClientProps) {
                     {/* Price */}
                     <div className="w-[50px] h-[17px] font-['Inter'] font-semibold text-sm leading-[17px] tracking-[-0.01em] text-[#000000] dark:text-[#000000] flex-shrink-0 flex items-center justify-center mr-3">
                       <span className="whitespace-nowrap">
-                        {tool.has_free_plan ? 'Bedava' : 
+                        {tool.has_free_plan ? 'Ücretsiz Sürümü Var' : 
                          tool.sales_action === 'price' && tool.prices?.pro ? `$${tool.prices.pro}` : 
                          'Fiyat'}
                       </span>

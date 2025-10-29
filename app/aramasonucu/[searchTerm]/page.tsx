@@ -321,7 +321,7 @@ export default function SearchPage({ params }: SearchPageProps) {
                     {/* Price */}
                     <div className="text-xs font-semibold text-black">
                       {product.sales_action === 'price' ? (
-                        product.has_free_plan ? 'Bedava' : (
+                        product.has_free_plan ? 'Ücretsiz Sürümü Var' : (
                           product.prices?.pro ? `$${product.prices.pro}/ay` : (product.price || 'Fiyat bilgisi yok')
                         )
                       ) : (
@@ -520,7 +520,7 @@ export default function SearchPage({ params }: SearchPageProps) {
                           <span className="text-xs text-black font-medium">
                             {product.sales_action === 'price' ? (
                               // If sales_action is "price", show actual pricing
-                              product.has_free_plan ? 'Bedava' : (
+                              product.has_free_plan ? 'Ücretsiz Sürümü Var' : (
                                 product.prices?.pro ? `$${product.prices.pro}/ay` : (product.price || 'Fiyat bilgisi yok')
                               )
                             ) : (

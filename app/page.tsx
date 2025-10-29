@@ -240,7 +240,7 @@ export default function HomePage() {
           description: ai.description_tr || ai.overview_tr || 'AI tool',
           categories: ai.categories || [],
           price: ai.sales_action === 'price' ? (
-            ai.has_free_plan ? "Bedava" : (
+            ai.has_free_plan ? "Ücretsiz Sürümü Var" : (
               ai.prices?.pro ? `$${ai.prices.pro}/ay` : (ai.price || "Fiyat bilgisi yok")
             )
           ) : (
@@ -467,7 +467,7 @@ export default function HomePage() {
           description: ai.description_tr || ai.overview_tr || 'AI tool',
           categories: ai.categories || [],
           price: ai.sales_action === 'price' ? (
-            ai.has_free_plan ? "Bedava" : (
+            ai.has_free_plan ? "Ücretsiz Sürümü Var" : (
               ai.prices?.pro ? `$${ai.prices.pro}/ay` : (ai.price || "Fiyat bilgisi yok")
             )
           ) : (

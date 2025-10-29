@@ -111,7 +111,7 @@ export function PopularAppCard({
   title = "Shortcut", 
   description = "The first superhuman Excel agent",
   categories = ["Ajanlar", "Muhasebe", "Çok Amaçlı"],
-  price = "Bedava",
+  price = "Ücretsiz Sürümü Var",
   logoUrl,
   bannerUrl
 }: {
