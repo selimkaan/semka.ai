@@ -19,7 +19,7 @@ interface SearchPageProps {
 
 const pricingFilters = [
   'Ücretsiz',
-  'Ücretsiz Deneme',
+  'Ücretsiz Deneme Sürümü Var',
   'Demo talep edilebilenler',
   'Kullanıma bağlı olanlar'
 ]
@@ -69,7 +69,7 @@ export default function SearchPage({ params }: SearchPageProps) {
     if (selectedPricing.length > 0) {
       const hasMatchingPricing = selectedPricing.some(pricing => {
         if (pricing === 'Ücretsiz' && product.sales_action === 'Ücretsiz') return true;
-        if (pricing === 'Ücretsiz Deneme' && product.has_free_plan) return true;
+        if (pricing === 'Ücretsiz Deneme Sürümü Var' && product.has_free_plan) return true;
         if (pricing === 'Demo talep edilebilenler' && product.sales_action === 'Demo talep et') return true;
         if (pricing === 'Kullanıma bağlı olanlar' && product.sales_action === 'Kullanıma bağlı') return true;
         return false;
@@ -392,7 +392,7 @@ export default function SearchPage({ params }: SearchPageProps) {
                         <span className="text-sm text-gray-500">
                           {searchResults.filter(product => {
                             if (pricing === 'Ücretsiz' && product.sales_action === 'Ücretsiz') return true;
-                            if (pricing === 'Ücretsiz Deneme' && product.has_free_plan) return true;
+                            if (pricing === 'Ücretsiz Deneme Sürümü Var' && product.has_free_plan) return true;
                             if (pricing === 'Demo talep edilebilenler' && product.sales_action === 'Demo talep et') return true;
                             if (pricing === 'Kullanıma bağlı olanlar' && product.sales_action === 'Kullanıma bağlı') return true;
                             return false;
