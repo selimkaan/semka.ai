@@ -37,8 +37,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         description,
         images: agent.banner_url ? [agent.banner_url] : [],
       },
-    }
-  } catch (error) {
+          }
+        } catch (error) {
     console.error('Error generating metadata:', error)
     return {
       title: 'Semka - Yapay Zeka Rehberi',
@@ -51,8 +51,8 @@ export default async function AIDetailPage({ params }: PageProps) {
   try {
     // Fetch the agent data on the server
     const agent = await getAIProductBySlug(params.slug)
-    
-    if (!agent) {
+
+  if (!agent) {
       notFound()
     }
 

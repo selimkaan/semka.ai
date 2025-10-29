@@ -34,8 +34,8 @@ export default function HomePage() {
 
         setPopularAIs(fetchedPopularAIs || []);
         setTrendingAIs(fetchedTrendingAIs || []);
-  } catch (error) {
-    console.error('Error fetching AI data:', error);
+      } catch (error) {
+        console.error('Error fetching AI data:', error);
         setPopularAIs([]);
         setTrendingAIs([]);
       } finally {
@@ -237,8 +237,8 @@ export default function HomePage() {
         cards={isLoading ? [] : displayPopularAIs.map((ai, index) => ({
           index: index + 1,
           title: ai.name,
-          description: ai.description_tr,
-          categories: ai.categories,
+          description: ai.description_tr || ai.overview_tr || 'AI tool',
+          categories: ai.categories || [],
           price: ai.sales_action === 'price' ? (
             ai.has_free_plan ? "Bedava" : (
               ai.prices?.pro ? `$${ai.prices.pro}/ay` : (ai.price || "Fiyat bilgisi yok")
@@ -247,7 +247,8 @@ export default function HomePage() {
             ai.sales_action || "Fiyat bilgisi yok"
           ),
           logoUrl: ai.logo_url,
-          bannerUrl: ai.banner_url
+          bannerUrl: ai.banner_url,
+          slug: ai.slug
         }))}
       />
 
@@ -463,8 +464,8 @@ export default function HomePage() {
         cards={isLoading ? [] : displayTrendingAIs.map((ai, index) => ({
           index: index + 1,
           title: ai.name,
-          description: ai.description_tr,
-          categories: ai.categories,
+          description: ai.description_tr || ai.overview_tr || 'AI tool',
+          categories: ai.categories || [],
           price: ai.sales_action === 'price' ? (
             ai.has_free_plan ? "Bedava" : (
               ai.prices?.pro ? `$${ai.prices.pro}/ay` : (ai.price || "Fiyat bilgisi yok")
@@ -473,7 +474,8 @@ export default function HomePage() {
             ai.sales_action || "Fiyat bilgisi yok"
           ),
           logoUrl: ai.logo_url,
-          bannerUrl: ai.banner_url
+          bannerUrl: ai.banner_url,
+          slug: ai.slug
         }))}
       />
 

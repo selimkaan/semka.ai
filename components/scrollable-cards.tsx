@@ -97,6 +97,7 @@ interface ScrollableCardsProps {
     price: string
     logoUrl?: string
     bannerUrl?: string
+    slug?: string
   }>
   scrollId: string
 }
@@ -164,8 +165,7 @@ export default function ScrollableCards({ title, subtitle, cards, scrollId }: Sc
                       key={card.index} 
                       className="group hover:shadow-lg transition-shadow cursor-pointer flex-shrink-0"
                       onClick={() => {
-                        // Convert title to slug format for navigation
-                        const slug = card.title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+                        const slug = card.slug || card.title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
                         router.push(`/yapay-zeka/${slug}`);
                       }}
                     >
@@ -194,8 +194,7 @@ export default function ScrollableCards({ title, subtitle, cards, scrollId }: Sc
                       key={card.index} 
                       className="group hover:shadow-lg transition-shadow cursor-pointer"
                       onClick={() => {
-                        // Convert title to slug format for navigation
-                        const slug = card.title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+                        const slug = card.slug || card.title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
                         router.push(`/yapay-zeka/${slug}`);
                       }}
                     >
