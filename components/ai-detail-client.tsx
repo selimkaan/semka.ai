@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { CheckCircle, Share2, Twitter, Linkedin } from 'lucide-react'
+import { CheckCircle, Twitter, Linkedin } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { AIProduct } from '@/lib/firebase-data'
 
@@ -12,6 +12,20 @@ interface AIDetailClientProps {
 
 export function AIDetailClient({ agent, relatedTools }: AIDetailClientProps) {
   const router = useRouter()
+
+  // Share handlers
+  const handleTwitterShare = () => {
+    const url = window.location.href
+    const text = `${agent.name} - ${agent.description_tr || agent.overview_tr || ''}`
+    const twitterUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`
+    window.open(twitterUrl, '_blank')
+  }
+
+  const handleLinkedInShare = () => {
+    const url = window.location.href
+    const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`
+    window.open(linkedInUrl, '_blank')
+  }
 
   return (
     <div className="min-h-screen bg-white dark:bg-white">
@@ -326,13 +340,18 @@ export function AIDetailClient({ agent, relatedTools }: AIDetailClientProps) {
         
         {/* Social Icons - positioned on same line as action buttons, ending at banner's right edge */}
         <div className="absolute right-[40px] top-[432px] w-[80px] h-[16px] flex items-center gap-4 justify-end">
-          <button className="w-8 h-8 flex items-center justify-center text-[#343330] hover:text-gray-600 transition-colors">
-            <Share2 className="w-5 h-5" />
-          </button>
-          <button className="w-8 h-8 flex items-center justify-center text-[#343330] hover:text-gray-600 transition-colors">
+          <button 
+            onClick={handleTwitterShare}
+            className="w-8 h-8 flex items-center justify-center text-[#343330] hover:text-gray-600 transition-colors"
+            title="Twitter'da paylaş"
+          >
             <Twitter className="w-5 h-5" />
           </button>
-          <button className="w-8 h-8 flex items-center justify-center text-[#343330] hover:text-gray-600 transition-colors">
+          <button 
+            onClick={handleLinkedInShare}
+            className="w-8 h-8 flex items-center justify-center text-[#343330] hover:text-gray-600 transition-colors"
+            title="LinkedIn'de paylaş"
+          >
             <Linkedin className="w-5 h-5" />
           </button>
         </div>
